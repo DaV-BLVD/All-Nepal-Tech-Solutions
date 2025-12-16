@@ -19,6 +19,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contactus');
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\ServicesController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -51,6 +52,8 @@ Route::middleware(['auth'])->group(function () {
     */
     Route::middleware(['super_admin'])->group(function () {
         Route::resource('/admin/dashboard/users', AdminUsersController::class);
+        Route::resource('admin/dashboard/services', ServicesController::class);
+
     });
 });
 

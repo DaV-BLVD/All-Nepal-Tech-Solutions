@@ -49,7 +49,7 @@
         </section>
 
         <!-- Services Section -->
-        <section class="py-20 bg-gray-100">
+        {{-- <section class="py-20 bg-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h6 class="text-stone-500 text-lg font-bold uppercase tracking-wider mb-2">Our services</h6>
@@ -114,7 +114,48 @@
                         class="text-blue-800 font-semibold hover:underline">Take the challenge!</a>
                 </div>
             </div>
+        </section> --}}
+        <section class="py-20 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h6 class="text-stone-500 text-lg font-bold uppercase tracking-wider mb-2">Our services</h6>
+                    <p class="max-lg:text-3xl text-5xl font-bold text-gray-900">
+                        For your very specific industry,<br> we have <span class="text-[#e32726]">highly-tailored IT
+                            solutions.</span>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {{-- Dynamic Service Cards Loop --}}
+                    @foreach ($services as $service)
+                        <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover-lift group">
+                            <div
+                                class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-custom transition-colors duration-300">
+                                {{-- Use Font Awesome icon from service data. Example: 'fas fa-laptop-code' --}}
+                                <i
+                                    class="{{ $service['icon'] }} text-2xl text-primary-custom group-hover:text-[#2f2f73] transition-colors"></i>
+                            </div>
+                            {{-- Service Title --}}
+                            <h5 class="text-xl font-bold text-gray-900 mb-3">{{ $service['title'] }}</h5>
+                            {{-- Service Description --}}
+                            <p class="text-gray-600 mb-6">{{ $service['description'] }}</p>
+                            {{-- Link to Service Page --}}
+                            <a href="{{ route('services') }}"
+                                class="inline-flex items-center text-primary-custom font-semibold hover:text-secondary-custom transition">
+                                Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    @endforeach
+                    {{-- End Loop --}}
+                </div>
+
+                <div class="text-center mt-12 text-gray-600">
+                    Challenges are just opportunities in disguise. <a href="#"
+                        class="text-blue-800 font-semibold hover:underline">Take the challenge!</a>
+                </div>
+            </div>
         </section>
+
 
         <!-- Our Experience Section -->
         <section class="py-20 bg-gray-50">
@@ -337,7 +378,7 @@
                 </div>
 
                 {{-- slide4 --}}
-                <div class="swiper-slide p-4"> 
+                <div class="swiper-slide p-4">
                     <div class="bg-white shadow-lg  rounded-xl overflow-hidden ">
                         <div class="">
                             <img class=" h-70 w-full object-center object-cover"
