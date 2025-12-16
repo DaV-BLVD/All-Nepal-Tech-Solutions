@@ -240,7 +240,7 @@
         {{-- hero section --}}
         <header class='min-h-screen bg-[#2f2f73]'>
 
-            <div class="flex justify-center items-center text-center max-w-5xl px-6 py-20 container mx-auto">
+            <div class="flex-col justify-center items-center text-center max-w-5xl px-3 py-20 container mx-auto">
                 <div class=''>
                     {{-- heading --}}
                     <h1 class="fade-in text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
@@ -254,7 +254,7 @@
                         Highly Tailored IT Design, Management & Support Services
                     </p>
                     <!-- Intro Paragraph -->
-                    <p class="fade-in text-lg text-gray-300  mx-auto text-justify tracking-tight mb-12 stagger-2">
+                    <p class="fade-in text-lg text-gray-300  mx-auto text-center tracking-wide mb-12 stagger-2">
                         All Nepal Tech Solutions (ANTS) stands at the forefront of technological innovation in Nepal.
                         We are dedicated to empowering businesses with cutting-edge IT solutions that drive growth,
                         enhance productivity, and fortify security. Our team of experts brings together local expertise
@@ -279,117 +279,118 @@
 
 
                 </div>
+                <!-- Scroll Indicator -->
+                <div class="fade-in mt-16 stagger-4 text-center">
+                    <a href="#story"
+                        class="inline-flex flex-col items-center  text-white/60 hover:text-white transition-colors">
+                        <span class="text-lg mb-2">Discover Our Story</span>
+                        <i class="fas fa-chevron-down animate-bounce"></i>
+                    </a>
+                </div>
             </div>
-            <!-- Scroll Indicator -->
-            <div class="fade-in mt-16 stagger-4 text-center">
-                <a href="#story"
-                    class="inline-flex flex-col items-center  text-white/60 hover:text-white transition-colors">
-                    <span class="text-lg mb-2">Discover Our Story</span>
-                    <i class="fas fa-chevron-down animate-bounce"></i>
-                </a>
-            </div>
+
 
         </header>
 
-        {{-- body --}}
-        <section id="story" class="py-16 md:py-24 bg-linear-to-br from-gray-50 to-white">
-            <div class="container mx-auto px-4 sm:px-6">
+        <section id="story" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="fade-in text-3xl sm:text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">
                         Our <span class="gradient-text">Journey</span>
                     </h2>
-                    <p class="fade-in text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
+                    <p class="fade-in text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                         From a vision to empower Nepal's digital landscape to becoming a trusted technology partner for
                         businesses across the nation.
                     </p>
                 </div>
 
-                <!-- Timeline -->
-                <div class="relative max-w-4xl mx-auto">
-                    <!-- Timeline Line -->
+                <div class="relative">
                     <div
                         class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 timeline-line rounded-full">
                     </div>
-
-                    <!-- Timeline Items -->
-                    <div class="space-y-12 md:space-y-16">
-                        <!-- Item 1 -->
-                        <div class="relative flex flex-col md:flex-row items-start md:items-center">
-                            <div class="slide-left flex-1 md:text-right md:pr-12 pl-12 md:pl-0">
-                                <div
-                                    class="bg-white p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-[#2f2f73] text-white rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3">2018</span>
-                                    <h3 class="text-lg sm:text-xl text-left font-bold text-gray-800 mb-2">The Beginning</h3>
-                                    <p class="text-gray-600 text-left text-sm sm:text-base">ANTS was founded with a vision
-                                        to bridge the technology gap in Nepal's growing business sector. Starting with IT
-                                        consulting, we set out to provide world-class solutions tailored to local needs.</p>
-                                </div>
-                            </div>
-                            <div
-                                class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg z-10 pulse-dot">
-                                <i class="fas fa-rocket text-white text-xs sm:text-sm"></i>
-                            </div>
-                            <div class="flex-1 md:pl-12 hidden md:block"></div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="relative flex flex-col md:flex-row items-start md:items-center">
-                            <div class="flex-1 md:pr-12 hidden md:block"></div>
-                            <div
-                                class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg z-10 pulse-dot">
-                                <i class="fas fa-expand text-white text-xs sm:text-sm"></i>
-                            </div>
-                            <div class="slide-right flex-1 md:pl-12 pl-12">
-                                <div
-                                    class="bg-white p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-[#2f2f73] text-white rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3">2020</span>
-                                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Expansion & Growth</h3>
-                                    <p class="text-gray-600 text-sm sm:text-base">We expanded our services to include cloud
-                                        solutions, cybersecurity, and managed IT support. Our team grew to 50+
-                                        professionals, serving over 100 clients across Nepal.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="relative flex flex-col md:flex-row items-start md:items-center">
-                            <div class="slide-left flex-1 md:text-right md:pr-12 pl-12 md:pl-0">
-                                <div
-                                    class="bg-white p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-[#2f2f73] text-white rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3">2022</span>
-                                    <h3 class="text-lg sm:text-xl text-left font-bold text-gray-800 mb-2">Innovation Hub
+                    <div class="space-y-12 md:space-y-20">
+                        <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center">
+                            <div class="ml-12 md:ml-0 md:text-right">
+                                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                                    <span class="inline-block mb-3 px-3 py-1 bg-[#2f2f73] text-white text-xs rounded-full">
+                                        2018
+                                    </span>
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-left md:text-right">
+                                        The Beginning
                                     </h3>
-                                    <p class="text-gray-600 text-left text-sm sm:text-base">Launched our innovation hub
-                                        focused on emerging technologies including AI, IoT, and blockchain. Partnered with
-                                        international tech giants to bring cutting-edge solutions to Nepal.</p>
+                                    <p class="text-gray-600 text-sm sm:text-base text-left md:text-right">
+                                        ANTS was founded with a vision to bridge the technology gap in Nepal’s business
+                                        sector, starting with tailored IT consulting services.
+                                    </p>
                                 </div>
                             </div>
+
                             <div
-                                class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg z-10 pulse-dot">
-                                <i class="fas fa-lightbulb text-white text-xs sm:text-sm"></i>
+                                class="absolute left-4 md:left-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg md:-translate-x-1/2">
+                                <i class="fas fa-rocket text-white text-sm"></i>
                             </div>
-                            <div class="flex-1 md:pl-12 hidden md:block"></div>
                         </div>
 
-                        <!-- Item 4 -->
-                        <div class="relative flex flex-col md:flex-row items-start md:items-center">
-                            <div class="flex-1 md:pr-12 hidden md:block"></div>
+                        <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center">
                             <div
-                                class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg z-10 pulse-dot">
-                                <i class="fas fa-star text-white text-xs sm:text-sm"></i>
+                                class="absolute left-4 md:left-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg md:-translate-x-1/2">
+                                <i class="fas fa-expand text-white text-sm"></i>
                             </div>
-                            <div class="slide-right flex-1 md:pl-12 pl-12">
-                                <div
-                                    class="bg-white p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-[#2f2f73] text-white rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3">Today</span>
-                                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Industry Leader</h3>
-                                    <p class="text-gray-600 text-sm sm:text-base">Today, ANTS is recognized as one of
-                                        Nepal's leading IT solutions providers, serving 300+ clients with a team of 100+
-                                        experts. We continue to innovate and set new benchmarks in the industry.</p>
+
+                            <div class="ml-12 md:ml-0 md:col-start-2">
+                                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                                    <span class="inline-block mb-3 px-3 py-1 bg-[#2f2f73] text-white text-xs rounded-full">
+                                        2020
+                                    </span>
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                        Expansion & Growth
+                                    </h3>
+                                    <p class="text-gray-600 text-sm sm:text-base">
+                                        Expanded into cloud, cybersecurity, and managed IT services, serving 100+ clients
+                                        nationwide.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center">
+                            <div class="ml-12 md:ml-0 md:text-right">
+                                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                                    <span class="inline-block mb-3 px-3 py-1 bg-[#2f2f73] text-white text-xs rounded-full">
+                                        2022
+                                    </span>
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-left md:text-right">
+                                        Innovation Hub
+                                    </h3>
+                                    <p class="text-gray-600 text-sm sm:text-base text-left md:text-right">
+                                        Launched AI, IoT, and blockchain initiatives with international partnerships.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="absolute left-4 md:left-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg md:-translate-x-1/2">
+                                <i class="fas fa-lightbulb text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center">
+                            <div
+                                class="absolute left-4 md:left-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg md:-translate-x-1/2">
+                                <i class="fas fa-star text-white text-sm"></i>
+                            </div>
+
+                            <div class="ml-12 md:ml-0 md:col-start-2">
+                                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                                    <span class="inline-block mb-3 px-3 py-1 bg-[#2f2f73] text-white text-xs rounded-full">
+                                        Today
+                                    </span>
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                        Industry Leader
+                                    </h3>
+                                    <p class="text-gray-600 text-sm sm:text-base">
+                                        Serving 300+ clients with 100+ experts, setting benchmarks in Nepal’s IT industry.
+                                    </p>
                                 </div>
                             </div>
                         </div>

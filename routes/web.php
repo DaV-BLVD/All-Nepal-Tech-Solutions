@@ -52,18 +52,6 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['super_admin'])->group(function () {
         Route::resource('/admin/dashboard/users', AdminUsersController::class);
     });
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Admin + Super Admin — Shared Dashboard Resources
-    |--------------------------------------------------------------------------
-    */
-    Route::middleware(['admin_role'])->group(function () {
-
-        Route::get('/admin/dashboard', [DashboardController::class, 'index'])
-            ->name('admin.dashboard');
-    });
 });
 
 

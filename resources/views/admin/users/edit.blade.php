@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.layouts.app')
 
 @section('content')
     <div class="p-6 max-w-xl mx-auto bg-white rounded-xl shadow-lg border border-gray-100">

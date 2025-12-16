@@ -1,82 +1,120 @@
-<aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <h2>ANTS</h2>
-        <button id="sidebar-toggle-desktop" class="collapse-btn" aria-label="Collapse sidebar">
-            <i class="fa-solid fa-angles-left"></i>
-        </button>
-    </div>
+<!-- sidebar.blade.php -->
+<div x-data="{ sidebarOpen: false }" class="relative">
 
-    <nav class="sidebar-nav" role="navigation">
-        <ul>
-            <li>
-                <a href="#" class="active">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
+    <!-- Mobile Toggle Button -->
+    <button @click="sidebarOpen = true"
+        class="md:hidden fixed top-4 left-4 z-40 p-2 bg-secondary text-white rounded shadow-lg">
+        <i class="fas fa-bars"></i>
+    </button>
 
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Users</span>
-                </a>
-            </li>
+    <!-- Overlay -->
+    <div x-show="sidebarOpen" @click="sidebarOpen = false" x-transition.opacity
+        class="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"></div>
 
-            <li class="has-submenu">
-                <button class="submenu-toggle" aria-expanded="false">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <span>Projects</span>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </button>
-                <ul class="submenu">
-                    <li><a href="#"><i class="fa-solid fa-list-check"></i> Active Projects</a></li>
-                    <li><a href="#"><i class="fa-solid fa-check-circle"></i> Completed</a></li>
-                    <li><a href="#"><i class="fa-solid fa-box-archive"></i> Archives</a></li>
-                </ul>
-            </li>
+    <!-- Sidebar -->
+    <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+        class="bg-primary text-white w-64 h-full flex flex-col transition-transform duration-300 fixed z-40 md:relative md:translate-x-0">
 
-            <li class="has-submenu">
-                <button class="submenu-toggle" aria-expanded="false">
-                    <i class="fa-solid fa-chart-bar"></i>
-                    <span>Reports</span>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </button>
-                <ul class="submenu">
-                    <li><a href="#"><i class="fa-solid fa-money-bill-wave"></i> Sales Report</a></li>
-                    <li><a href="#"><i class="fa-solid fa-user-chart"></i> User Analytics</a></li>
-                    <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Activity Log</a></li>
-                </ul>
-            </li>
-
-            <li class="has-submenu">
-                <button class="submenu-toggle" aria-expanded="false">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Settings</span>
-                    <i class="fa-solid fa-chevron-down arrow"></i>
-                </button>
-                <ul class="submenu">
-                    <li><a href="#"><i class="fa-solid fa-user-lock"></i> Security</a></li>
-                    <li><a href="#"><i class="fa-solid fa-palette"></i> Appearance</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-        <div class="user-footer-box">
-            <a href="{{ route('profile.edit') }}">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>Profile</span>
+        <!-- Logo -->
+        <div class="h-16 flex items-center justify-center bg-white shadow-xl border-b border-amber-300">
+            <a href="{{ route('admin.dashboard') }}"
+                class="text-xl sm:text-2xl font-black text-orange-500 tracking-tight hover:text-amber-800 transition duration-300">
+                <img src="{{asset('frontendimages/homeimages/image.png')}}" alt="Company Logo" class="w-32">
             </a>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-2 py-4 space-y-2 overflow-y-auto styled-scrollbar" x-data="{ activeDropdown: null }">
+
+            {{-- Dashboard --}}
+            <a href="{{ route('admin.dashboard') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+            {{ request()->routeIs('admin.dashboard') ? 'bg-[#ff4242] text-black font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+
+            {{-- Users (Super Admin Only) --}}
+            @if(auth()->user()->role === 'super_admin')
+                <a href="{{ route('users.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                        {{ request()->routeIs('users.*') ? 'bg-[#ff4242] text-black font-semibold rounded-lg' : '' }}">
+                    <i class="fa-solid fa-users w-6"></i>
+                    <span class="font-medium">Users</span>
+                </a>
+            @endif
+
+            {{-- Dropdown Definitions --}}
+            {{-- @php
+            $dropdowns = [
+            [
+            'title' => 'Home Page',
+            'icon' => 'fa-solid fa-house',
+            'routes' => [
+            'about_sections.*',
+            ],
+            'links' => [
+            ['route' => 'about_sections.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Home Highlight'],
+            ],
+            ],
+            ];
+            @endphp --}}
+
+            {{-- Dropdown Loop --}}
+            {{-- @foreach($dropdowns as $dropdown)
+
+            @php
+            $isActive = false;
+            foreach ($dropdown['routes'] as $pattern) {
+            if (request()->routeIs($pattern)) {
+            $isActive = true;
+            break;
+            }
+            }
+            @endphp
+
+            <div class="mb-2" x-init="{{ $isActive ? 'activeDropdown = \'' . $dropdown['title'] . '\'' : '' }}">
+
+                <button @click="activeDropdown === '{{ $dropdown['title'] }}'
+                        ? activeDropdown = null
+                        : activeDropdown = '{{ $dropdown['title'] }}'" class="flex items-center justify-between w-full px-4 py-3 hover:bg-[#ffae00] transition
+                        {{ $isActive ? 'bg-[#ffae00] text-black font-semibold rounded-lg' : '' }}">
+
+                    <span class="flex items-center space-x-2">
+                        <i class="{{ $dropdown['icon'] }} w-6"></i>
+                        <span class="font-medium">{{ $dropdown['title'] }}</span>
+                    </span>
+
+                    <i :class="activeDropdown === '{{ $dropdown['title'] }}'
+                        ? 'fa-solid fa-chevron-up'
+                        : 'fa-solid fa-chevron-down'" class="transition-transform duration-300"></i>
+                </button>
+
+                <div x-show="activeDropdown === '{{ $dropdown['title'] }}'" x-transition class="mt-1 space-y-1 pl-6">
+
+                    @foreach($dropdown['links'] as $link)
+                    <a href="{{ route($link['route']) }}" @click="sidebarOpen = false" class="flex items-center px-4 py-2 rounded-lg hover:bg-[#ffae00]
+                                                                        {{ request()->routeIs(explode('.', $link['route'])[0] . '.*')
+                            ? 'bg-[#ffae00] text-black font-semibold'
+                            : 'text-white' }}">
+                        <i class="{{ $link['icon'] }} w-6"></i>
+                        <span class="font-medium">{{ $link['text'] }}</span>
+                    </a>
+                    @endforeach
+                </div>
+            </div>
+
+            @endforeach --}}
+        </nav>
+
+        <!-- Logout -->
+        <div class="p-4 border-t border-gray-700">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Logout</span>
+                <button type="submit"
+                    class="flex w-full items-center px-4 py-2 text-gray-300 hover:text-white transition-colors">
+                    <i class="fas fa-sign-out-alt w-6"></i>
+                    <span class="font-medium ml-2">Logout</span>
                 </button>
             </form>
         </div>
-    </div>
-</aside>
-
-<div id="backdrop" class="backdrop"></div>
+    </aside>
+</div>

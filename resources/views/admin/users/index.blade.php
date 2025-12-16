@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('admin.layouts.app')
 
 @section('content')
     <div class="p-6 max-w-7xl mx-auto">
@@ -8,7 +8,7 @@
             <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">👑 Manage Admins</h1>
 
             <a href="{{ route('users.create') }}"
-                class="flex items-center space-x-2 bg-secondary text-primary px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-secondary/90 shadow focus:ring-2 focus:ring-secondary focus:ring-opacity-50">
+                class="flex items-center space-x-2 bg-primary text-white px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-secondary/90 shadow focus:ring-2 focus:ring-secondary focus:ring-opacity-50">
                 <i class="fas fa-user-plus"></i>
                 <span>Add New Admin</span>
             </a>
@@ -48,7 +48,7 @@
                             </td>
 
                             {{-- Email --}}
-                            <td class="px-4 py-3 text-gray-700">{{ $user->email }}</td>
+                            <td class="px-4 py-3 text-primary">{{ $user->email }}</td>
 
                             {{-- Role --}}
                             <td class="px-4 py-3">
@@ -63,7 +63,7 @@
                                 <div class="flex justify-center space-x-2">
                                     {{-- Edit Button --}}
                                     <a href="{{ route('users.edit', $user) }}"
-                                        class="px-3 py-1 text-sm bg-primary text-white rounded-md hover:bg-primary/90 transition-colors duration-200 shadow focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                                        class="px-3 py-1 text-sm bg-primary text-white  rounded-md hover:bg-gray/90 transition-colors duration-200 shadow focus:ring-2 focus:ring-gray focus:ring-opacity-50">
                                         <i class="fas fa-edit mr-1"></i> Edit
                                     </a>
 
