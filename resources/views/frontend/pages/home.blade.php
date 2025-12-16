@@ -158,7 +158,7 @@
 
 
         <!-- Our Experience Section -->
-        <section class="py-20 bg-gray-50">
+        {{-- <section class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row gap-16">
                     <div class="lg:w-1/2">
@@ -229,6 +229,48 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section> --}}
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col lg:flex-row gap-16">
+
+                    <!-- LEFT -->
+                    <div class="lg:w-1/2">
+                        <h6 class="text-gray-500 font-bold uppercase mb-2">
+                            {{ $section->small_title }}
+                        </h6>
+
+                        <h3 class="text-5xl font-bold mb-6">
+                            {{ $section->main_title }} <br>
+                            <span class="text-[#2f2f73]">{{ $section->highlight_title }}</span>
+                        </h3>
+
+                        <p class="text-gray-600 mb-8">
+                            {{ $section->description }}
+                        </p>
+
+                        <a href="{{ $section->button_link }}" class="bg-[#2f2f73] text-white px-8 py-3 rounded-md">
+                            {{ $section->button_text }}
+                        </a>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="lg:w-1/2 space-y-6">
+                        @foreach($features as $index => $feature)
+                            <div class="flex p-6 bg-white rounded-lg shadow-sm">
+                                <div class="text-4xl font-bold text-gray-200 mr-6">
+                                    {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
+                                </div>
+                                <div>
+                                    <h6 class="text-2xl font-bold">{{ $feature->title }}</h6>
+                                    <p class="text-gray-500 text-sm">{{ $feature->subtitle }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
         </section>

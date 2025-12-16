@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>All Nepal Tech</title>
-    <link rel="icon" type="image/png" href="#" />
+    <link rel="icon" type="image/png" href="{{ asset('frontendimages/homeimages/image.png') }}" />
 
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +19,9 @@
     {{--
     <script src="{{ asset('css/admin/admin.js') }}" defer></script> --}}
 
-    @vite(['resources/css/app.css', 'resources/js/admin/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/admin/app.css') }}">
+
+    {{-- @vite(['resources/css/app.css', 'resources/js/admin/app.js']) --}}
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
