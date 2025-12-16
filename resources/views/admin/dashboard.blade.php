@@ -283,6 +283,31 @@
             color: white !important;
         }
 
+        .sidebar-footer .logout {
+            all: unset;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            cursor: pointer;
+            color: #ff6e6e;
+            width: 85%;
+        }
+
+        .sidebar-footer .logout i {
+            width: 25px;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-footer .logout:hover {
+            background-color: #3f1a1a;
+            color: white;
+        }
+
         /* Backdrop for mobile */
         .backdrop {
             position: fixed;
@@ -452,85 +477,50 @@
 <body>
 
     <div class="dashboard-container">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h2>ProAdmin</h2>
-                <button id="sidebar-toggle-desktop" class="collapse-btn" aria-label="Collapse sidebar"><i
-                        class="fa-solid fa-angles-left"></i></button>
-            </div>
 
-            <nav class="sidebar-nav" role="navigation">
-                <ul>
-                    <li><a href="#" class="active"><i class="fa-solid fa-gauge"></i> <span>Dashboard</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-users"></i> <span>Users</span></a></li>
-
-                    <li class="has-submenu">
-                        <button class="submenu-toggle" aria-expanded="false"><i class="fa-solid fa-folder-open"></i>
-                            <span>Projects</span> <i class="fa-solid fa-chevron-down arrow"></i></button>
-                        <ul class="submenu">
-                            <li><a href="#"><i class="fa-solid fa-list-check"></i> Active Projects</a></li>
-                            <li><a href="#"><i class="fa-solid fa-check-circle"></i> Completed</a></li>
-                            <li><a href="#"><i class="fa-solid fa-box-archive"></i> Archives</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="has-submenu">
-                        <button class="submenu-toggle" aria-expanded="false"><i class="fa-solid fa-chart-bar"></i>
-                            <span>Reports</span> <i class="fa-solid fa-chevron-down arrow"></i></button>
-                        <ul class="submenu">
-                            <li><a href="#"><i class="fa-solid fa-money-bill-wave"></i> Sales Report</a></li>
-                            <li><a href="#"><i class="fa-solid fa-user-chart"></i> User Analytics</a></li>
-                            <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Activity Log</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="has-submenu">
-                        <button class="submenu-toggle" aria-expanded="false"><i class="fa-solid fa-gear"></i>
-                            <span>Settings</span> <i class="fa-solid fa-chevron-down arrow"></i></button>
-                        <ul class="submenu">
-                            <li><a href="#"><i class="fa-solid fa-user-lock"></i> Security</a></li>
-                            <li><a href="#"><i class="fa-solid fa-palette"></i> Appearance</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-footer-box">
-                    <a href="#"><i class="fa-solid fa-circle-user"></i> <span>Profile</span></a>
-                    <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a>
-                </div>
-            </div>
-        </aside>
-
-        <div id="backdrop" class="backdrop"></div>
+        {{-- SIDEBAR --}}
+        @include('admin.layouts.sidebar')
 
         <main class="main-content">
-            <header class="topbar">
-                <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu"><i
-                        class="fa-solid fa-bars"></i></button>
-                <div class="user-info">
-                    <span>Welcome, <strong>John Doe</strong></span>
-                    <img src="https://via.placeholder.com/40/00bcd4/ffffff?text=JD" alt="User Avatar" class="avatar">
-                </div>
-            </header>
 
+            {{-- TOPBAR --}}
+            @include('admin.layouts.topbar')
+
+            {{-- PAGE CONTENT --}}
             <section class="content-body">
                 <h1>Dashboard Overview</h1>
+
                 <div class="cards-grid">
-                    <div class="card"><i class="fa-solid fa-users"></i><br>Total Users <br> <strong>1,250</strong></div>
-                    <div class="card"><i class="fa-solid fa-dollar-sign"></i><br>Revenue <br> <strong>$45,200</strong>
+                    <div class="card">
+                        <i class="fa-solid fa-users"></i><br>
+                        Total Users <br>
+                        <strong>1,250</strong>
                     </div>
-                    <div class="card"><i class="fa-solid fa-list-check"></i><br>Active Tasks <br> <strong>12</strong>
+
+                    <div class="card">
+                        <i class="fa-solid fa-dollar-sign"></i><br>
+                        Revenue <br>
+                        <strong>$45,200</strong>
                     </div>
-                    <div class="card"><i class="fa-solid fa-headset"></i><br>Support Tickets <br> <strong>4</strong>
+
+                    <div class="card">
+                        <i class="fa-solid fa-list-check"></i><br>
+                        Active Tasks <br>
+                        <strong>12</strong>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-headset"></i><br>
+                        Support Tickets <br>
+                        <strong>4</strong>
                     </div>
                 </div>
 
                 <div class="analytics-box">
                     <h3>Detailed Analytics</h3>
-                    <p style="margin-top: 15px; color: #667788;">This is where charts, data tables, and complex
-                        dashboard widgets would be placed.</p>
+                    <p style="margin-top: 15px; color: #667788;">
+                        This is where charts, data tables, and complex dashboard widgets would be placed.
+                    </p>
                 </div>
             </section>
         </main>

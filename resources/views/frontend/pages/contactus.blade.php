@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('frontend.app')
 
 @section('content')
 
@@ -80,7 +80,7 @@
         </style>
 
     @endpush
-    <section>
+    <section class='pt-20'>
 
         <!-- Hero Section -->
         <section class="gradient-bg py-16 md:py-24 min-h-screen">

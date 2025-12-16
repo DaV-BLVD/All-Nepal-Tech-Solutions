@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('frontend.app')
 
 @section('content')
     @push('style')
@@ -8,7 +8,7 @@
             }
         </style>
     @endpush
-    <section>
+    <section class="pt-20">
         <!-- Hero Section -->
         <section class="relative bg-white  h-[90vh] flex items-center overflow-hidden">
             <div class="absolute inset-0 z-0">
@@ -209,7 +209,7 @@
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                                 alt="Data Management"
                                 class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
-                            <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                                 <h5 class="text-white text-xl font-bold">Data Management Systems</h5>
                             </div>
                         </div>
@@ -225,7 +225,7 @@
                             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                                 alt="Database Security"
                                 class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
-                            <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                                 <h5 class="text-white text-xl font-bold">Efficient Database Security</h5>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                                 alt="Multi-function Tech"
                                 class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
-                            <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent flex items-end p-6">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                                 <h5 class="text-white text-xl font-bold">Reliable Multi-function Technology</h5>
                             </div>
                         </div>
@@ -337,7 +337,7 @@
                 </div>
 
                 {{-- slide4 --}}
-                <div class="swiper-slide p-4">
+                <div class="swiper-slide p-4"> 
                     <div class="bg-white shadow-lg  rounded-xl overflow-hidden ">
                         <div class="">
                             <img class=" h-70 w-full object-center object-cover"

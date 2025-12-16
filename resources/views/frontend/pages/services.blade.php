@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('frontend.app')
 
 @section('content')
 
@@ -20,9 +20,9 @@
         }
         </style>
     @endpush
-    <section>
+    <section class='pt-20'>
         {{-- header section --}}
-        <header class="bg-linear-to-r from-[#2f2f73] to-[#222255] text-white py-20 lg:py-28 relative overflow-hidden">
+        <header class="bg-gradient-to-r from-[#2f2f73] to-[#222255] text-white py-20 lg:py-28 relative overflow-hidden">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-10 text-9xl">
                 <i class="fas fa-cogs"></i>
             </div>

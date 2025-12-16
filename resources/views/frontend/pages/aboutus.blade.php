@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('frontend.app')
 
 @section('content')
     @push('style')
@@ -235,7 +235,7 @@
             }
         </style>
     @endpush
-    <section>
+    <section class="pt-20 ">
 
         {{-- hero section --}}
         <header class='min-h-screen bg-[#2f2f73]'>
@@ -588,7 +588,7 @@
                     <!-- IT Design & Consulting -->
                     <div class="fade-in stagger-1 group">
                         <div
-                            class="bg-linear-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 h-full">
+                            class="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 h-full">
                             <div
                                 class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                 <i class="fas fa-drafting-compass text-white text-2xl"></i>
@@ -613,7 +613,7 @@
                     <!-- Cloud & Infrastructure -->
                     <div class="fade-in stagger-2 group">
                         <div
-                            class="bg-linear-to-br from-gray-50 to-purple-50 p-8 rounded-2xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 h-full">
+                            class="bg-gradient-to-br from-gray-50 to-purple-50 p-8 rounded-2xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 h-full">
                             <div
                                 class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                 <i class="fas fa-cloud text-white text-2xl"></i>
@@ -638,7 +638,7 @@
                     <!-- Managed IT Support -->
                     <div class="fade-in stagger-3 group">
                         <div
-                            class="bg-linear-to-br from-gray-50 to-green-50 p-8 rounded-2xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 h-full">
+                            class="bg-gradient-to-br from-gray-50 to-green-50 p-8 rounded-2xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 h-full">
                             <div
                                 class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                 <i class="fas fa-headset text-white text-2xl"></i>
@@ -663,7 +663,7 @@
                     <!-- Network Engineering -->
                     <div class="fade-in stagger-4 group">
                         <div
-                            class="bg-linear-to-br from-gray-50 to-orange-50 p-8 rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 h-full">
+                            class="bg-gradient-to-br from-gray-50 to-orange-50 p-8 rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 h-full">
                             <div
                                 class="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                 <i class="fas fa-network-wired text-white text-2xl"></i>
@@ -688,7 +688,7 @@
                     <!-- Warranty & Product Management -->
                     <div class="fade-in stagger-5 group">
                         <div
-                            class="bg-linear-to-br from-gray-50 to-cyan-50 p-8 rounded-2xl border border-gray-200 hover:border-cyan-300 hover:shadow-xl transition-all duration-300 h-full">
+                            class="bg-gradient-to-br from-gray-50 to-cyan-50 p-8 rounded-2xl border border-gray-200 hover:border-cyan-300 hover:shadow-xl transition-all duration-300 h-full">
                             <div
                                 class="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                 <i class="fas fa-certificate text-white text-2xl"></i>
@@ -712,7 +712,7 @@
                     <!-- Cybersecurity -->
                     <div class="fade-in stagger-6 group">
                         <div
-                            class="bg-linear-to-br from-gray-50 to-red-50 p-8 rounded-2xl border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 h-full">
+                            class="bg-gradient-to-br from-gray-50 to-red-50 p-8 rounded-2xl border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 h-full">
                             <div
                                 class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                 <i class="fas fa-lock text-white text-2xl"></i>
@@ -872,8 +872,8 @@
                             class="bg-gray-50 rounded-2xl overflow-hidden text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                             <div class="w-full h-50 mx-auto mb-4  flex items-center justify-center overflow-hidden">
                                 <img src="{{ asset('frontendimages/aboutusimages/ceo.jpg') }}" alt="">
-    </div>
-    <div class=" p-5">
+                            </div>
+                            <div class="p-5">
                                 <h3 class="text-xl font-bold text-[#2f2f73] mb-1">Davi Phal Magar</h3>
                                 <p class="text-[#e32726] font-medium mb-3">CEO & Founder</p>
                                 <p class="text-stone-500 text-sm mb-4">20+ years of IT industry experience leading digital

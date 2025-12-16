@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import "tailwindcss"; */    
 
 /* #2f2f73  #e32726 */
 /*  red */
-* {
+*{
     font-family: "Roboto", sans-serif;
 }
 /* Transition for mobile menu */

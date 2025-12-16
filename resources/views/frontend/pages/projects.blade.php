@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('frontend.app')
 
 @section('content')
     @push('style')
@@ -27,7 +27,7 @@
         </style>
 
     @endpush
-    <section>
+    <section class="">
         <!--  Hero Section -->
         <header class=" bg-[#24244a] overflow-hidden min-h-screen space-y-40">
 
@@ -61,8 +61,7 @@
             <div class="max-w-7xl mx-auto">
 
                 <!-- Filters -->
-                <div id='Project' class="flex flex-wrap justify-center gap-4 mb-12 fade-in-up"
-                    style="animation-delay: 0.3s;">
+                <div id='Project' class="flex flex-wrap justify-center gap-4 mb-12 fade-in-up" style="animation-delay: 0.3s;">
                     <button onclick="filterProjects('all')"
                         class="filter-btn active px-6 py-2 rounded-full bg-white text-slate-600 shadow-md transition-all duration-300 font-medium  outline-none"
                         data-filter="all">All Works</button>
@@ -81,12 +80,12 @@
                 </div>
 
                 <!-- Projects Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
 
                     <!-- Project 1: Cloud Migration -->
                     <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
                         data-category="infrastructure">
-                        <div class="h-2 w-full bg-linear-to-r from-[#2f2f73] to-[#e32726]"></div>
+                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
                         <div class="p-8">
                             <div
                                 class="icon-container w-14 h-14 bg-blue-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
@@ -102,7 +101,8 @@
                                 Successfully migrated enterprise data and applications to cloud platforms ensuring seamless
                                 workflow.
                             </p>
-                            <a href="#" class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
                                 View Case Study
                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@
                     <!-- Project 2: Cybersecurity Upgrade -->
                     <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
                         data-category="security">
-                        <div class="h-2 w-full bg-linear-to-r from-[#2f2f73] to-[#e32726]"></div>
+                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
                         <div class="p-8">
                             <div
                                 class="icon-container w-14 h-14 bg-indigo-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
@@ -126,13 +126,15 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
+                            <h3
+                                class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
                                 Cybersecurity Upgrade</h3>
                             <p class="text-slate-600 leading-relaxed mb-6">
                                 Enhanced firewall and endpoint security to protect sensitive information across multiple
                                 networks.
                             </p>
-                            <a href="#" class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
                                 View Case Study
                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +148,7 @@
                     <!-- Project 3: Enterprise Software -->
                     <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
                         data-category="development">
-                        <div class="h-2 w-full bg-linear-to-r from-[#2f2f73] to-[#e32726]"></div>
+                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
                         <div class="p-8">
                             <div
                                 class="icon-container w-14 h-14 bg-emerald-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
@@ -156,12 +158,14 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
+                            <h3
+                                class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
                                 Enterprise Software</h3>
                             <p class="text-slate-600 leading-relaxed mb-6">
                                 Developed a custom ERP solution streamlining business processes for global clients.
                             </p>
-                            <a href="#" class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
                                 View Case Study
                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +179,7 @@
                     <!-- Project 4: Mobile App Development -->
                     <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
                         data-category="development">
-                        <div class="h-2 w-full bg-linear-to-r from-[#2f2f73] to-[#e32726]"></div>
+                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
                         <div class="p-8">
                             <div
                                 class="icon-container w-14 h-14 bg-rose-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
@@ -190,7 +194,8 @@
                             <p class="text-slate-600 leading-relaxed mb-6">
                                 Created cross-platform mobile applications with intuitive UI and high performance.
                             </p>
-                            <a href="#" class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
                                 View Case Study
                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,7 +209,7 @@
                     <!-- Project 5: Data Analytics Dashboard -->
                     <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
                         data-category="data">
-                        <div class="h-2 w-full bg-linear-to-r from-[#2f2f73] to-[#e32726]"></div>
+                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
                         <div class="p-8">
                             <div
                                 class="icon-container w-14 h-14 bg-orange-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
@@ -214,13 +219,15 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
+                            <h3
+                                class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
                                 Data Analytics Dashboard</h3>
                             <p class="text-slate-600 leading-relaxed mb-6">
                                 Built interactive dashboards enabling businesses to track key metrics and insights in
                                 real-time.
                             </p>
-                            <a href="#" class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
                                 View Case Study
                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -234,7 +241,7 @@
                     <!-- Project 6: IT Infrastructure Setup -->
                     <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
                         data-category="infrastructure">
-                        <div class="h-2 w-full bg-linear-to-r from-[#2f2f73] to-[#e32726]"></div>
+                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
                         <div class="p-8">
                             <div
                                 class="icon-container w-14 h-14 bg-cyan-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
@@ -249,7 +256,8 @@
                             <p class="text-slate-600 leading-relaxed mb-6">
                                 Designed and deployed secure IT infrastructure for startups and corporate clients.
                             </p>
-                            <a href="#" class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
                                 View Case Study
                                 <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,12 +273,12 @@
 
             <!-- Modern CTA -->
             <div class="max-w-7xl mx-auto mt-24">
-                <div class="bg-linear-to-r from-[#2f2f73] to-slate-800 rounded-3xl shadow-2xl overflow-hidden relative">
+                <div class="bg-gradient-to-r from-[#2f2f73] to-slate-800 rounded-3xl shadow-2xl overflow-hidden relative">
                     <div class="absolute inset-0 bg-grid-white/[0.05] bg-size[20px_20px]"></div>
                     <div
                         class="absolute right-0 top-0 -mt-10 -mr-10 w-64 h-64 bg-blue-300 rounded-full blur-3xl opacity-20">
                     </div>
-
+                    
                     <div
                         class="relative px-6 py-16 sm:px-12 lg:px-16 text-center lg:text-left lg:flex lg:items-center lg:justify-between">
                         <div>

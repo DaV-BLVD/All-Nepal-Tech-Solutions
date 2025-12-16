@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name', 'ANTS') }}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    {{--
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/home.js'])
 
-    @vite(['resources/css/app.css', 'resources/js/app.js']);
+    {{-- --}}
+
+    @stack('style')
 
 </head>
 
@@ -24,10 +30,9 @@
     </div>
 
     <header>
-        @include('frontend.layout.navbar')
+        @include('frontend.components.headers')
     </header>
-
-    <main class="lg:pt-[50px] sm:pt-[40px]">
+    <main>
         @yield('content')
     </main>
 
@@ -38,8 +43,10 @@
     </a>
 
     <footer>
-        @include('frontend.layout.footer')
+        @include('frontend.components.footers')
     </footer>
+
+
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
