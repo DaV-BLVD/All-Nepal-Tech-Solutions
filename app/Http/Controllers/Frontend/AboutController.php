@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Milestone;
 use App\Models\CoreValue;
 use App\Models\CompanyStatement;
+use App\Models\AboutService;
 
 class AboutController extends Controller
 {
@@ -18,6 +19,8 @@ class AboutController extends Controller
 
         $statement = CompanyStatement::first();
         
-        return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement"));
+        $aboutServices = AboutService::orderBy('order')->get();
+
+        return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement", "aboutServices"));
     }
 }

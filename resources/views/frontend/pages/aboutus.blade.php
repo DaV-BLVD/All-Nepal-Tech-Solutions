@@ -625,167 +625,35 @@
 
         <!-- Detailed Services Section -->
         <section class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="fade-in text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">
-                        Our <span class="">Services</span>
-                    </h2>
-                    <p class="fade-in text-gray-600 text-lg max-w-2xl mx-auto">
-                        Comprehensive IT solutions designed to accelerate your business growth and digital transformation.
-                    </p>
-                </div>
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">Our Services</h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions...</p>
+        </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- IT Design & Consulting -->
-                    <div class="fade-in stagger-1 group">
-                        <div
-                            class="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 h-full">
-                            <div
-                                class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                                <i class="fas fa-drafting-compass text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">IT Design & Consulting</h3>
-                            <p class="text-gray-600 mb-4">Strategic technology consulting and system design that aligns
-                                with your business objectives and drives innovation.</p>
-                            <ul class="space-y-2 text-gray-500 text-sm">
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-blue-500 mr-2 text-xs"></i>Technology Roadmap
-                                    Development</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-blue-500 mr-2 text-xs"></i>System Architecture
-                                    Design</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-blue-500 mr-2 text-xs"></i>Digital Strategy
-                                    Planning</li>
-                            </ul>
-                        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            @foreach($aboutServices as $index => $s)
+            <div class="fade-in group">
+                <div class="bg-gradient-to-br from-gray-50 to-{{ $s->color_theme }}-50 p-8 rounded-2xl border border-gray-200 hover:border-{{ $s->color_theme }}-300 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="w-16 h-16 bg-{{ $s->color_theme }}-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
+                        <i class="{{ $s->icon }} text-white text-2xl"></i>
                     </div>
-
-                    <!-- Cloud & Infrastructure -->
-                    <div class="fade-in stagger-2 group">
-                        <div
-                            class="bg-gradient-to-br from-gray-50 to-purple-50 p-8 rounded-2xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 h-full">
-                            <div
-                                class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                                <i class="fas fa-cloud text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Cloud & Infrastructure</h3>
-                            <p class="text-gray-600 mb-4">Scalable cloud solutions and robust infrastructure services that
-                                ensure performance, reliability, and flexibility.</p>
-                            <ul class="space-y-2 text-gray-500 text-sm">
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-purple-500 mr-2 text-xs"></i>Cloud Migration &
-                                    Management</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-purple-500 mr-2 text-xs"></i>Hybrid Cloud
-                                    Solutions</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-purple-500 mr-2 text-xs"></i>Infrastructure
-                                    Optimization</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Managed IT Support -->
-                    <div class="fade-in stagger-3 group">
-                        <div
-                            class="bg-gradient-to-br from-gray-50 to-green-50 p-8 rounded-2xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 h-full">
-                            <div
-                                class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                                <i class="fas fa-headset text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Managed IT Support</h3>
-                            <p class="text-gray-600 mb-4">24/7 proactive IT support and maintenance services that keep your
-                                systems running smoothly and securely.</p>
-                            <ul class="space-y-2 text-gray-500 text-sm">
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-green-500 mr-2 text-xs"></i>24/7 Help Desk Support
-                                </li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-green-500 mr-2 text-xs"></i>Proactive Monitoring
-                                </li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-green-500 mr-2 text-xs"></i>System Maintenance
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Network Engineering -->
-                    <div class="fade-in stagger-4 group">
-                        <div
-                            class="bg-gradient-to-br from-gray-50 to-orange-50 p-8 rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 h-full">
-                            <div
-                                class="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                                <i class="fas fa-network-wired text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Network Engineering</h3>
-                            <p class="text-gray-600 mb-4">Enterprise-grade network design, implementation, and optimization
-                                for seamless connectivity and performance.</p>
-                            <ul class="space-y-2 text-gray-500 text-sm">
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-orange-500 mr-2 text-xs"></i>Network Design &
-                                    Setup</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-orange-500 mr-2 text-xs"></i>Wireless Solutions
-                                </li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-orange-500 mr-2 text-xs"></i>Performance
-                                    Optimization</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Warranty & Product Management -->
-                    <div class="fade-in stagger-5 group">
-                        <div
-                            class="bg-gradient-to-br from-gray-50 to-cyan-50 p-8 rounded-2xl border border-gray-200 hover:border-cyan-300 hover:shadow-xl transition-all duration-300 h-full">
-                            <div
-                                class="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                                <i class="fas fa-certificate text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Warranty & Product Management</h3>
-                            <p class="text-gray-600 mb-4">Complete product lifecycle management and warranty services for
-                                your IT assets and equipment.</p>
-                            <ul class="space-y-2 text-gray-500 text-sm">
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-cyan-500 mr-2 text-xs"></i>Asset Management</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-cyan-500 mr-2 text-xs"></i>Warranty Administration
-                                </li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-cyan-500 mr-2 text-xs"></i>Product Engineering
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Cybersecurity -->
-                    <div class="fade-in stagger-6 group">
-                        <div
-                            class="bg-gradient-to-br from-gray-50 to-red-50 p-8 rounded-2xl border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 h-full">
-                            <div
-                                class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                                <i class="fas fa-lock text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">Cybersecurity</h3>
-                            <p class="text-gray-600 mb-4">Enterprise-grade security solutions to protect your business from
-                                evolving cyber threats and vulnerabilities.</p>
-                            <ul class="space-y-2 text-gray-500 text-sm">
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-red-500 mr-2 text-xs"></i>Threat Detection &
-                                    Response</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-red-500 mr-2 text-xs"></i>Security Audits</li>
-                                <li class="flex items-center"><i
-                                        class="fas fa-chevron-right text-red-500 mr-2 text-xs"></i>Compliance Management
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $s->title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ $s->description }}</p>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        @foreach($s->features as $feature)
+                        <li class="flex items-center">
+                            <i class="fas fa-chevron-right text-{{ $s->color_theme }}-500 mr-2 text-xs"></i>
+                            {{ $feature }}
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-        </section>
+            @endforeach
+        </div>
+    </div>
+</section>
 
         <!-- Why Choose ANTS Section -->
         <section class="py-24 bg-[#2f2f73]">

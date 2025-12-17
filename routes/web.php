@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\ContactSettingController;
 use App\Http\Controllers\Admin\MilestoneController;
 use App\Http\Controllers\Admin\CoreValueController;
 use App\Http\Controllers\Admin\CompanyStatementController;
+use App\Http\Controllers\Admin\AboutServiceController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -71,6 +72,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/milestones', MilestoneController::class);
         Route::resource('/admin/dashboard/core_values', CoreValueController::class);
         Route::resource('/admin/dashboard/company_statement', CompanyStatementController::class);
+        Route::resource('/admin/dashboard/about_services', AboutServiceController::class);
     });
 });
 
