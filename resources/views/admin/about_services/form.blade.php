@@ -80,7 +80,7 @@
 
                 {{-- Key Features Section --}}
                 <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide flex items-center">
+                    <label class="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide items-center">
                         <i class="fas fa-list-ul mr-2 text-indigo-500"></i> Key Features / Offerings
                     </label>
                     

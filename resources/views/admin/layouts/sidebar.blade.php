@@ -71,13 +71,14 @@
                         'title' => 'About Us Page',
                         'icon' => 'fa-solid fa-house',
                         'routes' => [
-                            'milestones.*', 'company_statement.*', 'core_values.*', 'about_services.*',
+                            'milestones.*', 'company_statement.*', 'core_values.*', 'about_services.*', 'why_choose_us.*',
                         ],
                         'links' => [
                             ['route' => 'milestones.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Milestones'],
                             ['route' => 'company_statement.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Statements'],
                             ['route' => 'core_values.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Core Values'],
                             ['route' => 'about_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'About Services'],
+                            ['route' => 'why_choose_us.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Why Choose Us'],
                         ],
                     ],
                 ];

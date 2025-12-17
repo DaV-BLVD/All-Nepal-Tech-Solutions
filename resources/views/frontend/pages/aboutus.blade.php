@@ -625,35 +625,37 @@
 
         <!-- Detailed Services Section -->
         <section class="py-24 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">Our Services</h2>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions...</p>
-        </div>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">Our Services</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions...</p>
+                </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            @foreach($aboutServices as $index => $s)
-            <div class="fade-in group">
-                <div class="bg-gradient-to-br from-gray-50 to-{{ $s->color_theme }}-50 p-8 rounded-2xl border border-gray-200 hover:border-{{ $s->color_theme }}-300 hover:shadow-xl transition-all duration-300 h-full">
-                    <div class="w-16 h-16 bg-{{ $s->color_theme }}-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
-                        <i class="{{ $s->icon }} text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $s->title }}</h3>
-                    <p class="text-gray-600 mb-4">{{ $s->description }}</p>
-                    <ul class="space-y-2 text-gray-500 text-sm">
-                        @foreach($s->features as $feature)
-                        <li class="flex items-center">
-                            <i class="fas fa-chevron-right text-{{ $s->color_theme }}-500 mr-2 text-xs"></i>
-                            {{ $feature }}
-                        </li>
-                        @endforeach
-                    </ul>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    @foreach($aboutServices as $index => $s)
+                        <div class="fade-in group">
+                            <div
+                                class="bg-gradient-to-br from-gray-50 to-{{ $s->color_theme }}-50 p-8 rounded-2xl border border-gray-200 hover:border-{{ $s->color_theme }}-300 hover:shadow-xl transition-all duration-300 h-full">
+                                <div
+                                    class="w-16 h-16 bg-{{ $s->color_theme }}-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
+                                    <i class="{{ $s->icon }} text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $s->title }}</h3>
+                                <p class="text-gray-600 mb-4">{{ $s->description }}</p>
+                                <ul class="space-y-2 text-gray-500 text-sm">
+                                    @foreach($s->features as $feature)
+                                        <li class="flex items-center">
+                                            <i class="fas fa-chevron-right text-{{ $s->color_theme }}-500 mr-2 text-xs"></i>
+                                            {{ $feature }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- Why Choose ANTS Section -->
         <section class="py-24 bg-[#2f2f73]">
@@ -668,106 +670,18 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    <!-- USP 1 -->
-                    <div
-                        class="fade-in stagger-1 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-check text-slate-200 text-xl animate-pulse"></i>
+                    @foreach($usps as $index => $usp)
+                        <div
+                            class="fade-in stagger-{{ $index + 1 }} bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
+                            <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
+                                <i class="{{ $usp->icon }} text-slate-200 text-xl animate-pulse"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $usp->title }}</h3>
+                                <p class="text-gray-600 text-sm">{{ $usp->description }}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">Highly Tailored IT Strategies</h3>
-                            <p class="text-gray-600 text-sm">Custom solutions designed specifically for your unique
-                                business requirements and goals.</p>
-                        </div>
-                    </div>
-
-                    <!-- USP 2 -->
-                    <div
-                        class="fade-in stagger-2 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-check text-slate-200 text-xl animate-pulse"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">End-to-End Project Delivery</h3>
-                            <p class="text-gray-600 text-sm">Complete project management from conception to deployment and
-                                beyond.</p>
-                        </div>
-                    </div>
-
-                    <!-- USP 3 -->
-                    <div
-                        class="fade-in stagger-3 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-check text-slate-200 text-xl animate-pulse"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">24/7 Support Capability</h3>
-                            <p class="text-gray-600 text-sm">Round-the-clock technical support ensuring your systems run
-                                smoothly at all times.</p>
-                        </div>
-                    </div>
-
-                    <!-- USP 4 -->
-                    <div
-                        class="fade-in stagger-4 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-check text-slate-200 text-xl animate-pulse"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">Enterprise-Grade Solutions</h3>
-                            <p class="text-gray-600 text-sm">Industry-leading technologies and practices suitable for
-                                businesses of all sizes.</p>
-                        </div>
-                    </div>
-
-                    <!-- USP 5 -->
-                    <div
-                        class="fade-in stagger-5 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-check text-slate-200 text-xl animate-pulse"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">Local Expertise, Global Standards</h3>
-                            <p class="text-gray-600 text-sm">Deep understanding of Nepal's market combined with
-                                international best practices.</p>
-                        </div>
-                    </div>
-
-                    <!-- USP 6 -->
-                    <div
-                        class="fade-in stagger-6 bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-[#e32726] rounded-full flex items-center justify-center shrink-0">
-                            <i class="fas fa-check text-slate-200 text-xl animate-pulse"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">Cost-Effective Transformation</h3>
-                            <p class="text-gray-600 text-sm">Maximize your IT investment with solutions that deliver
-                                measurable ROI.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Section -->
-                <div class="mt-16 mb-5 max-w-4xl container mx-auto">
-                    <h1 class="text-4xl font-bold text-slate-200 ">Our Reviews</h1>
-                </div>
-                <div class=" grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                    <div class="fade-in text-center p-6">
-                        <div class="text-4xl md:text-5xl text-slate-200 font-bold mb-2">300+</div>
-                        <p class="text-slate-200 font-medium">Happy Clients</p>
-                    </div>
-                    <div class="fade-in text-center p-6">
-                        <div class="text-4xl md:text-5xl  text-slate-200 font-bold mb-2">100+</div>
-                        <p class="text-slate-200 font-medium">IT Experts</p>
-                    </div>
-                    <div class="fade-in text-center p-6">
-                        <div class="text-4xl md:text-5xl text-slate-200 font-bold mb-2">500+</div>
-                        <p class="text-slate-200 font-medium">Projects Done</p>
-                    </div>
-                    <div class="fade-in text-center p-6">
-                        <div class="text-4xl md:text-5xl text-slate-200 font-bold mb-2">99.9%</div>
-                        <p class="text-slate-200 font-medium">Uptime SLA</p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

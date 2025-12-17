@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\MilestoneController;
 use App\Http\Controllers\Admin\CoreValueController;
 use App\Http\Controllers\Admin\CompanyStatementController;
 use App\Http\Controllers\Admin\AboutServiceController;
+use App\Http\Controllers\Admin\UspController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -73,6 +74,10 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/core_values', CoreValueController::class);
         Route::resource('/admin/dashboard/company_statement', CompanyStatementController::class);
         Route::resource('/admin/dashboard/about_services', AboutServiceController::class);
+        Route::resource('/admin/dashboard/why_choose_us', UspController::class)->parameters([
+            'why_choose_us' => 'usp'
+        ]);
+
     });
 });
 

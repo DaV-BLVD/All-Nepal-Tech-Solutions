@@ -8,7 +8,7 @@ use App\Models\Milestone;
 use App\Models\CoreValue;
 use App\Models\CompanyStatement;
 use App\Models\AboutService;
-
+use App\Models\Usp;
 class AboutController extends Controller
 {
     public function index() {
@@ -21,6 +21,8 @@ class AboutController extends Controller
         
         $aboutServices = AboutService::orderBy('order')->get();
 
-        return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement", "aboutServices"));
+        $usps = Usp::orderBy('id', 'asc')->get();
+
+        return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement", "aboutServices", "usps"));
     }
 }
