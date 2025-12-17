@@ -52,12 +52,14 @@ $dropdowns = [
 'routes' => [
 'services.*',
 'features.*',
-'section.*'
+'section.*',
+'excellence.*',
 ],
 'links' => [
 ['route' => 'services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Services'],
 ['route' => 'section.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Section (Left Side)'],
 ['route' => 'features.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Features (Right Side)'],
+['route' => 'excellence.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Hire Us, Why Not?'],
 ],
 ],
 ];

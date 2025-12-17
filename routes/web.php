@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\CompanySectionController;
 use App\Http\Controllers\Admin\CompanyFeatureController;
+use App\Http\Controllers\Admin\ExcellenceController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -56,7 +57,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/users', AdminUsersController::class);
         Route::resource('/admin/dashboard/services', ServicesController::class);
         Route::resource('/admin/dashboard/company/section', CompanySectionController::class)->only(['index', 'edit', 'update']);
-        Route::resource('admin/dashboard/company/features', CompanyFeatureController::class);
+        Route::resource('/admin/dashboard/company/features', CompanyFeatureController::class);
+        Route::resource('/admin/dashboard/excellence', ExcellenceController::class);
     });
 });
 

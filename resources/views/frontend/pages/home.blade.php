@@ -276,7 +276,7 @@
         </section>
 
         <!-- Feature Large Images -->
-        <section class="py-20 bg-white">
+        {{-- <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h6 class="text-gray-500 lg:text-xl font-bold uppercase tracking-wider mb-2">Hire us, why not?</h6>
@@ -335,8 +335,36 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h6 class="text-gray-500 lg:text-xl font-bold uppercase tracking-wider mb-2">Hire us, why not?</h6>
+                    <h3 class="text-5xl font-bold text-gray-900">
+                        How we claim to <span class="text-[#2f2f73]">excel?</span>
+                    </h3>
+                </div>
 
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($excellences as $item)
+                        <div class="group">
+                            <div class="relative overflow-hidden rounded-xl">
+                                <img src="{{ $item->image }}" alt="{{ $item->title }}"
+                                    class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                                    <h5 class="text-white text-xl font-bold">{{ $item->title }}</h5>
+                                </div>
+                            </div>
+                            <div class="mt-6 text-center px-4">
+                                <p class="text-gray-600">{!! $item->description !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        
         <!-- Fun Facts -->
         <section class="py-16 bg-[#e32726] rounded-2xl text-white container mx-auto ">
             <div class=" mx-auto px-4 sm:px-6 lg:px-8">
