@@ -447,79 +447,53 @@
             </div>
         </section>
 
-        {{-- vission and mission --}}
-        <section class="py-24 bg-[#2f2f73] w-full min-h-screen ">
-            <div class="container mx-auto ">
+        {{-- vision and mission --}}
+        <section class="py-24 bg-[#2f2f73] w-full min-h-screen">
+            <div class="container mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="fade-in text-4xl md:text-5xl font-bold text-white mb-4">
                         Vision & <span class="gradient-text">Mission</span>
                     </h2>
-                    <p class="fade-in text-gray-300 text-lg max-w-2xl mx-auto">
-                        Guided by our core principles, we strive to shape the future of technology in Nepal.
-                    </p>
+                    <p class="text-gray-300 text-lg max-w-2xl mx-auto">Guided by our core principles...</p>
                 </div>
 
                 <div class="grid lg:grid-cols-2 w-full gap-6 p-6">
-
-
-                    {{-- mission card --}}
-                    <div class="w-full  border p-4 border-stone-400 rounded-2xl hover:bg-white/20">
+                    {{-- Dynamic Mission Card --}}
+                    <div class="w-full border p-6 border-stone-400 rounded-2xl hover:bg-white/10 transition-all">
                         <div class="w-16 h-16 bg-[#e32726] rounded-xl flex items-center justify-center mb-6 shadow-lg">
                             <i class='fas fa-bullseye text-white text-2xl'></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-stone-200 mb-4 ">Our Mission</h3>
-                        <p class='text-gray-300 leading-relaxed mb-6'> To deliver scalable, secure, and innovative IT
-                            services that address unique business
-                            challenges,
-                            enabling our clients to achieve operational excellence and sustainable growth in an
-                            ever-evolving technological landscape.
-                        </p>
+                        <h3 class="text-2xl font-bold text-stone-200 mb-4">Our Mission</h3>
+                        <p class='text-gray-300 leading-relaxed mb-6'>{{ $statement->mission_text }}</p>
                         <ul class="space-y-3">
-                            <li class="flex items-center text-stone-200">
-                                <i class="fas fa-check-circle mr-3"></i>
-                                <span>Scalable Solutions</span>
-                            </li>
-                            <li class="flex items-center text-stone-200">
-                                <i class="fas fa-check-circle mr-3"></i>
-                                <span>Enterprise-grade Security</span>
-                            </li>
-                            <li class="flex items-center text-stone-200">
-                                <i class="fas fa-check-circle mr-3"></i>
-                                <span>Continuous Innovation</span>
-                            </li>
+                            @foreach($statement->mission_points as $point)
+                                <li class="flex items-center text-stone-200">
+                                    <i class="fas fa-check-circle mr-3 text-red-500"></i>
+                                    <span>{{ $point }}</span>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
-                    {{-- Vission card --}}
-                    <div class="w-full  border p-4 border-stone-400 rounded-2xl hover:bg-white/20">
+
+                    {{-- Dynamic Vision Card --}}
+                    <div class="w-full border p-6 border-stone-400 rounded-2xl hover:bg-white/10 transition-all">
                         <div class="w-16 h-16 bg-[#e32726] rounded-xl flex items-center justify-center mb-6 shadow-lg">
                             <i class="fas fa-eye text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-stone-200 mb-4 ">Our Vission</h3>
-                        <p class='text-gray-300 leading-relaxed mb-6'> To become Nepal's most trusted and innovative IT
-                            solutions partner, empowering businesses
-                            of all sizes to thrive in the digital age through cutting-edge technology and unwavering
-                            commitment to excellence.
-                        </p>
+                        <h3 class="text-2xl font-bold text-stone-200 mb-4">Our Vision</h3>
+                        <p class='text-gray-300 leading-relaxed mb-6'>{{ $statement->vision_text }}</p>
                         <ul class="space-y-3">
-                            <li class="flex items-center text-stone-200">
-                                <i class="fas fa-check-circle mr-3"></i>
-                                <span>Industry Leadership</span>
-                            </li>
-                            <li class="flex items-center text-stone-200">
-                                <i class="fas fa-check-circle mr-3"></i>
-                                <span>Digital Transformation Pioneer</span>
-                            </li>
-                            <li class="flex items-center text-stone-200">
-                                <i class="fas fa-check-circle mr-3"></i>
-                                <span>Trusted Technology Partner</span>
-                            </li>
+                            @foreach($statement->vision_points as $point)
+                                <li class="flex items-center text-stone-200">
+                                    <i class="fas fa-check-circle mr-3 text-red-500"></i>
+                                    <span>{{ $point }}</span>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
-
                 </div>
             </div>
         </section>
-
 
         <!-- Core Values Grid -->
         {{-- <section class="py-24 bg-gray-50">
@@ -648,7 +622,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Detailed Services Section -->
         <section class="py-24 bg-white">
             <div class="container mx-auto px-6">

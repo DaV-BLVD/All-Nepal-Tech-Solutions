@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Milestone;
 use App\Models\CoreValue;
+use App\Models\CompanyStatement;
 
 class AboutController extends Controller
 {
@@ -15,6 +16,8 @@ class AboutController extends Controller
 
         $coreValues = CoreValue::where('is_active', true)->orderBy('id', 'asc')->get();
 
-        return view("frontend.pages.aboutus", compact("milestones", "coreValues"));
+        $statement = CompanyStatement::first();
+        
+        return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement"));
     }
 }
