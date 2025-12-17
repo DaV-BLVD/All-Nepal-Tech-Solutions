@@ -407,88 +407,149 @@
         </section>
 
         <!-- Projects Section -->
-        <div class="relative w-full overflow-hidden mt-20">
-            <div id="swiperTrack" class="flex will-change-transform transition-transform duration-500 ease-out">
+        <div class="relative w-full overflow-hidden mt-20 px-4 md:px-8">
 
-                <!-- Slides -->
+            {{-- Slider Track --}}
+            <div class="relative w-full overflow-hidden mt-20 px-4 md:px-8">
 
-                {{-- slide1 --}}
-                <div class="swiper-slide p-4  ">
-                    <div class="bg-white shadow-lg  rounded-xl overflow-hidden ">
-                        <div class="">
-                            <img class=" h-70 w-full object-center object-cover"
-                                src="{{ asset('frontendimages/aboutusimages/ceo.jpg') }}" alt="">
-                        </div>
-                        <div class="p-4 text-center space-y-3">
-                            <h3 class="text-lg font-medium text-[#2f2f73]">Internal Networking for Shangrila Blu</h3>
-                            <h1 class="text-xl font-bold text-[#e32726]">IT Networking</h1>
-                            <div class="text text-justify tracking-tight">Designed and implemented internal networking
-                                solutions for optimal connectivity and security.</div>
+                {{-- Slider Track --}}
+                <div id="swiperTrack" class="flex will-change-transform cursor-grab active:cursor-grabbing">
+
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                            {{-- Image Container - Height increased to h-96 --}}
+                            <div class="relative h-96 overflow-hidden">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    src="{{ asset('frontendimages/aboutusimages/ceo.jfif') }}" alt="CEO Image">
+                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
+                                                                                    transition-opacity duration-300">
+                                </div>
+                            </div>
+
+                            {{-- Content --}}
+                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">Internal
+                                        Networking</h3>
+                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">IT Networking</h1>
+                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
+                                        Designed and implemented internal networking solutions for optimal connectivity and
+                                        security within the organization.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-gray-100">
+                                    <span
+                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
+                                        Blu</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {{-- slide2 --}}
-                <div class="swiper-slide p-4">
-                    <div class="bg-white shadow-lg  rounded-xl overflow-hidden ">
-                        <div class="">
-                            <img class=" h-70 w-full object-center object-cover"
-                                src="{{ asset('frontendimages/aboutusimages/ceo.jpg') }}" alt="">
-                        </div>
-                        <div class="p-4 text-center space-y-3">
-                            <h3 class="text-lg font-medium text-[#2f2f73]">Internal Networking for Shangrila Blu</h3>
-                            <h1 class="text-xl font-bold text-[#e32726]">IT Networking</h1>
-                            <div class="text text-justify tracking-tight">Designed and implemented internal networking
-                                solutions for optimal connectivity and security.</div>
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                            {{-- Image Container - Height increased to h-96 --}}
+                            <div class="relative h-96 overflow-hidden">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    src="{{ asset('frontendimages/aboutusimages/ceo1.jfif') }}" alt="CEO Image">
+                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
+                                                                                transition-opacity duration-300">
+                                </div>
+                            </div>
+                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">System Admin
+                                    </h3>
+                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">Server Maintenance</h1>
+                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
+                                        Ensuring 99.9% uptime through rigorous server maintenance and proactive monitoring
+                                        protocols.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-gray-100">
+                                    <span
+                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
+                                        Blu</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {{-- slide3 --}}
-                <div class="swiper-slide p-4">
-                    <div class="bg-white shadow-lg  rounded-xl overflow-hidden ">
-                        <div class="">
-                            <img class=" h-70 w-full object-center object-cover"
-                                src="{{ asset('frontendimages/aboutusimages/ceo.jpg') }}" alt="">
-                        </div>
-                        <div class="p-4 text-center space-y-3">
-                            <h3 class="text-lg font-medium text-[#2f2f73]">Internal Networking for Shangrila Blu</h3>
-                            <h1 class="text-xl font-bold text-[#e32726]">IT Networking</h1>
-                            <div class="text text-justify tracking-tight">Designed and implemented internal networking
-                                solutions for optimal connectivity and security.</div>
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                            {{-- Image Container - Height increased to h-96 --}}
+                            <div class="relative h-96 overflow-hidden">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    src="{{ asset('frontendimages/aboutusimages/ceo2.jfif') }}" alt="CEO Image">
+                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
+                                                                            transition-opacity duration-300">
+                                </div>
+                            </div>
+                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">Security</h3>
+                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">Cyber Security</h1>
+                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
+                                        Implementing advanced firewalls and encryption standards to protect company data
+                                        assets.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-gray-100">
+                                    <span
+                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
+                                        Blu</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {{-- slide4 --}}
-                <div class="swiper-slide p-4">
-                    <div class="bg-white shadow-lg  rounded-xl overflow-hidden ">
-                        <div class="">
-                            <img class=" h-70 w-full object-center object-cover"
-                                src="{{ asset('frontendimages/aboutusimages/ceo.jpg') }}" alt="">
-                        </div>
-                        <div class="p-4 text-center space-y-3">
-                            <h3 class="text-lg font-medium text-[#2f2f73]">Internal Networking for Shangrila Blu</h3>
-                            <h1 class="text-xl font-bold text-[#e32726]">IT Networking</h1>
-                            <div class="text text-justify tracking-tight">Designed and implemented internal networking
-                                solutions for optimal connectivity and security.</div>
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                            {{-- Image Container - Height increased to h-96 --}}
+                            <div class="relative h-96 overflow-hidden">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    src="{{ asset('frontendimages/aboutusimages/ceo3.jfif') }}" alt="CEO Image">
+                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
+                                                                        transition-opacity duration-300">
+                                </div>
+                            </div>
+                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">
+                                        Infrastructure</h3>
+                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">Hardware Setup</h1>
+                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
+                                        Complete office hardware setup including workstations, printers, and internal
+                                        routing.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-gray-100">
+                                    <span
+                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
+                                        Blu</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
+                <button id="prevBtn"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur-sm text-[#2f2f73] rounded-full shadow-lg hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none -ml-2 md:ml-0">
+                    <i class='fa-solid fa-angle-left text-xl'></i>
+                </button>
+
+                <button id="nextBtn"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur-sm text-[#2f2f73] rounded-full shadow-lg hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none -mr-2 md:mr-0">
+                    <i class='fa-solid fa-angle-right text-xl'></i>
+                </button>
             </div>
-
-            <!-- Controls -->
-            <button id="prevBtn"
-                class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#2f2f73] text-white px-3 py-2 rounded-full">
-                <i class='fa-solid fa-angle-left'></i>
-            </button>
-
-            <button id="nextBtn"
-                class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#2f2f73] text-white px-3 py-2 rounded-full">
-                <i class='fa-solid fa-angle-right'></i>
-            </button>
         </div>
+
         @push('script')
             <script>
                 (() => {
@@ -516,6 +577,7 @@
                     /* ---------- Setup Loop ---------- */
                     const setupLoop = () => {
                         track.innerHTML = '';
+                        // Clone slides for infinite loop illusion
                         const before = slides.slice(-slidesPerView).map(s => s.cloneNode(true));
                         const after = slides.slice(0, slidesPerView).map(s => s.cloneNode(true));
 
@@ -526,10 +588,13 @@
                     /* ---------- Layout ---------- */
                     const updateLayout = () => {
                         slidesPerView = getSlidesPerView();
+                        // Ensure parent width is calculated correctly
                         slideWidth = track.parentElement.offsetWidth / slidesPerView;
 
                         Array.from(track.children).forEach(slide => {
                             slide.style.width = slideWidth + 'px';
+                            // Optional: Force equal height for flex children
+                            slide.style.flexShrink = 0;
                         });
 
                         setupLoop();
@@ -538,21 +603,23 @@
 
                     /* ---------- Movement ---------- */
                     const moveTo = (i, animate = true) => {
-                        track.style.transition = animate ? 'transform 0.5s ease-out' : 'none';
+                        track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
                         track.style.transform = `translateX(-${i * slideWidth}px)`;
                         index = i;
                     };
 
-                    const next = () => moveTo(index + slidesPerView);
-                    const prev = () => moveTo(index - slidesPerView);
+                    const next = () => moveTo(index + 1);
+                    const prev = () => moveTo(index - 1);
 
                     /* ---------- Loop Correction ---------- */
                     track.addEventListener('transitionend', () => {
+                        // Get fresh list of children (since clones exist)
+                        const currentSlides = track.children;
                         if (index >= slides.length + slidesPerView) {
                             moveTo(slidesPerView, false);
                         }
-                        if (index <= 0) {
-                            moveTo(slides.length, false);
+                        if (index <= slidesPerView - 1) {
+                            moveTo(slides.length + slidesPerView - 1, false);
                         }
                     });
 
@@ -561,6 +628,7 @@
                         startX = x;
                         dragging = true;
                         track.style.transition = 'none';
+                        track.style.cursor = 'grabbing';
                     };
 
                     const dragMove = x => {
@@ -573,6 +641,7 @@
                     const dragEnd = () => {
                         if (!dragging) return;
                         dragging = false;
+                        track.style.cursor = 'grab';
 
                         if (Math.abs(currentX) > slideWidth / 4) {
                             currentX < 0 ? next() : prev();
@@ -594,8 +663,14 @@
                     window.addEventListener('mousemove', e => dragMove(e.clientX));
                     window.addEventListener('mouseup', dragEnd);
 
-                    window.addEventListener('resize', updateLayout);
+                    // Debounce resize to prevent flickering
+                    let resizeTimer;
+                    window.addEventListener('resize', () => {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(updateLayout, 100);
+                    });
 
+                    // Initial Init
                     updateLayout();
                 })();
             </script>
