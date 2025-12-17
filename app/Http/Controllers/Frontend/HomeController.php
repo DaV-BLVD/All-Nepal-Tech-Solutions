@@ -10,6 +10,7 @@ use App\Models\CompanyFeature;
 use App\Models\Excellence;
 use App\Models\Statistic;
 use App\Models\TeamMember;
+use App\Models\ContactSetting;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,8 @@ class HomeController extends Controller
 
         $teamMembers = TeamMember::where('is_active', true)->get();
 
-        return view('frontend.pages.home', compact('services', 'section', 'features', 'excellences', 'statistics', 'teamMembers'));
+        $cta = ContactSetting::first(); // Get the active CTA
+
+        return view('frontend.pages.home', compact('services', 'section', 'features', 'excellences', 'statistics', 'teamMembers', 'cta'));
     }
 }

@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\CompanyFeatureController;
 use App\Http\Controllers\Admin\ExcellenceController;
 use App\Http\Controllers\Admin\StatisticController;
 use App\Http\Controllers\Admin\TeamMemberController;
+use App\Http\Controllers\Admin\ContactSettingController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -63,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/excellence', ExcellenceController::class);
         Route::resource('/admin/dashboard/statistics', StatisticController::class);
         Route::resource('/admin/dashboard/team_members', TeamMemberController::class);
+        Route::resource('/admin/dashboard/contact_settings', ContactSettingController::class);
     });
 });
 

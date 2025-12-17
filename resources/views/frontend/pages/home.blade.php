@@ -613,7 +613,7 @@
         @endpush
 
         <!-- Contact Section -->
-        <section class="py-24 bg-white border-t border-gray-100">
+        {{-- <section class="py-24 bg-white border-t border-gray-100">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row items-center gap-12 ">
                     <div class="lg:w-1/2">
@@ -641,7 +641,33 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
+        <section class="py-24 bg-white border-t border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 border-l-4 border-[#e32726] p-5">
+                            {!! str_replace('making a contact', '<span class="text-primary-custom">making a contact</span>', e($cta->title)) !!}
+                        </h3>
+                        <p class="text-gray-600 text-lg p-5">
+                            {{ $cta->description }}
+                        </p>
+                    </div>
 
+                    <div class="lg:w-1/2 flex flex-col items-center justify-center text-center">
+                        <div
+                            class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-primary-custom">
+                            <i class="fas fa-phone-alt text-2xl"></i>
+                        </div>
+                        <h6 class="text-gray-500 font-medium mb-2">Reach out now!</h6>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-primary-custom mb-6">{{ $cta->phone }}</h2>
+                        <a href="{{ $cta->button_link }}"
+                            class="bg-[#e32726] text-white px-8 py-3 rounded-md font-medium hover:bg-opacity-90 transition shadow-lg">
+                            {{ $cta->button_text }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 @endsection
