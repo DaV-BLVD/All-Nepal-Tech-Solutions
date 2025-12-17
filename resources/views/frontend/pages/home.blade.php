@@ -364,9 +364,9 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Fun Facts -->
-        <section class="py-16 bg-[#e32726] rounded-2xl text-white container mx-auto ">
+        {{-- <section class="py-16 bg-[#e32726] rounded-2xl text-white container mx-auto ">
             <div class=" mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                     <div>
@@ -389,6 +389,19 @@
                         <div class="text-4xl lg:text-5xl font-bold text-secondary-custom mb-1">150</div>
                         <span class="text-xs tracking-wider uppercase">Quality Certified</span>
                     </div>
+                </div>
+            </div>
+        </section> --}}
+        <section class="py-16 bg-[#e32726] rounded-2xl text-white container mx-auto">
+            <div class="mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    @foreach($statistics as $stat)
+                        <div>
+                            <h5 class="text-sm font-medium mb-2">{{ $stat->title }}</h5>
+                            <div class="text-4xl lg:text-5xl font-bold text-secondary-custom mb-1">{{ $stat->value }}</div>
+                            <span class="text-xs tracking-wider uppercase">{{ $stat->suffix }}</span>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>

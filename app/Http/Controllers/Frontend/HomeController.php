@@ -8,6 +8,8 @@ use App\Models\Service;
 use App\Models\CompanySection;
 use App\Models\CompanyFeature;
 use App\Models\Excellence;
+use App\Models\Statistic;
+
 class HomeController extends Controller
 {
     public function index()
@@ -19,6 +21,8 @@ class HomeController extends Controller
 
         $excellences = Excellence::where('is_active', true)->get();
 
-        return view('frontend.pages.home', compact('services', 'section', 'features', 'excellences'));
+        $statistics = Statistic::where('is_active', true)->get();
+
+        return view('frontend.pages.home', compact('services', 'section', 'features', 'excellences', 'statistics'));
     }
 }
