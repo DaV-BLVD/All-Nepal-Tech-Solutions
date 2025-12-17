@@ -54,10 +54,8 @@ Route::middleware(['auth'])->group(function () {
     */
     Route::middleware(['super_admin'])->group(function () {
         Route::resource('/admin/dashboard/users', AdminUsersController::class);
-        Route::resource('admin/dashboard/services', ServicesController::class);
-        Route::get('admin/company/section', [CompanySectionController::class, 'edit']);
-        Route::post('admin/company/section', [CompanySectionController::class, 'update']);
-
+        Route::resource('/admin/dashboard/services', ServicesController::class);
+        Route::resource('/admin/dashboard/company/section', CompanySectionController::class)->only(['index', 'edit', 'update']);
         Route::resource('admin/dashboard/company/features', CompanyFeatureController::class);
     });
 });

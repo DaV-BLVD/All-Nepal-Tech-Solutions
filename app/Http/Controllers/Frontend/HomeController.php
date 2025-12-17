@@ -13,6 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $services = Service::where('is_active', true)->orderBy('id', 'asc')->get();
+        
         $section = CompanySection::first();
         $features = CompanyFeature::where('is_active', true)->get();
 

@@ -26,13 +26,13 @@ class CompanyFeatureController extends Controller
     public function store(Request $request)
     {
         CompanyFeature::create($request->all());
-        return redirect()->route('company.features.index');
+        return redirect()->route('features.index');
     }
 
     public function update(Request $request, CompanyFeature $feature)
     {
         $feature->update($request->all());
-        return redirect()->route('company.features.index');
+        return redirect()->route('features.index');
     }
 
     public function destroy(CompanyFeature $feature)
