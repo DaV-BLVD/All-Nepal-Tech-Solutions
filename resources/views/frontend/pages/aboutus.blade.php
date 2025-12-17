@@ -235,7 +235,7 @@
             }
         </style>
     @endpush
-    <section class="pt-20 ">
+    <section class="pt-20">
 
         {{-- hero section --}}
         <header class='min-h-screen bg-[#2f2f73]'>
@@ -292,7 +292,7 @@
 
         </header>
 
-        <section id="story" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        {{-- <section id="story" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="fade-in text-3xl sm:text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">
@@ -397,6 +397,54 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+        <section id="story" class="py-2 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">
+                        Our <span class="gradient-text">Journey</span>
+                    </h2>
+                    <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+                        Our history of innovation and growth.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div
+                        class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 timeline-line rounded-full bg-indigo-100">
+                    </div>
+
+                    <div class="space-y-12 md:space-y-20">
+                        @foreach($milestones as $index => $item)
+                            <div class="relative md:grid md:grid-cols-2 md:gap-12 items-center">
+
+                                <div class="ml-12 md:ml-0 {{ $index % 2 == 0 ? 'md:text-right' : 'md:col-start-2' }}">
+                                    <div
+                                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition border border-gray-50">
+                                        <span class="inline-block mb-3 px-3 py-1 bg-[#2f2f73] text-white text-xs rounded-full">
+                                            {{ $item->year }}
+                                        </span>
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-2 {{ $index % 2 == 0 ? 'text-left md:text-right' : '' }}">
+                                            {{ $item->title }}
+                                        </h3>
+                                        <p
+                                            class="text-gray-600 text-sm sm:text-base {{ $index % 2 == 0 ? 'text-left md:text-right' : '' }}">
+                                            {{ $item->description }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="absolute left-4 md:left-1/2 w-8 h-8 bg-[#2f2f73] rounded-full flex items-center justify-center shadow-lg transform md:-translate-x-1/2">
+                                    <i class="{{ $item->icon }} text-white text-xs"></i>
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </section>
 
         {{-- vission and mission --}}
@@ -474,7 +522,7 @@
 
 
         <!-- Core Values Grid -->
-        <section class="py-24 bg-gray-50">
+        {{-- <section class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="fade-in text-4xl md:text-5xl font-bold text-[#e32726] mb-4">
@@ -571,8 +619,36 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#e32726] mb-4">
+                        Our Core <span class="text-[#2f2f73]">Values</span>
+                    </h2>
+                    <p class="text-stone-500 text-lg max-w-2xl mx-auto">
+                        The principles that guide everything we do and define who we are as a company.
+                    </p>
+                </div>
 
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    @foreach($coreValues as $index => $item)
+                        <div class="fade-in group" style="animation-delay: {{ ($index + 1) * 100 }}ms">
+                            <div
+                                class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full border border-gray-100">
+                                <div
+                                    class="w-14 h-14 bg-[#2f2f73] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                    <i class="{{ $item->icon }} text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-[#e32726] mb-3">{{ $item->title }}</h3>
+                                <p class="text-gray-600">{{ $item->description }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        
         <!-- Detailed Services Section -->
         <section class="py-24 bg-white">
             <div class="container mx-auto px-6">
