@@ -15,8 +15,8 @@ class DashboardController extends Controller
 
         return view('admin.dashboard', [
             'serviceCount' => Service::count(),
-            'featureCount' => CompanyFeature::count(),
             'sectionCount' => CompanySection::count(),
+            'featureCount' => CompanyFeature::count(),
         ]);
     }
 }

@@ -56,8 +56,8 @@ $dropdowns = [
 ],
 'links' => [
 ['route' => 'services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Services'],
-['route' => 'features.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Features (Left Side)'],
-['route' => 'section.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Section (Right Side)'],
+['route' => 'section.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Section (Left Side)'],
+['route' => 'features.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Features (Right Side)'],
 ],
 ],
 ];

@@ -23,8 +23,8 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
             <x-admin.card title="Services" :count="$serviceCount" icon="fa-solid fa-gear" />
-            <x-admin.card title="Features" :count="$featureCount" icon="fa-solid fa-cogs" />
             <x-admin.card title="Sections" :count="$sectionCount" icon="fa-solid fa-th-large" />
+            <x-admin.card title="Features" :count="$featureCount" icon="fa-solid fa-cogs" />
 
         </div>
 
