@@ -410,144 +410,80 @@
         <div class="relative w-full overflow-hidden mt-20 px-4 md:px-8">
 
             {{-- Slider Track --}}
-            <div class="relative w-full overflow-hidden mt-20 px-4 md:px-8">
+            <div id="swiperTrack" class="flex will-change-transform cursor-grab active:cursor-grabbing">
 
-                {{-- Slider Track --}}
-                <div id="swiperTrack" class="flex will-change-transform cursor-grab active:cursor-grabbing">
-
-                    <div class="swiper-slide p-4">
+                @foreach($teamMembers as $member)
+                    <div class="swiper-slide p-6">
                         <div
-                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                            {{-- Image Container - Height increased to h-96 --}}
-                            <div class="relative h-96 overflow-hidden">
-                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    src="{{ asset('frontendimages/aboutusimages/ceo.jfif') }}" alt="CEO Image">
-                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
-                                                                                    transition-opacity duration-300">
+                            class="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
+
+                            {{-- Image Container with Overlay --}}
+                            <div class="relative h-80 overflow-hidden">
+                                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    src="{{ asset($member->image) }}" alt="{{ $member->name }}">
+
+                                {{-- Decorative Accent --}}
+                                <div class="absolute top-4 right-4">
+                                    <span
+                                        class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter text-[#2f2f73] shadow-sm">
+                                        {{ $member->role }}
+                                    </span>
+                                </div>
+
+                                {{-- Bottom Gradient Overlay --}}
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#2f2f73]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                 </div>
                             </div>
 
-                            {{-- Content --}}
-                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">Internal
-                                        Networking</h3>
-                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">IT Networking</h1>
-                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
-                                        Designed and implemented internal networking solutions for optimal connectivity and
-                                        security within the organization.
+                            {{-- Content Area --}}
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="mb-4">
+                                    <h2
+                                        class="text-2xl font-bold text-gray-900 leading-tight group-hover:text-[#2f2f73] transition-colors">
+                                        {{ $member->name }}
+                                    </h2>
+                                    <p class="text-sm font-semibold text-[#e32726] mt-1 uppercase tracking-wide">
+                                        {{ $member->specialization }}
                                     </p>
                                 </div>
-                                <div class="pt-4 border-t border-gray-100">
-                                    <span
-                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
-                                        Blu</span>
+
+                                {{-- Optional Description --}}
+                                @if($member->description)
+                                    <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                                        {{ $member->description }}
+                                    </p>
+                                @endif
+
+                                {{-- Footer --}}
+                                <div class="mt-auto pt-5 border-t border-gray-50 flex items-center justify-between">
+                                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                                        {{ $member->company }}
+                                    </span>
+
+                                    {{-- Subtle Arrow Icon --}}
+                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-[#e32726] transition-all transform group-hover:translate-x-1"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="swiper-slide p-4">
-                        <div
-                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                            {{-- Image Container - Height increased to h-96 --}}
-                            <div class="relative h-96 overflow-hidden">
-                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    src="{{ asset('frontendimages/aboutusimages/ceo1.jfif') }}" alt="CEO Image">
-                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
-                                                                                transition-opacity duration-300">
-                                </div>
-                            </div>
-                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">System Admin
-                                    </h3>
-                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">Server Maintenance</h1>
-                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
-                                        Ensuring 99.9% uptime through rigorous server maintenance and proactive monitoring
-                                        protocols.
-                                    </p>
-                                </div>
-                                <div class="pt-4 border-t border-gray-100">
-                                    <span
-                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
-                                        Blu</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide p-4">
-                        <div
-                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                            {{-- Image Container - Height increased to h-96 --}}
-                            <div class="relative h-96 overflow-hidden">
-                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    src="{{ asset('frontendimages/aboutusimages/ceo2.jfif') }}" alt="CEO Image">
-                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
-                                                                            transition-opacity duration-300">
-                                </div>
-                            </div>
-                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">Security</h3>
-                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">Cyber Security</h1>
-                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
-                                        Implementing advanced firewalls and encryption standards to protect company data
-                                        assets.
-                                    </p>
-                                </div>
-                                <div class="pt-4 border-t border-gray-100">
-                                    <span
-                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
-                                        Blu</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide p-4">
-                        <div
-                            class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 h-full flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                            {{-- Image Container - Height increased to h-96 --}}
-                            <div class="relative h-96 overflow-hidden">
-                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    src="{{ asset('frontendimages/aboutusimages/ceo3.jfif') }}" alt="CEO Image">
-                                <div class=" absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100
-                                                                        transition-opacity duration-300">
-                                </div>
-                            </div>
-                            <div class="p-6 text-center flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#2f2f73] mb-1">
-                                        Infrastructure</h3>
-                                    <h1 class="text-2xl font-extrabold text-[#e32726] mb-3">Hardware Setup</h1>
-                                    <p class="text-gray-600 text-justify text-sm leading-relaxed">
-                                        Complete office hardware setup including workstations, printers, and internal
-                                        routing.
-                                    </p>
-                                </div>
-                                <div class="pt-4 border-t border-gray-100">
-                                    <span
-                                        class="text-xs font-semibold text-gray-400 group-hover:text-[#2f2f73] transition-colors">Shangrila
-                                        Blu</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <button id="prevBtn"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur-sm text-[#2f2f73] rounded-full shadow-lg hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none -ml-2 md:ml-0">
-                    <i class='fa-solid fa-angle-left text-xl'></i>
-                </button>
-
-                <button id="nextBtn"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur-sm text-[#2f2f73] rounded-full shadow-lg hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none -mr-2 md:mr-0">
-                    <i class='fa-solid fa-angle-right text-xl'></i>
-                </button>
+                @endforeach
             </div>
+
+            {{-- Navigation Controls --}}
+            <button id="prevBtn"
+                class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/90 backdrop-blur-md text-[#2f2f73] rounded-full shadow-xl hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none border border-gray-100">
+                <i class='fa-solid fa-angle-left text-xl'></i>
+            </button>
+
+            <button id="nextBtn"
+                class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/90 backdrop-blur-md text-[#2f2f73] rounded-full shadow-xl hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none border border-gray-100">
+                <i class='fa-solid fa-angle-right text-xl'></i>
+            </button>
         </div>
 
         @push('script')
