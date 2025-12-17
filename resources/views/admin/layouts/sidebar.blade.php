@@ -55,6 +55,7 @@ $dropdowns = [
 'section.*',
 'excellence.*',
 'statistics.*',
+'team_members.*',
 ],
 'links' => [
 ['route' => 'services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Services'],
@@ -62,6 +63,7 @@ $dropdowns = [
 ['route' => 'features.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Features (Right Side)'],
 ['route' => 'excellence.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Hire Us, Why Not?'],
 ['route' => 'statistics.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Statistics'],
+['route' => 'team_members.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Team Members'],
 ],
 ],
 ];
