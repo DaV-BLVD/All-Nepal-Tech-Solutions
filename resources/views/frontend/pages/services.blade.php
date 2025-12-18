@@ -7,18 +7,18 @@
 
 
             @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-        }
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+                }
 
-        .animate-fade-in {
-        animation: fadeIn 0.6s ease-out forwards;
-        }
+                .animate-fade-in {
+                animation: fadeIn 0.6s ease-out forwards;
+                }
 
-        .service-card:hover {
-        transform: translateY(-5px);
-        }
-        </style>
+                .service-card:hover {
+                transform: translateY(-5px);
+                }
+                </style>
     @endpush
     <section class='pt-20'>
         {{-- header section --}}
@@ -67,122 +67,25 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Service 1: Security Systems -->
-                    <div
-                        class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
+                    @foreach($services as $service)
                         <div
-                            class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
-                            <i class="fas fa-shield-alt text-2xl text-[#2f2f73] group-hover:text-white"></i>
+                            class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
+                            <div
+                                class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
+                                <i class="{{ $service->icon_class }} text-2xl text-[#2f2f73] group-hover:text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
+                                {{ $service->title }}
+                            </h4>
+                            <p class="text-stone-600 mb-4 text-sm leading-relaxed">
+                                {{ $service->description }}
+                            </p>
+                            <a href="{{ $service->link }}"
+                                class="text-[#e32726] font-semibold text-sm hover:text-[#e32726] flex items-center gap-2">
+                                Learn More <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
                         </div>
-                        <h4 class="text-xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                            Advanced Security</h4>
-                        <p class="text-stone-600 mb-4 text-sm leading-relaxed">
-                            Protect your assets with our state-of-the-art security solutions including CCTV surveillance,
-                            biometric access control, and cybersecurity protocols tailored for businesses.
-                        </p>
-                        <a href="#"
-                            class="text-[#e32726] font-semibold text-sm hover:text-[#e32726] flex items-center gap-2">
-                            Learn More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-
-                    <!-- Service 2: POS Systems -->
-                    <div
-                        class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
-                        <div
-                            class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
-                            <i class="fas fa-cash-register text-2xl text-[#2f2f73] group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-[#2f2f73] group-hover:text-[#e32726] transition-colors">POS
-                            Solutions</h4>
-                        <p class="text-stone-600 mb-4 text-sm leading-relaxed">
-                            Streamline your sales with our robust Point of Sale systems. Features include inventory
-                            management, real-time reporting, and multi-store support for retail and hospitality.
-                        </p>
-                        <a href="#"
-                            class="text-[#e32726] font-semibold text-sm hover:text-[#e32726] flex items-center gap-2">
-                            Learn More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-
-                    <!-- Service 3: Cloud Facilities -->
-                    <div
-                        class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
-                        <div
-                            class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
-                            <i class="fas fa-cloud text-2xl text-[#2f2f73] group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-[#2f2f73] group-hover:text-[#e32726] transition-colors">Cloud
-                            Facilities</h4>
-                        <p class="text-stone-600 mb-4 text-sm leading-relaxed">
-                            Scalable cloud infrastructure for storage, hosting, and computing. We assist with cloud
-                            migration, hybrid setups, and ensuring 99.9% uptime for your critical data.
-                        </p>
-                        <a href="#"
-                            class="text-[#e32726] font-semibold text-sm hover:text-[#e32726] flex items-center gap-2">
-                            Learn More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-
-                    <!-- Service 4: Web & Software Dev -->
-                    <div
-                        class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
-                        <div
-                            class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
-                            <i class="fas fa-code text-2xl text-[#2f2f73] group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-[#2f2f73] group-hover:text-[#e32726] transition-colors">Web
-                            Development</h4>
-                        <p class="text-stone-600 mb-4 text-sm leading-relaxed">
-                            Custom websites and web applications built with modern technologies. From e-commerce platforms
-                            to corporate portfolios, we create responsive and engaging digital experiences.
-                        </p>
-                        <a href="#"
-                            class="text-[#e32726] font-semibold text-sm hover:text-[#e32726] flex items-center gap-2">
-                            Learn More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-
-                    <!-- Service 5: Network Solutions -->
-                    <div
-                        class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
-                        <div
-                            class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
-                            <i class="fas fa-network-wired text-2xl text-[#2f2f73] group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-[#2f2f73] group-hover:text-[#e32726] transition-colors">
-                            Network
-                            Solutions</h4>
-                        <p class="text-stone-600 mb-4 text-sm leading-relaxed">
-                            Complete networking infrastructure setup including structured cabling, router configuration, VPN
-                            setup, and ongoing network maintenance for office environments.
-                        </p>
-                        <a href="#"
-                            class="text-[#e32726] font-semibold text-sm hover:text-[#e32726]-dark flex items-center gap-2">
-                            Learn More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-
-                    <!-- Service 6: IT Consulting -->
-                    <div
-                        class="service-card bg-white rounded-xl shadow-md border border-stone-100 p-8 transition-all duration-300 group hover:border-[#e32726] hover:shadow-xl">
-                        <div
-                            class="w-14 h-14 bg-[#2f2f73]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#e32726] group-hover:text-white transition-colors duration-300">
-                            <i class="fas fa-headset text-2xl text-[#2f2f73] group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-[#2f2f73] group-hover:text-[#e32726] transition-colors">IT
-                            Consulting</h4>
-                        <p class="text-stone-600 mb-4 text-sm leading-relaxed">
-                            Expert advice to align your technology strategy with business goals. We analyze your current
-                            infrastructure and recommend improvements for efficiency and cost reduction.
-                        </p>
-                        <a href="#"
-                            class="text-[#e32726] font-semibold text-sm hover:text-[#e32726]flex items-center gap-2">
-                            Learn More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
         </main>

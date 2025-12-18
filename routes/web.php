@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\CompanyStatementController;
 use App\Http\Controllers\Admin\AboutServiceController;
 use App\Http\Controllers\Admin\UspController;
 use App\Http\Controllers\Admin\ProjectsController;
+use App\Http\Controllers\Admin\ServiceAdminController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -79,6 +80,11 @@ Route::middleware(['auth'])->group(function () {
             'why_choose_us' => 'usp'
         ]);
         Route::resource('/admin/dashboard/projects', ProjectsController::class);
+        Route::resource('/admin/dashboard/comprehensive_services', ServiceAdminController::class)->parameters([
+            'comprehensive_services' => 'service'
+        ]);
+
+        
     });
 });
 

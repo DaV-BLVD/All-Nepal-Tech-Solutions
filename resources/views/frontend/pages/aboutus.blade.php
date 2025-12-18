@@ -734,7 +734,7 @@
 
         <!-- Team Section -->
         {{-- may not be included --}}
-        <section class="py-24 bg-white">
+        {{-- <section class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="fade-in text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -746,7 +746,6 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Team Member 1 -->
                     <div class="fade-in stagger-1 group">
                         <div
                             class="bg-gray-50 rounded-2xl overflow-hidden text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
@@ -820,11 +819,10 @@
                         </div>
                     </div>
 
-                    {{-- .............. add more member --}}
 
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- CTA Section -->
         <section class="py-24 bg-[#2f2f73] relative overflow-hidden">

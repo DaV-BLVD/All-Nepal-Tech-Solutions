@@ -16,6 +16,7 @@ use App\Models\CompanyStatement;
 use App\Models\CoreValue;
 use App\Models\AboutService;
 use App\Models\Usp;
+use App\Models\Projects;
 
 class DashboardController extends Controller
 {
@@ -37,6 +38,7 @@ class DashboardController extends Controller
             'aboutServiceCount' => AboutService::count(),
             'whyChooseUsCount' => Usp::count(),
 
+            'projectsCount' => Projects::count(),
         ]);
     }
 }

@@ -36,6 +36,8 @@
             <x-admin.card title="About Services" :count="$aboutServiceCount" icon="fa-solid fa-thumbs-up" />
             <x-admin.card title="Why Choose Us?" :count="$whyChooseUsCount" icon="fa-solid fa-question-circle" />
 
+            <x-admin.card title="Projects" :count="$projectsCount" icon="fa-solid fa-folder-open" />
+
         </div>
 
     </div>

@@ -59,84 +59,86 @@
         <!-- Filter & Grid Section -->
         <main class="grow mt-10 relative z-20 px-4 sm:px-6 lg:px-8 pb-24">
             <div class="max-w-7xl mx-auto">
-    <div id='Project' class="flex flex-wrap justify-center gap-4 mb-12">
-        <button onclick="filterProjects('all')"
-            class="filter-btn active px-6 py-2 rounded-full bg-white shadow-md font-medium" data-filter="all">All
-            Works</button>
+                <div id='Project' class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button onclick="filterProjects('all')"
+                        class="filter-btn active px-6 py-2 rounded-full bg-white shadow-md font-medium"
+                        data-filter="all">All
+                        Works</button>
 
-        @foreach($categories as $cat)
-            <button onclick="filterProjects('{{ $cat }}')"
-                class="filter-btn px-6 py-2 rounded-full bg-white shadow-md font-medium" data-filter="{{ $cat }}">
-                {{ ucfirst($cat) }}
-            </button>
-        @endforeach
-    </div>
+                    @foreach($categories as $cat)
+                        <button onclick="filterProjects('{{ $cat }}')"
+                            class="filter-btn px-6 py-2 rounded-full bg-white shadow-md font-medium" data-filter="{{ $cat }}">
+                            {{ ucfirst($cat) }}
+                        </button>
+                    @endforeach
+                </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-        @foreach($projects as $project)
-            <div class="project-card group bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 relative"
-                data-category="{{ $project->category }}">
-                <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                <div class="p-8">
-                    <div
-                        class="icon-container w-14 h-14 {{ $project->icon_bg_color }} text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            {!! $project->icon_svg !!}
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                        {{ $project->title }}
-                    </h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">
-                        {{ $project->description }}
-                    </p>
-                    <a href="{{ $project->link ?? '#' }}" class="inline-flex items-center text-sm font-bold text-[#2f2f73]">
-                        View Case Study
-                        <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    @foreach($projects as $project)
+                        <div class="project-card group bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 relative"
+                            data-category="{{ $project->category }}">
+                            <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
+                            <div class="p-8">
+                                <div
+                                    class="icon-container w-14 h-14 {{ $project->icon_bg_color }} text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        {!! $project->icon_svg !!}
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
+                                    {{ $project->title }}
+                                </h3>
+                                <p class="text-slate-600 leading-relaxed mb-6">
+                                    {{ $project->description }}
+                                </p>
+                                <a href="{{ $project->link ?? '#' }}"
+                                    class="inline-flex items-center text-sm font-bold text-[#2f2f73]">
+                                    View Case Study
+                                    <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>
 
-<script>
-    function filterProjects(category) {
-        const cards = document.querySelectorAll('.project-card');
-        const buttons = document.querySelectorAll('.filter-btn');
+            <script>
+                function filterProjects(category) {
+                    const cards = document.querySelectorAll('.project-card');
+                    const buttons = document.querySelectorAll('.filter-btn');
 
-        // Update button active state
-        buttons.forEach(btn => {
-            btn.classList.remove('bg-[#2f2f73]', 'text-white');
-            if (btn.getAttribute('data-filter') === category) {
-                btn.classList.add('bg-[#2f2f73]', 'text-white');
-            }
-        });
+                    // Update button active state
+                    buttons.forEach(btn => {
+                        btn.classList.remove('bg-[#2f2f73]', 'text-white');
+                        if (btn.getAttribute('data-filter') === category) {
+                            btn.classList.add('bg-[#2f2f73]', 'text-white');
+                        }
+                    });
 
-        // Filter cards
-        cards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-                card.style.display = 'block';
-                card.classList.add('fade-in-up');
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-</script>
+                    // Filter cards
+                    cards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            card.classList.add('fade-in-up');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            </script>
 
             <!-- Modern CTA -->
-            {{-- <div class="max-w-7xl mx-auto mt-24">
+            <div class="max-w-7xl mx-auto mt-24">
                 <div class="bg-gradient-to-r from-[#2f2f73] to-slate-800 rounded-3xl shadow-2xl overflow-hidden relative">
                     <div class="absolute inset-0 bg-grid-white/[0.05] bg-size[20px_20px]"></div>
                     <div
                         class="absolute right-0 top-0 -mt-10 -mr-10 w-64 h-64 bg-blue-300 rounded-full blur-3xl opacity-20">
                     </div>
-                    
+
                     <div
                         class="relative px-6 py-16 sm:px-12 lg:px-16 text-center lg:text-left lg:flex lg:items-center lg:justify-between">
                         <div>
@@ -160,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </main>
 
 
