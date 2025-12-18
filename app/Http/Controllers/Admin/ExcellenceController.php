@@ -12,7 +12,7 @@ class ExcellenceController extends Controller
 {
     public function index()
     {
-        $excellences = Excellence::latest()->get();
+        $excellences = Excellence::orderBy('id', 'asc')->get();
         return view('admin.excellence.index', compact('excellences'));
     }
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Milestone;
 use App\Models\CoreValue;
 use App\Models\CompanyStatement;
@@ -24,10 +23,6 @@ class AboutController extends Controller
         $aboutServices = AboutService::orderBy('order')->get();
 
         $usps = Usp::orderBy('id', 'asc')->get();
-
-        $projects = Projects::all();
-        // Get unique categories for the filter buttons
-        $categories = Projects::select('category')->distinct()->pluck('category');
 
         return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement", "aboutServices", "usps"));
     }

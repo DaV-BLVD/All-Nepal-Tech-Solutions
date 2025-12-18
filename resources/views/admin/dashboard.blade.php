@@ -25,7 +25,11 @@
             <x-admin.card title="Services" :count="$serviceCount" icon="fa-solid fa-gear" />
             <x-admin.card title="Sections" :count="$sectionCount" icon="fa-solid fa-th-large" />
             <x-admin.card title="Features" :count="$featureCount" icon="fa-solid fa-cogs" />
-
+            <x-admin.card title="Hire Us, Why Not?" :count="$excellenceCount" icon="fa-solid fa-cogs" />
+            <x-admin.card title="Statistics" :count="$statisticsCount" icon="fa-solid fa-chart-line" />
+            <x-admin.card title="Team Members" :count="$teamMemberCount" icon="fa-solid fa-users" />
+            <x-admin.card title="Contact Settings" :count="$contactSettingCount" icon="fa-solid fa-users" />
+            
         </div>
 
     </div>
