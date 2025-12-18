@@ -81,6 +81,16 @@
                             ['route' => 'why_choose_us.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Why Choose Us'],
                         ],
                     ],
+                    [
+                        'title' => 'Projects Page',
+                        'icon' => 'fa-solid fa-house',
+                        'routes' => [
+                            'projects.*',
+                        ],
+                        'links' => [
+                            ['route' => 'projects.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Projects'],
+                        ],
+                    ],
                 ];
             @endphp
 

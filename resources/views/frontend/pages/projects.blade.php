@@ -59,220 +59,78 @@
         <!-- Filter & Grid Section -->
         <main class="grow mt-10 relative z-20 px-4 sm:px-6 lg:px-8 pb-24">
             <div class="max-w-7xl mx-auto">
+    <div id='Project' class="flex flex-wrap justify-center gap-4 mb-12">
+        <button onclick="filterProjects('all')"
+            class="filter-btn active px-6 py-2 rounded-full bg-white shadow-md font-medium" data-filter="all">All
+            Works</button>
 
-                <!-- Filters -->
-                <div id='Project' class="flex flex-wrap justify-center gap-4 mb-12 fade-in-up" style="animation-delay: 0.3s;">
-                    <button onclick="filterProjects('all')"
-                        class="filter-btn active px-6 py-2 rounded-full bg-white text-slate-600 shadow-md transition-all duration-300 font-medium  outline-none"
-                        data-filter="all">All Works</button>
-                    <button onclick="filterProjects('development')"
-                        class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 shadow-md  transition-all duration-300 font-medium outline-none"
-                        data-filter="development">Development</button>
-                    <button onclick="filterProjects('infrastructure')"
-                        class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 shadow-md transition-all duration-300 font-medium  outline-none"
-                        data-filter="infrastructure">Cloud & Infra</button>
-                    <button onclick="filterProjects('security')"
-                        class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 shadow-md transition-all duration-300 font-medium  outline-none"
-                        data-filter="security">Security</button>
-                    <button onclick="filterProjects('data')"
-                        class="filter-btn px-6 py-2 rounded-full bg-white text-slate-600 shadow-md transition-all duration-300 font-medium  outline-none"
-                        data-filter="data">Data & Analytics</button>
-                </div>
+        @foreach($categories as $cat)
+            <button onclick="filterProjects('{{ $cat }}')"
+                class="filter-btn px-6 py-2 rounded-full bg-white shadow-md font-medium" data-filter="{{ $cat }}">
+                {{ ucfirst($cat) }}
+            </button>
+        @endforeach
+    </div>
 
-                <!-- Projects Grid -->
-                <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-
-                    <!-- Project 1: Cloud Migration -->
-                    <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
-                        data-category="infrastructure">
-                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                        <div class="p-8">
-                            <div
-                                class="icon-container w-14 h-14 bg-blue-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                                Cloud Migration</h3>
-                            <p class="text-slate-600 leading-relaxed mb-6">
-                                Successfully migrated enterprise data and applications to cloud platforms ensuring seamless
-                                workflow.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
-                                View Case Study
-                                <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
-                        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+        @foreach($projects as $project)
+            <div class="project-card group bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 relative"
+                data-category="{{ $project->category }}">
+                <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
+                <div class="p-8">
+                    <div
+                        class="icon-container w-14 h-14 {{ $project->icon_bg_color }} text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            {!! $project->icon_svg !!}
+                        </svg>
                     </div>
-
-                    <!-- Project 2: Cybersecurity Upgrade -->
-                    <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
-                        data-category="security">
-                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                        <div class="p-8">
-                            <div
-                                class="icon-container w-14 h-14 bg-indigo-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3
-                                class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                                Cybersecurity Upgrade</h3>
-                            <p class="text-slate-600 leading-relaxed mb-6">
-                                Enhanced firewall and endpoint security to protect sensitive information across multiple
-                                networks.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
-                                View Case Study
-                                <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Enterprise Software -->
-                    <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
-                        data-category="development">
-                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                        <div class="p-8">
-                            <div
-                                class="icon-container w-14 h-14 bg-emerald-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3
-                                class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                                Enterprise Software</h3>
-                            <p class="text-slate-600 leading-relaxed mb-6">
-                                Developed a custom ERP solution streamlining business processes for global clients.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
-                                View Case Study
-                                <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Mobile App Development -->
-                    <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
-                        data-category="development">
-                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                        <div class="p-8">
-                            <div
-                                class="icon-container w-14 h-14 bg-rose-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                                Mobile App Development</h3>
-                            <p class="text-slate-600 leading-relaxed mb-6">
-                                Created cross-platform mobile applications with intuitive UI and high performance.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
-                                View Case Study
-                                <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: Data Analytics Dashboard -->
-                    <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
-                        data-category="data">
-                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                        <div class="p-8">
-                            <div
-                                class="icon-container w-14 h-14 bg-orange-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3
-                                class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                                Data Analytics Dashboard</h3>
-                            <p class="text-slate-600 leading-relaxed mb-6">
-                                Built interactive dashboards enabling businesses to track key metrics and insights in
-                                real-time.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
-                                View Case Study
-                                <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 6: IT Infrastructure Setup -->
-                    <div class="project-card group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-slate-100 relative fade-in-up"
-                        data-category="infrastructure">
-                        <div class="h-2 w-full bg-gradient-to-r from-[#2f2f73] to-[#e32726]"></div>
-                        <div class="p-8">
-                            <div
-                                class="icon-container w-14 h-14 bg-cyan-50 text-[#2f2f73] rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
-                                IT Infrastructure Setup</h3>
-                            <p class="text-slate-600 leading-relaxed mb-6">
-                                Designed and deployed secure IT infrastructure for startups and corporate clients.
-                            </p>
-                            <a href="#"
-                                class="inline-flex items-center text-sm font-bold text-[#2f2f73] transition-colors">
-                                View Case Study
-                                <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
+                    <h3 class="text-2xl font-bold text-[#2f2f73] mb-3 group-hover:text-[#e32726] transition-colors">
+                        {{ $project->title }}
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        {{ $project->description }}
+                    </p>
+                    <a href="{{ $project->link ?? '#' }}" class="inline-flex items-center text-sm font-bold text-[#2f2f73]">
+                        View Case Study
+                        <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
+        @endforeach
+    </div>
+</div>
+
+<script>
+    function filterProjects(category) {
+        const cards = document.querySelectorAll('.project-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        // Update button active state
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-[#2f2f73]', 'text-white');
+            if (btn.getAttribute('data-filter') === category) {
+                btn.classList.add('bg-[#2f2f73]', 'text-white');
+            }
+        });
+
+        // Filter cards
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+                card.classList.add('fade-in-up');
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 
             <!-- Modern CTA -->
-            <div class="max-w-7xl mx-auto mt-24">
+            {{-- <div class="max-w-7xl mx-auto mt-24">
                 <div class="bg-gradient-to-r from-[#2f2f73] to-slate-800 rounded-3xl shadow-2xl overflow-hidden relative">
                     <div class="absolute inset-0 bg-grid-white/[0.05] bg-size[20px_20px]"></div>
                     <div
@@ -302,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </main>
 
 

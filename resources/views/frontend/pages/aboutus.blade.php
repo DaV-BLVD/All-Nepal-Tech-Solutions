@@ -628,24 +628,70 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">Our Services</h2>
-                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions...</p>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions designed to accelerate your business growth and digital transformation.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     @foreach($aboutServices as $index => $s)
+                        @php
+                            $themeMap = [
+                                'blue' => [
+                                    'gradient' => 'from-blue-50 to-blue-100',
+                                    'iconBg' => 'bg-blue-500',
+                                    'borderHover' => 'hover:border-blue-300',
+                                    'text' => 'text-blue-500',
+                                ],
+                                'purple' => [
+                                    'gradient' => 'from-purple-50 to-purple-100',
+                                    'iconBg' => 'bg-purple-500',
+                                    'borderHover' => 'hover:border-purple-300',
+                                    'text' => 'text-purple-500',
+                                ],
+                                'green' => [
+                                    'gradient' => 'from-green-50 to-green-100',
+                                    'iconBg' => 'bg-green-500',
+                                    'borderHover' => 'hover:border-green-300',
+                                    'text' => 'text-green-500',
+                                ],
+                                'orange' => [
+                                    'gradient' => 'from-orange-50 to-orange-100',
+                                    'iconBg' => 'bg-orange-500',
+                                    'borderHover' => 'hover:border-orange-300',
+                                    'text' => 'text-orange-500',
+                                ],
+                                'cyan' => [
+                                    'gradient' => 'from-cyan-50 to-cyan-100',
+                                    'iconBg' => 'bg-cyan-500',
+                                    'borderHover' => 'hover:border-cyan-300',
+                                    'text' => 'text-cyan-500',
+                                ],
+                                'red' => [
+                                    'gradient' => 'from-red-50 to-red-100',
+                                    'iconBg' => 'bg-red-500',
+                                    'borderHover' => 'hover:border-red-300',
+                                    'text' => 'text-red-500',
+                                ],
+                            ];
+
+                            $theme = $themeMap[$s->color_theme] ?? $themeMap['blue'];
+                        @endphp
                         <div class="fade-in group">
                             <div
-                                class="bg-gradient-to-br from-gray-50 to-{{ $s->color_theme }}-50 p-8 rounded-2xl border border-gray-200 hover:border-{{ $s->color_theme }}-300 hover:shadow-xl transition-all duration-300 h-full">
+                                class="bg-gradient-to-br {{ $theme['gradient'] }} p-8 rounded-2xl border border-gray-200 {{ $theme['borderHover'] }} hover:shadow-xl transition-all duration-300 h-full">
+
                                 <div
-                                    class="w-16 h-16 bg-{{ $s->color_theme }}-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
+                                    class="w-16 h-16 {{ $theme['iconBg'] }} rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform shadow-lg">
                                     <i class="{{ $s->icon }} text-white text-2xl"></i>
                                 </div>
+
                                 <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $s->title }}</h3>
+
                                 <p class="text-gray-600 mb-4">{{ $s->description }}</p>
+
                                 <ul class="space-y-2 text-gray-500 text-sm">
                                     @foreach($s->features as $feature)
                                         <li class="flex items-center">
-                                            <i class="fas fa-chevron-right text-{{ $s->color_theme }}-500 mr-2 text-xs"></i>
+                                            <i class="fas fa-chevron-right {{ $theme['text'] }} mr-2 text-xs"></i>
                                             {{ $feature }}
                                         </li>
                                     @endforeach
@@ -687,6 +733,7 @@
         </section>
 
         <!-- Team Section -->
+        {{-- may not be included --}}
         <section class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -704,7 +751,55 @@
                         <div
                             class="bg-gray-50 rounded-2xl overflow-hidden text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                             <div class="w-full h-50 mx-auto mb-4  flex items-center justify-center overflow-hidden">
-                                <img src="{{ asset('frontendimages/aboutusimages/ceo.jpg') }}" alt="">
+                                <img src="{{ asset('frontendimages/aboutusimages/ceo1.jfif') }}" alt="">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-bold text-[#2f2f73] mb-1">Davi Phal Magar</h3>
+                                <p class="text-[#e32726] font-medium mb-3">CEO & Founder</p>
+                                <p class="text-stone-500 text-sm mb-4">20+ years of IT industry experience leading digital
+                                    transformation initiatives.</p>
+                                <div class="flex justify-center gap-3">
+                                    <a href="#"
+                                        class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-[#2f2f73] hover:text-white transition-colors text-gray-600">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-[#2f2f73] hover:text-white transition-colors text-gray-600">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in stagger-1 group">
+                        <div
+                            class="bg-gray-50 rounded-2xl overflow-hidden text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                            <div class="w-full h-50 mx-auto mb-4  flex items-center justify-center overflow-hidden">
+                                <img src="{{ asset('frontendimages/aboutusimages/ceo1.jfif') }}" alt="">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-xl font-bold text-[#2f2f73] mb-1">Davi Phal Magar</h3>
+                                <p class="text-[#e32726] font-medium mb-3">CEO & Founder</p>
+                                <p class="text-stone-500 text-sm mb-4">20+ years of IT industry experience leading digital
+                                    transformation initiatives.</p>
+                                <div class="flex justify-center gap-3">
+                                    <a href="#"
+                                        class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-[#2f2f73] hover:text-white transition-colors text-gray-600">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-[#2f2f73] hover:text-white transition-colors text-gray-600">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in stagger-1 group">
+                        <div
+                            class="bg-gray-50 rounded-2xl overflow-hidden text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                            <div class="w-full h-50 mx-auto mb-4  flex items-center justify-center overflow-hidden">
+                                <img src="{{ asset('frontendimages/aboutusimages/ceo1.jfif') }}" alt="">
                             </div>
                             <div class="p-5">
                                 <h3 class="text-xl font-bold text-[#2f2f73] mb-1">Davi Phal Magar</h3>
@@ -778,9 +873,6 @@
                 </div>
             </div>
         </section>
-
-
-
 
     </section>
     @push('script')

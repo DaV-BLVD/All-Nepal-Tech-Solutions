@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\CoreValueController;
 use App\Http\Controllers\Admin\CompanyStatementController;
 use App\Http\Controllers\Admin\AboutServiceController;
 use App\Http\Controllers\Admin\UspController;
+use App\Http\Controllers\Admin\ProjectsController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -77,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/why_choose_us', UspController::class)->parameters([
             'why_choose_us' => 'usp'
         ]);
-
+        Route::resource('/admin/dashboard/projects', ProjectsController::class);
     });
 });
 
