@@ -39,7 +39,7 @@
                             <tr class="hover:bg-indigo-50/30 transition-colors">
                                 {{-- SN --}}
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="text-sm font-mono text-gray-400">#{{ $loop->iteration }}</span>
+                                    <span class="text-sm font-mono text-gray-400">{{ $loop->iteration }}</span>
                                 </td>
 
                                 {{-- Year Badge --}}

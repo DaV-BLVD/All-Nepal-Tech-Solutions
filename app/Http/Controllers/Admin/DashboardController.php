@@ -11,6 +11,11 @@ use App\Models\Excellence;
 use App\Models\Statistic;
 use App\Models\TeamMember;
 use App\Models\ContactSetting;
+use App\Models\Milestone;
+use App\Models\CompanyStatement;
+use App\Models\CoreValue;
+use App\Models\AboutService;
+use App\Models\Usp;
 
 class DashboardController extends Controller
 {
@@ -24,7 +29,14 @@ class DashboardController extends Controller
             'excellenceCount' => Excellence::count(),
             'statisticsCount' => Statistic::count(),
             'teamMemberCount' => TeamMember::count(),
-            'contactSettingCount' => ContactSetting::count()
+            'contactSettingCount' => ContactSetting::count(),
+
+            'milestoneCount' => Milestone::count(),
+            'companyStatementCount' => CompanyStatement::count(),
+            'coreValueCount' => CoreValue::count(),
+            'aboutServiceCount' => AboutService::count(),
+            'whyChooseUsCount' => Usp::count(),
+
         ]);
     }
 }
