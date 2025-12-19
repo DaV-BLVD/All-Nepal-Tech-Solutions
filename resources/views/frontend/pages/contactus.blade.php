@@ -261,7 +261,7 @@
                         </div>
 
                         <!-- Why Choose Us -->
-                        <div class="bg-primary-dark rounded-2xl p-6 md:p-8 text-white">
+                        {{-- <div class="bg-primary-dark rounded-2xl p-6 md:p-8 text-white">
                             <h3 class="text-xl md:text-2xl font-bold mb-6">Why Choose Us?</h3>
                             <div class="space-y-4">
                                 <div class="flex items-start space-x-4">
@@ -309,7 +309,25 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="bg-primary-dark rounded-2xl p-6 md:p-8 text-white">
+                            <h3 class="text-xl md:text-2xl font-bold mb-6">Why Choose Us?</h3>
+                            <div class="space-y-4">
+                                @foreach($usps->take(4) as $index => $usp)
+                                    <div class="flex items-start space-x-4">
+                                        <div
+                                            class="w-10 h-10 bg-primary-red rounded-lg flex items-center justify-center shrink-0">
+                                            <i class="{{ $usp->icon ?? 'fas fa-check' }}"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">{{ $usp->title }}</h4>
+                                            <p class="text-stone-300 text-sm">{{ $usp->description }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -319,54 +337,35 @@
         <section class="py-12 md:py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl md:text-3xl font-bold text-primary-dark mb-4">Connect With Us</h2>
-                <p class="text-stone-500 mb-8 max-w-xl mx-auto">Follow us on social media for latest updates, tech news, and
-                    more!</p>
+                <p class="text-stone-500 mb-8 max-w-xl mx-auto">
+                    Follow us on social media for latest updates, tech news, and more!
+                </p>
 
+                <!-- Social Links -->
                 <div class="flex justify-center space-x-4 md:space-x-6 mb-12">
-                    <a href="#"
-                        class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white hover:bg-primary-red transition duration-300 pulse-icon">
-                        <i class="fab fa-facebook-f text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white hover:bg-primary-red transition duration-300 pulse-icon">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white hover:bg-primary-red transition duration-300 pulse-icon">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white hover:bg-primary-red transition duration-300 pulse-icon">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white hover:bg-primary-red transition duration-300 pulse-icon">
-                        <i class="fab fa-youtube text-xl"></i>
-                    </a>
+                    @foreach($socialLinks as $link)
+                        <a href="{{ $link->url }}" target="_blank"
+                            class="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center text-white hover:bg-primary-red transition duration-300 pulse-icon">
+                            <i class="{{ $link->icon }} text-xl"></i>
+                        </a>
+                    @endforeach
                 </div>
 
                 <!-- Quick Contact -->
                 <div class="bg-stone-100 rounded-2xl p-6 md:p-10 max-w-4xl mx-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                        <a href="tel:+97714123456"
-                            class="flex items-center justify-center space-x-3 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition">
-                            <i class="fas fa-phone-alt text-primary-red text-xl"></i>
-                            <span class="text-primary-dark font-semibold">Call Us Now</span>
-                        </a>
-                        <a href="mailto:info@allnepaltech.com"
-                            class="flex items-center justify-center space-x-3 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition">
-                            <i class="fas fa-envelope text-primary-red text-xl"></i>
-                            <span class="text-primary-dark font-semibold">Email Us</span>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center space-x-3 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition">
-                            <i class="fab fa-whatsapp text-primary-red text-xl"></i>
-                            <span class="text-primary-dark font-semibold">WhatsApp</span>
-                        </a>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+                        @foreach($contactCards as $card)
+                            <a href="{{ $card->type === 'phone' ? 'tel:' . $card->value : ($card->type === 'email' ? 'mailto:' . $card->value : '#') }}"
+                                class="flex items-center justify-center space-x-3 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition">
+                                <i class="{{ $card->icon }} text-primary-red text-xl"></i>
+                                <span class="text-primary-dark font-semibold">{{ $card->title }}</span>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </section>
+
     </section>
     @push('script')
         <script>

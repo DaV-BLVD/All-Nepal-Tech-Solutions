@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactCard;
+use App\Models\SocialLink;
+use App\Models\Usp;
 
 class ContactController extends Controller
 {
@@ -12,6 +14,10 @@ class ContactController extends Controller
     {
         $cards = ContactCard::orderBy('order')->get();
 
-        return view("frontend.pages.contactus", compact("cards"));
+        $socialLinks = SocialLink::orderBy('order')->get();
+
+        $usps = Usp::orderBy('id', 'asc')->get();
+
+        return view("frontend.pages.contactus", compact("cards", "socialLinks", "usps"));
     }
 }
