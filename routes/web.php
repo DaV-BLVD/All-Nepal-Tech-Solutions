@@ -15,6 +15,8 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/contact', [ContactController::class, 'index'])->name('contactus');
 
+Route::post('/consults', [ServiceController::class, 'store'])->name('consults.store');
+
 
 
 use App\Http\Controllers\Admin\DashboardController;
@@ -33,6 +35,8 @@ use App\Http\Controllers\Admin\AboutServiceController;
 use App\Http\Controllers\Admin\UspController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServiceAdminController;
+use App\Http\Controllers\Admin\WhyChooseUsController;
+use App\Http\Controllers\Admin\ConsultController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -84,7 +88,18 @@ Route::middleware(['auth'])->group(function () {
             'comprehensive_services' => 'service'
         ]);
 
-        
+        // Why Choose Us CRUD
+        // Note: Use 'parameters' if you want to keep the variable name consistent in the controller
+        Route::resource('/admin/dashboard/why_choose_us_services', WhyChooseUsController::class)->parameters([
+            'why_choose_us' => 'why_choose_us_services'
+        ]);
+
+        Route::get('/admin/dashboard/consults', [ConsultController::class, 'index'])->name('admin.consults.index');
+        Route::post('/admin/dashboard/consults/{consult}/resolve', [ConsultController::class, 'resolve'])->name('admin.consults.resolve');
+        Route::delete('/admin/dashboard/consults/{consult}', [ConsultController::class, 'destroy'])->name('admin.consults.destroy');
+        Route::post('/consults/{consult}/undo', [ConsultController::class, 'undo'])->name('admin.consults.undo');
+        Route::get('/admin/consults/{consult}', [ConsultController::class, 'show'])->name('admin.consults.show');
+
     });
 });
 

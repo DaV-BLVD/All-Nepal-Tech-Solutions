@@ -17,6 +17,8 @@ use App\Models\CoreValue;
 use App\Models\AboutService;
 use App\Models\Usp;
 use App\Models\Projects;
+use App\Models\ComprehensiveService;
+use App\Models\WhyChooseUsFeature;
 
 class DashboardController extends Controller
 {
@@ -39,6 +41,9 @@ class DashboardController extends Controller
             'whyChooseUsCount' => Usp::count(),
 
             'projectsCount' => Projects::count(),
+
+            'comprehensiveServiceCount' => ComprehensiveService::count(),
+            'whyChooseUsFeatureCount' => WhyChooseUsFeature::count(),
         ]);
     }
 }

@@ -14,7 +14,6 @@
             <div class="absolute inset-0 z-0">
                 <picture>
 
-
                     <!-- Mobile L (376px to 425px) -->
                     <source media="(max-width: 425px)" srcset="{{ asset('frontendimages/homeimages/heromobile.png') }}">
 
@@ -120,8 +119,7 @@
                 <div class="text-center mb-16">
                     <h6 class="text-stone-500 text-lg font-bold uppercase tracking-wider mb-2">Our services</h6>
                     <p class="max-lg:text-3xl text-5xl font-bold text-gray-900">
-                        For your very specific industry,<br> we have <span class="text-[#e32726]">highly-tailored IT
-                            solutions.</span>
+                        For your very specific industry,<br> we have <span class="text-[#e32726]">highly-tailored IT solutions.</span>
                     </p>
                 </div>
 
@@ -407,9 +405,8 @@
         </section>
 
         <!-- Projects Section -->
-        <div class="relative w-full overflow-hidden mt-20 px-4 md:px-8">
+        {{-- <div class="relative w-full overflow-hidden mt-20 px-4 md:px-8">
 
-            {{-- Slider Track --}}
             <div id="swiperTrack" class="flex will-change-transform cursor-grab active:cursor-grabbing">
 
                 @foreach($teamMembers as $member)
@@ -417,12 +414,10 @@
                         <div
                             class="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
 
-                            {{-- Image Container with Overlay --}}
                             <div class="relative h-80 overflow-hidden">
                                 <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     src="{{ asset($member->image) }}" alt="{{ $member->name }}">
 
-                                {{-- Decorative Accent --}}
                                 <div class="absolute top-4 right-4">
                                     <span
                                         class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter text-[#2f2f73] shadow-sm">
@@ -430,13 +425,11 @@
                                     </span>
                                 </div>
 
-                                {{-- Bottom Gradient Overlay --}}
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-[#2f2f73]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                 </div>
                             </div>
 
-                            {{-- Content Area --}}
                             <div class="p-8 flex flex-col flex-grow">
                                 <div class="mb-4">
                                     <h2
@@ -448,20 +441,17 @@
                                     </p>
                                 </div>
 
-                                {{-- Optional Description --}}
                                 @if($member->description)
                                     <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
                                         {{ $member->description }}
                                     </p>
                                 @endif
 
-                                {{-- Footer --}}
                                 <div class="mt-auto pt-5 border-t border-gray-50 flex items-center justify-between">
                                     <span class="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">
                                         {{ $member->company }}
                                     </span>
 
-                                    {{-- Subtle Arrow Icon --}}
                                     <svg class="w-5 h-5 text-gray-300 group-hover:text-[#e32726] transition-all transform group-hover:translate-x-1"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -474,7 +464,6 @@
                 @endforeach
             </div>
 
-            {{-- Navigation Controls --}}
             <button id="prevBtn"
                 class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/90 backdrop-blur-md text-[#2f2f73] rounded-full shadow-xl hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none border border-gray-100">
                 <i class='fa-solid fa-angle-left text-xl'></i>
@@ -484,7 +473,7 @@
                 class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/90 backdrop-blur-md text-[#2f2f73] rounded-full shadow-xl hover:bg-[#2f2f73] hover:text-white transition-all duration-300 focus:outline-none border border-gray-100">
                 <i class='fa-solid fa-angle-right text-xl'></i>
             </button>
-        </div>
+        </div> --}}
 
         @push('script')
             <script>

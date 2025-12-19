@@ -7,18 +7,18 @@
 
 
             @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-                }
+                                                                from { opacity: 0; transform: translateY(20px); }
+                                                                to { opacity: 1; transform: translateY(0); }
+                                                                }
 
-                .animate-fade-in {
-                animation: fadeIn 0.6s ease-out forwards;
-                }
+                                                                .animate-fade-in {
+                                                                animation: fadeIn 0.6s ease-out forwards;
+                                                                }
 
-                .service-card:hover {
-                transform: translateY(-5px);
-                }
-                </style>
+                                                                .service-card:hover {
+                                                                transform: translateY(-5px);
+                                                                }
+                                                                </style>
     @endpush
     <section class='pt-20'>
         {{-- header section --}}
@@ -91,7 +91,7 @@
         </main>
 
         <!-- Why Choose Us -->
-        <section class="py-20 bg-[#2f2f73] text-white relative">
+        {{-- <section class="py-20 bg-[#2f2f73] text-white relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
@@ -157,6 +157,43 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+        <section class="py-20 bg-[#2f2f73] text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-[#e32726] font-bold text-lg uppercase tracking-wider mb-2">Why Choose Us</h2>
+                        <h3 class="text-3xl md:text-4xl font-extrabold mb-6">Your Trusted Technology Partner in Nepal</h3>
+                        <p class="text-stone-300 mb-8 leading-relaxed">At All Nepal Tech Solutions, we don't just provide
+                            services; we build relationships. Our commitment to quality, support, and innovation sets us
+                            apart in the industry.</p>
+
+                        <ul class="space-y-4">
+                            @foreach($whyChooseCheckpoints as $check)
+                                <li class="flex items-start">
+                                    <div
+                                        class="shrink-0 w-6 h-6 rounded-full bg-[#e32726] flex items-center justify-center mt-1">
+                                        <i class="fas fa-check text-xs text-white"></i>
+                                    </div>
+                                    <span class="ml-4 text-stone-200">{{ $check->title }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            @foreach($whyChooseStats as $index => $stat)
+                                <div
+                                    class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm {{ $index % 2 == 0 ? 'transform translate-y-8' : '' }}">
+                                    <div class="text-[#e32726] text-4xl mb-2 font-bold">{{ $stat->title }}</div>
+                                    <div class="text-stone-300 text-sm">{{ $stat->subtitle }}</div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Contact Section -->
@@ -214,40 +251,47 @@
                         <div class="absolute -top-20 -left-20 w-40 h-40 bg-white/10 rounded-full"></div>
                     </div>
 
+
                     <!-- Form Side -->
                     <div class="p-10">
-                        <form class="space-y-6"
-                            onsubmit="event.preventDefault(); alert('Thank you for your message! We will contact you shortly.');">
+                        <form class="space-y-6" method="POST" action="{{ route('consults.store') }}">
+                            @if(session('success'))
+                                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @csrf
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="first-name" class="block text-sm font-medium text-stone-700 mb-1">First
                                         Name</label>
-                                    <input type="text" id="first-name"
+                                    <input type="text" name="first_name" id="first-name"
                                         class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                        placeholder="John">
+                                        placeholder="John" required>
                                 </div>
                                 <div>
                                     <label for="last-name" class="block text-sm font-medium text-stone-700 mb-1">Last
                                         Name</label>
-                                    <input type="text" id="last-name"
+                                    <input type="text" name="last_name" id="last-name"
                                         class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                        placeholder="Doe">
+                                        placeholder="Doe" required>
                                 </div>
                             </div>
 
                             <div>
                                 <label for="email" class="block text-sm font-medium text-stone-700 mb-1">Email
                                     Address</label>
-                                <input type="email" id="email"
+                                <input type="email" name="email" id="email"
                                     class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                    placeholder="john@example.com">
+                                    placeholder="john@example.com" required>
                             </div>
 
                             <div>
                                 <label for="service" class="block text-sm font-medium text-stone-700 mb-1">Service
                                     Interested In</label>
-                                <select id="service"
-                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors bg-white">
+                                <select name="service" id="service"
+                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors bg-white"
+                                    required>
                                     <option>Security Systems</option>
                                     <option>POS Systems</option>
                                     <option>Cloud Facilities</option>
@@ -260,9 +304,9 @@
 
                             <div>
                                 <label for="message" class="block text-sm font-medium text-stone-700 mb-1">Message</label>
-                                <textarea id="message" rows="4"
+                                <textarea name="message" id="message" rows="4"
                                     class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                    placeholder="Tell us about your project..."></textarea>
+                                    placeholder="Tell us about your project..." required></textarea>
                             </div>
 
                             <button type="submit"
@@ -270,6 +314,7 @@
                                 Send Message
                             </button>
                         </form>
+
                     </div>
                 </div>
             </div>

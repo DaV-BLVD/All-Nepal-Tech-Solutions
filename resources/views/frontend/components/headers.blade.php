@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="hidden lg:flex items-center">
-                    <a href="#"
+                    <a href="{{ route('contactus') }}"
                         class="bg-[#2f2f73] text-white px-7 py-3 rounded-full font-bold text-sm transition-all duration-300 shadow-lg shadow-[#2f2f73]/30 hover:shadow-[#2f2f73]/50 hover:-translate-y-1 hover:bg-[#38388a]">
                         Get a Quote
                     </a>

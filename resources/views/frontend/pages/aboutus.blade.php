@@ -288,8 +288,6 @@
                     </a>
                 </div>
             </div>
-
-
         </header>
 
         {{-- <section id="story" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
@@ -454,7 +452,8 @@
                     <h2 class="fade-in text-4xl md:text-5xl font-bold text-white mb-4">
                         Vision & <span class="gradient-text">Mission</span>
                     </h2>
-                    <p class="text-gray-300 text-lg max-w-2xl mx-auto">Guided by our core principles...</p>
+                    <p class="text-gray-300 text-lg max-w-2xl mx-auto">Guided by our core principles, we strive to shape the
+                        future of technology in Nepal.</p>
                 </div>
 
                 <div class="grid lg:grid-cols-2 w-full gap-6 p-6">
@@ -628,7 +627,8 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold text-[#2f2f73] mb-4">Our Services</h2>
-                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions designed to accelerate your business growth and digital transformation.</p>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive IT solutions designed to accelerate
+                        your business growth and digital transformation.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -829,7 +829,7 @@
             <!-- Background Elements -->
             <div class="absolute inset-0">
                 <div class="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-10 right-10 w-60 h-60 bg-white/10 rounded-full blur-3xl"></div>
+
             </div>
 
             <div class="container mx-auto px-6 relative z-10">
@@ -841,15 +841,18 @@
                         Partner with ANTS and unlock the full potential of technology for your business growth.
                     </p>
                     <div class="fade-in flex flex-col sm:flex-row gap-4 justify-center">
-                        <button
-                            class="ripple-btn relative overflow-hidden bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                            <i class="fas fa-phone-alt mr-2"></i>
-                            Schedule a Consultation
-                        </button>
+                        <a href="tel:+977XXXXXXXXXX">
+                            <button
+                                class="ripple-btn relative overflow-hidden bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                Schedule a Consultation
+                            </button>
+                        </a>
+
                         <button
                             class="ripple-btn relative overflow-hidden bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 hover:scale-105 transition-all duration-300">
                             <i class="fas fa-envelope mr-2"></i>
-                            Contact Us
+                            <a href="{{ route('contactus') }}">Contact Us</a>
                         </button>
                     </div>
 

@@ -146,16 +146,15 @@
                                 Ready to transform your business?
                             </h2>
                             <p class="mt-4 text-lg text-slate-300 max-w-xl">
-                                Let's discuss how our expert team can help you achieve your technology goals with our
-                                award-winning solutions.
+                                Let's discuss how our expert team can help you achieve your technology goals with our award-winning solutions.
                             </p>
                         </div>
                         <div class="mt-8 lg:mt-0 lg:ml-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#"
+                            <a href="{{ route('services') }}"
                                 class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-slate-900 bg-white hover:bg-blue-50 md:text-lg transition-transform hover:scale-105 shadow-lg">
                                 Get Started Now
                             </a>
-                            <a href="#"
+                            <a href="{{ route('contactus') }}"
                                 class="inline-flex items-center justify-center px-8 py-4 border border-slate-600 text-base font-bold rounded-full text-white hover:bg-slate-800 md:text-lg transition-all">
                                 Contact Sales
                             </a>

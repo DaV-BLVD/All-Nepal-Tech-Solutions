@@ -38,7 +38,9 @@
 
             <x-admin.card title="Projects" :count="$projectsCount" icon="fa-solid fa-folder-open" />
 
-        </div>
+            <x-admin.card title="Comprehensive Services" :count="$comprehensiveServiceCount" icon="fa-solid fa-gear" />
+            <x-admin.card title="Why Choose Us (Service Page)" :count="$whyChooseUsFeatureCount" icon="fa-solid fa-question-circle" />
 
+        </div>
     </div>
 @endsection

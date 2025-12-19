@@ -91,6 +91,18 @@
                             ['route' => 'projects.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Projects'],
                         ],
                     ],
+                    [
+                        'title' => 'Services Page',
+                        'icon' => 'fa-solid fa-house',
+                        'routes' => [
+                            'comprehensive_services.*', 'why_choose_us_services.*', 'admin.consults.*',
+                        ],
+                        'links' => [
+                            ['route' => 'comprehensive_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Comprehensive Services'],
+                            ['route' => 'why_choose_us_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Why Choose Us Services'],
+                            ['route' => 'admin.consults.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Consults Messages'],
+                        ],
+                    ],
                 ];
             @endphp
 

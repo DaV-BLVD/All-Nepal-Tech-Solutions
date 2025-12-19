@@ -8,6 +8,7 @@ use App\Models\CoreValue;
 use App\Models\CompanyStatement;
 use App\Models\AboutService;
 use App\Models\Usp;
+use App\Models\Province;
 
 class AboutController extends Controller
 {
@@ -23,6 +24,7 @@ class AboutController extends Controller
         $aboutServices = AboutService::orderBy('order')->get();
 
         $usps = Usp::orderBy('id', 'asc')->get();
+
 
         return view("frontend.pages.aboutus", compact("milestones", "coreValues", "statement", "aboutServices", "usps"));
     }
