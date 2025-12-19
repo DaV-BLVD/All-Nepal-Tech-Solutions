@@ -153,6 +153,14 @@
                     </div>
                 </div>
             @endforeach
+
+            {{-- Footer Contact--}}
+            <a href="{{ route('map_locations.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('map_locations.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span class="font-medium">Map Locations</span>
+            </a>
+
             {{-- Footer Contact--}}
             <a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
                 {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">

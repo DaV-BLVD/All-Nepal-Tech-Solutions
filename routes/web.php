@@ -39,6 +39,7 @@ use App\Http\Controllers\Admin\WhyChooseUsController;
 use App\Http\Controllers\Admin\ConsultController;
 use App\Http\Controllers\Admin\ContactCardController;
 use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\MapLocationController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -105,6 +106,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/contact_cards', ContactCardController::class)->except(['show']);
 
         Route::resource('/admin/dashboard/social_links', SocialLinkController::class)->except(['show']);
+
+        Route::resource('/admin/dashboard/map_locations', MapLocationController::class);
 
     });
 });

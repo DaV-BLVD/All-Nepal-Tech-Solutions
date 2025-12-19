@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ContactCard;
 use App\Models\SocialLink;
 use App\Models\Usp;
+use App\Models\MapLocation;
 
 class ContactController extends Controller
 {
@@ -18,6 +19,8 @@ class ContactController extends Controller
 
         $usps = Usp::orderBy('id', 'asc')->get();
 
-        return view("frontend.pages.contactus", compact("cards", "socialLinks", "usps"));
+        $maps = MapLocation::orderBy('order')->get();
+
+        return view("frontend.pages.contactus", compact("cards", "socialLinks", "usps", "maps"));
     }
 }
