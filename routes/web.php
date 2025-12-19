@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\ServiceAdminController;
 use App\Http\Controllers\Admin\WhyChooseUsController;
 use App\Http\Controllers\Admin\ConsultController;
 use App\Http\Controllers\Admin\ContactCardController;
+use App\Http\Controllers\Admin\SocialLinkController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -102,6 +103,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/dashboard/consults/{consult}', [ConsultController::class, 'show'])->name('admin.consults.show');
 
         Route::resource('/admin/dashboard/contact_cards', ContactCardController::class)->except(['show']);
+
+        Route::resource('/admin/dashboard/social_links', SocialLinkController::class)->except(['show']);
 
     });
 });

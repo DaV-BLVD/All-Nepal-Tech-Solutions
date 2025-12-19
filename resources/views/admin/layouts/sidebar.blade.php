@@ -153,11 +153,18 @@
                     </div>
                 </div>
             @endforeach
-            {{-- footer --}}
+            {{-- Footer Contact--}}
             <a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
                 {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
                 <i class="fas fa-tachometer-alt w-6"></i>
                 <span class="font-medium">Footer Contact</span>
+            </a>
+
+            {{-- Footer Social Links --}}
+            <a href="{{ route('social_links.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('social_links.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span class="font-medium">Footer Social Links</span>
             </a>
         </nav>
 
