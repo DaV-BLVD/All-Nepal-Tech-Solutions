@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServiceAdminController;
 use App\Http\Controllers\Admin\WhyChooseUsController;
 use App\Http\Controllers\Admin\ConsultController;
+use App\Http\Controllers\Admin\ContactCardController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -97,8 +98,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/dashboard/consults', [ConsultController::class, 'index'])->name('admin.consults.index');
         Route::post('/admin/dashboard/consults/{consult}/resolve', [ConsultController::class, 'resolve'])->name('admin.consults.resolve');
         Route::delete('/admin/dashboard/consults/{consult}', [ConsultController::class, 'destroy'])->name('admin.consults.destroy');
-        Route::post('/consults/{consult}/undo', [ConsultController::class, 'undo'])->name('admin.consults.undo');
-        Route::get('/admin/consults/{consult}', [ConsultController::class, 'show'])->name('admin.consults.show');
+        Route::post('/admin/dashboard/consults/{consult}/undo', [ConsultController::class, 'undo'])->name('admin.consults.undo');
+        Route::get('/admin/dashboard/consults/{consult}', [ConsultController::class, 'show'])->name('admin.consults.show');
+
+        Route::resource('/admin/dashboard/contact_cards', ContactCardController::class)->except(['show']);
 
     });
 });

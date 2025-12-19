@@ -35,11 +35,11 @@
 
             {{-- Users (Super Admin Only) --}}
             @if(auth()->user()->role === 'super_admin')
-                            <a href="{{ route('users.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-                {{ request()->routeIs('users.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-                                <i class="fa-solid fa-users w-6"></i>
-                                <span class="font-medium">Users</span>
-                            </a>
+                <a href="{{ route('users.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                        {{ request()->routeIs('users.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                    <i class="fa-solid fa-users w-6"></i>
+                    <span class="font-medium">Users</span>
+                </a>
             @endif
 
             {{-- Dropdown Definitions --}}
@@ -71,7 +71,11 @@
                         'title' => 'About Us Page',
                         'icon' => 'fa-solid fa-house',
                         'routes' => [
-                            'milestones.*', 'company_statement.*', 'core_values.*', 'about_services.*', 'why_choose_us.*',
+                            'milestones.*',
+                            'company_statement.*',
+                            'core_values.*',
+                            'about_services.*',
+                            'why_choose_us.*',
                         ],
                         'links' => [
                             ['route' => 'milestones.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Milestones'],
@@ -95,7 +99,9 @@
                         'title' => 'Services Page',
                         'icon' => 'fa-solid fa-house',
                         'routes' => [
-                            'comprehensive_services.*', 'why_choose_us_services.*', 'admin.consults.*',
+                            'comprehensive_services.*',
+                            'why_choose_us_services.*',
+                            'admin.consults.*',
                         ],
                         'links' => [
                             ['route' => 'comprehensive_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Comprehensive Services'],
@@ -109,44 +115,50 @@
             {{-- Dropdown Loop --}}
             @foreach($dropdowns as $dropdown)
 
-                            @php
-                                $isActive = false;
-                                foreach ($dropdown['routes'] as $pattern) {
-                                    if (request()->routeIs($pattern)) {
-                                        $isActive = true;
-                                        break;
-                                    }
-                                }
-                            @endphp
+                @php
+                    $isActive = false;
+                    foreach ($dropdown['routes'] as $pattern) {
+                        if (request()->routeIs($pattern)) {
+                            $isActive = true;
+                            break;
+                        }
+                    }
+                @endphp
 
-                            <div class="mb-2" x-init="{{ $isActive ? 'activeDropdown = \'' . $dropdown['title'] . '\'' : '' }}">
+                <div class="mb-2" x-init="{{ $isActive ? 'activeDropdown = \'' . $dropdown['title'] . '\'' : '' }}">
 
-                                <button @click="activeDropdown === '{{ $dropdown['title'] }}'
-                ? activeDropdown = null
-                : activeDropdown = '{{ $dropdown['title'] }}'" class="flex items-center justify-between w-full px-4 py-3 hover:bg-[#ff4242] transition
-                {{ $isActive ? 'bg-[#ff4242] text-white font-bold rounded-lg' : '' }}">
+                    <button @click="activeDropdown === '{{ $dropdown['title'] }}'
+                        ? activeDropdown = null
+                        : activeDropdown = '{{ $dropdown['title'] }}'" class="flex items-center justify-between w-full px-4 py-3 hover:bg-[#ff4242] transition
+                        {{ $isActive ? 'bg-[#ff4242] text-white font-bold rounded-lg' : '' }}">
 
-                    <span class="flex items-center space-x-2">
-                        <i class="{{ $dropdown['icon'] }} w-6"></i>
-                        <span class="font-medium">{{ $dropdown['title'] }}</span>
-                    </span>
-                        <i :class="activeDropdown === '{{ $dropdown['title'] }}' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'" class="transition-transform duration-300"></i>
-                                </button>
+                        <span class="flex items-center space-x-2">
+                            <i class="{{ $dropdown['icon'] }} w-6"></i>
+                            <span class="font-medium">{{ $dropdown['title'] }}</span>
+                        </span>
+                        <i :class="activeDropdown === '{{ $dropdown['title'] }}' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
+                            class="transition-transform duration-300"></i>
+                    </button>
 
-                                <div x-show="activeDropdown === '{{ $dropdown['title'] }}'" x-transition class="mt-1 space-y-1 pl-6">
+                    <div x-show="activeDropdown === '{{ $dropdown['title'] }}'" x-transition class="mt-1 space-y-1 pl-6">
 
-                                    @foreach($dropdown['links'] as $link)
-                                        <a href="{{ route($link['route']) }}" @click="sidebarOpen = false" class="flex items-center px-4 py-2 rounded-lg hover:bg-[#ff4242]
-                                        {{ request()->routeIs(explode('.', $link['route'])[0] . '.*')
-                                            ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
-                                            <i class="{{ $link['icon'] }} w-6"></i>
-                                            <span class="font-medium">{{ $link['text'] }}</span>
-                                        </a>
-                                    @endforeach
-                                </div>
-                            </div>
-
+                        @foreach($dropdown['links'] as $link)
+                                    <a href="{{ route($link['route']) }}" @click="sidebarOpen = false" class="flex items-center px-4 py-2 rounded-lg hover:bg-[#ff4242]
+                                                                        {{ request()->routeIs(explode('.', $link['route'])[0] . '.*')
+                            ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
+                                        <i class="{{ $link['icon'] }} w-6"></i>
+                                        <span class="font-medium">{{ $link['text'] }}</span>
+                                    </a>
+                        @endforeach
+                    </div>
+                </div>
             @endforeach
+            {{-- footer --}}
+            <a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span class="font-medium">Footer Contact</span>
+            </a>
         </nav>
 
         <!-- Logout -->

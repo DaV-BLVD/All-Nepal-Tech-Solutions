@@ -110,7 +110,7 @@
 
 
         <!-- Contact Info Cards -->
-        <section class="py-12 md:py-16 -mt-8" id='Contact'>
+        {{-- <section class="py-12 md:py-16 -mt-8" id='Contact'>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Card 1 -->
@@ -158,7 +158,25 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+        <section class="py-12 md:py-16" id="Contact">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    @foreach($cards as $card)
+                        <div class="bg-white rounded-2xl p-6 shadow-lg card-hover text-center">
+                            <div
+                                class="w-16 h-16 bg-primary-dark/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="{{ $card->icon }} text-2xl text-primary-red"></i>
+                            </div>
+                            <h3 class="text-primary-dark font-bold text-lg mb-2">{{ $card->title }}</h3>
+                            <p class="text-stone-500">{{ $card->line1 }}</p>
+                            <p class="text-stone-500">{{ $card->line2 }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </section>
+
 
         <!-- Contact Form & Map Section -->
         <section class="py-12 md:py-16">
