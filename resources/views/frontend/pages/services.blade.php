@@ -7,18 +7,19 @@
 
 
             @keyframes fadeIn {
-                                                                from { opacity: 0; transform: translateY(20px); }
-                                                                to { opacity: 1; transform: translateY(0); }
-                                                                }
+                                                                                                                        from { opacity: 0; transform: translateY(20px); }
+                                                                                                                        to { opacity: 1; transform: translateY(0); }
+                                                                                                                        }
 
-                                                                .animate-fade-in {
-                                                                animation: fadeIn 0.6s ease-out forwards;
-                                                                }
+                                                                                                                        .animate-fade-in {
+                                                                                                                        animation: fadeIn 0.6s ease-out forwards;
+                                                                                                                        }
 
-                                                                .service-card:hover {
-                                                                transform: translateY(-5px);
-                                                                }
-                                                                </style>
+                                                                                                                        .service-card:hover {
+                                                                                                                        transform: translateY(-5px);
+                                                                                                                        }
+
+        </style>
     @endpush
     <section class='pt-20'>
         {{-- header section --}}
@@ -253,69 +254,68 @@
 
 
                     <!-- Form Side -->
-                    <div class="p-10">
-                        <form class="space-y-6" method="POST" action="{{ route('consults.store') }}">
-                            @if(session('success'))
-                                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-                            @csrf
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="first-name" class="block text-sm font-medium text-stone-700 mb-1">First
-                                        Name</label>
-                                    <input type="text" name="first_name" id="first-name"
-                                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                        placeholder="John" required>
-                                </div>
-                                <div>
-                                    <label for="last-name" class="block text-sm font-medium text-stone-700 mb-1">Last
-                                        Name</label>
-                                    <input type="text" name="last_name" id="last-name"
-                                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                        placeholder="Doe" required>
-                                </div>
-                            </div>
+    <div class="p-10">
+        <form class="space-y-6" method="POST" action="{{ route('consults.store') }}">
+            @if(session('success'))
+                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @csrf
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="first-name" class="block text-sm font-medium text-stone-700 mb-1">First Name</label>
+                    <input type="text" name="first_name" id="first-name"
+                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                        placeholder="John" required>
+                </div>
+                <div>
+                    <label for="last-name" class="block text-sm font-medium text-stone-700 mb-1">Last
+                        Name</label>
+                    <input type="text" name="last_name" id="last-name"
+                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                        placeholder="Doe" required>
+                </div>
+            </div>
 
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-stone-700 mb-1">Email
-                                    Address</label>
-                                <input type="email" name="email" id="email"
-                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                    placeholder="john@example.com" required>
-                            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-stone-700 mb-1">Email
+                    Address</label>
+                <input type="email" name="email" id="email"
+                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                    placeholder="john@example.com" required>
+            </div>
 
-                            <div>
-                                <label for="service" class="block text-sm font-medium text-stone-700 mb-1">Service
-                                    Interested In</label>
-                                <select name="service" id="service"
-                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors bg-white"
-                                    required>
-                                    <option>Security Systems</option>
-                                    <option>POS Systems</option>
-                                    <option>Cloud Facilities</option>
-                                    <option>Web Development</option>
-                                    <option>Network Solutions</option>
-                                    <option>IT Consulting</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
+            <div>
+                <label for="service" class="block text-sm font-medium text-stone-700 mb-1">Service
+                    Interested In</label>
+                <select name="service" id="service"
+                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors bg-white"
+                    required>
+                    <option>Security Systems</option>
+                    <option>POS Systems</option>
+                    <option>Cloud Facilities</option>
+                    <option>Web Development</option>
+                    <option>Network Solutions</option>
+                    <option>IT Consulting</option>
+                    <option>Other</option>
+                </select>
+            </div>
 
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-stone-700 mb-1">Message</label>
-                                <textarea name="message" id="message" rows="4"
-                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                                    placeholder="Tell us about your project..." required></textarea>
-                            </div>
+            <div>
+                <label for="message" class="block text-sm font-medium text-stone-700 mb-1">Message</label>
+                <textarea name="message" id="message" rows="4"
+                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                    placeholder="Tell us about your project..." required></textarea>
+            </div>
 
-                            <button type="submit"
-                                class="w-full bg-[#2f2f73] hover:bg-[#222255] text-white font-bold py-3 rounded-lg shadow-md transition-colors">
-                                Send Message
-                            </button>
-                        </form>
+            <button type="submit"
+                class="w-full bg-[#2f2f73] hover:bg-[#222255] text-white font-bold py-3 rounded-lg shadow-md transition-colors">
+                Send Message
+            </button>
+        </form>
 
-                    </div>
+    </div>
                 </div>
             </div>
         </section>

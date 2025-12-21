@@ -29,7 +29,7 @@
     @endpush
     <section class="">
         <!--  Hero Section -->
-        <header class=" bg-[#24244a] overflow-hidden min-h-screen space-y-40">
+        <header class=" bg-[#24244a] overflow-hidden min-h-90vh space-y-40">
 
             <div class="pt-40 flex-cols justify-center text-center tracking-tight">
                 <span
@@ -47,7 +47,7 @@
             </div>
 
             <!-- Scroll Indicator -->
-            <div class="fade-in stagger-4 text-center">
+            <div class="fade-in stagger-4 text-center pb-5">
                 <a href="#Project"
                     class="inline-flex flex-col items-center  text-white/60 hover:text-white transition-colors">
                     <span class="text-lg mb-2">Discover Our Projects</span>

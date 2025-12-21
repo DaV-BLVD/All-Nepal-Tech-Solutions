@@ -83,7 +83,7 @@
     <section class='pt-20'>
 
         <!-- Hero Section -->
-        <section class="gradient-bg py-16 md:py-24 min-h-screen">
+        <section class="gradient-bg py-16 md:py-24 min-h-80vh">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Get In Touch</h1>
                 <p class="text-stone-300 text-lg md:text-xl max-w-2xl mx-auto">
@@ -179,7 +179,7 @@
 
 
         <!-- Contact Form & Map Section -->
-        <section class="py-12 md:py-16">
+        <section class="py-12 md:py-16" id="contact-Form">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     <!-- Contact Form -->
@@ -188,47 +188,59 @@
                         <p class="text-stone-500 mb-8">Fill out the form below and we'll get back to you within 24 hours.
                         </p>
 
-                        <form id="contactForm" class="space-y-6">
+                        <form id="contactForm" class="space-y-6" method="POST" action="{{ route('consults.store') }}">
+                            @csrf
+
+                            @if(session('success'))
+                                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            {{-- Name --}}
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-stone-700 font-medium mb-2">Full Name *</label>
-                                    <input type="text" required
+                                    <label class="block text-stone-700 font-medium mb-2">First Name *</label>
+                                    <input type="text" name="first_name" required
                                         class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition"
-                                        placeholder="Your name">
+                                        placeholder="First name">
                                 </div>
+
                                 <div>
-                                    <label class="block text-stone-700 font-medium mb-2">Email Address *</label>
-                                    <input type="email" required
+                                    <label class="block text-stone-700 font-medium mb-2">Last Name *</label>
+                                    <input type="text" name="last_name" required
                                         class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition"
-                                        placeholder="your@email.com">
+                                        placeholder="Last name">
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-stone-700 font-medium mb-2">Phone Number</label>
-                                    <input type="tel"
-                                        class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition"
-                                        placeholder="+977 98XXXXXXXX">
-                                </div>
-                                <div>
-                                    <label class="block text-stone-700 font-medium mb-2">Service Interested In</label>
-                                    <select
-                                        class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition bg-white">
-                                        <option value="">Select a service</option>
-                                        <option value="web">Web Development</option>
-                                        <option value="mobile">Mobile App Development</option>
-                                        <option value="software">Custom Software</option>
-                                        <option value="cloud">Cloud Solutions</option>
-                                        <option value="it">IT Consulting</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
+                            {{-- Email --}}
+                            <div>
+                                <label class="block text-stone-700 font-medium mb-2">Email Address *</label>
+                                <input type="email" name="email" required
+                                    class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition"
+                                    placeholder="your@email.com">
                             </div>
 
+                            {{-- Service --}}
+                            <div>
+                                <label class="block text-stone-700 font-medium mb-2">Service Interested In *</label>
+                                <select name="service" required
+                                    class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition bg-white">
+                                    <option value="">Select a service</option>
+                                    <option value="web">Web Development</option>
+                                    <option value="mobile">Mobile App Development</option>
+                                    <option value="software">Custom Software</option>
+                                    <option value="cloud">Cloud Solutions</option>
+                                    <option value="it">IT Consulting</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            {{-- Message --}}
                             <div>
                                 <label class="block text-stone-700 font-medium mb-2">Your Message *</label>
-                                <textarea required rows="5"
+                                <textarea name="message" required rows="6"
                                     class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition resize-none"
                                     placeholder="Tell us about your project..."></textarea>
                             </div>
@@ -239,6 +251,7 @@
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
+
 
                         <!-- Success Message -->
                         <div id="successMsg"

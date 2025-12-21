@@ -71,6 +71,7 @@
                         'title' => 'About Us Page',
                         'icon' => 'fa-solid fa-house',
                         'routes' => [
+                            'about-header.*',
                             'milestones.*',
                             'company_statement.*',
                             'core_values.*',
@@ -78,6 +79,7 @@
                             'why_choose_us.*',
                         ],
                         'links' => [
+                            ['route' => 'about-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'About Page Header'],
                             ['route' => 'milestones.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Milestones'],
                             ['route' => 'company_statement.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Statements'],
                             ['route' => 'core_values.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Core Values'],
@@ -133,7 +135,7 @@
                         {{ $isActive ? 'bg-[#ff4242] text-white font-bold rounded-lg' : '' }}">
 
                         <span class="flex items-center space-x-2">
-                            <i class="{{ $dropdown['icon'] }} w-6"></i>
+                            <i class="{{ $dropdown['icon'] }} w-6"></i> 
                             <span class="font-medium">{{ $dropdown['title'] }}</span>
                         </span>
                         <i :class="activeDropdown === '{{ $dropdown['title'] }}' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"

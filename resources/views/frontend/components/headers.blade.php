@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="hidden lg:flex items-center">
-                    <a href="{{ route('contactus') }}"
+                    <a href="{{ route('contactus') }}#contact-Form"
                         class="bg-[#2f2f73] text-white px-7 py-3 rounded-full font-bold text-sm transition-all duration-300 shadow-lg shadow-[#2f2f73]/30 hover:shadow-[#2f2f73]/50 hover:-translate-y-1 hover:bg-[#38388a]">
                         Get a Quote
                     </a>
@@ -170,7 +170,7 @@
         </div>
 
         <div class="p-6 bg-white border-t border-gray-100 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] z-20">
-            <a @click="open = false" href="#"
+            <a @click="open = false" href="{{ route('contactus') }}#contactForm"
                 class="flex items-center justify-center w-full bg-[#2f2f73] hover:bg-blue-900 text-white text-lg px-6 py-4 rounded-xl font-bold transition duration-300 shadow-xl shadow-[#2f2f73]/20 active:scale-95">
                 Get a Quote
             </a>

@@ -119,7 +119,8 @@
                 <div class="text-center mb-16">
                     <h6 class="text-stone-500 text-lg font-bold uppercase tracking-wider mb-2">Our services</h6>
                     <p class="max-lg:text-3xl text-5xl font-bold text-gray-900">
-                        For your very specific industry,<br> we have <span class="text-[#e32726]">highly-tailored IT solutions.</span>
+                        For your very specific industry,<br> we have <span class="text-[#e32726]">highly-tailored IT
+                            solutions.</span>
                     </p>
                 </div>
 
@@ -410,57 +411,57 @@
             <div id="swiperTrack" class="flex will-change-transform cursor-grab active:cursor-grabbing">
 
                 @foreach($teamMembers as $member)
-                    <div class="swiper-slide p-6">
-                        <div
-                            class="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
+                <div class="swiper-slide p-6">
+                    <div
+                        class="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
 
-                            <div class="relative h-80 overflow-hidden">
-                                <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                                    src="{{ asset($member->image) }}" alt="{{ $member->name }}">
+                        <div class="relative h-80 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                src="{{ asset($member->image) }}" alt="{{ $member->name }}">
 
-                                <div class="absolute top-4 right-4">
-                                    <span
-                                        class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter text-[#2f2f73] shadow-sm">
-                                        {{ $member->role }}
-                                    </span>
-                                </div>
-
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-[#2f2f73]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
+                            <div class="absolute top-4 right-4">
+                                <span
+                                    class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter text-[#2f2f73] shadow-sm">
+                                    {{ $member->role }}
+                                </span>
                             </div>
 
-                            <div class="p-8 flex flex-col flex-grow">
-                                <div class="mb-4">
-                                    <h2
-                                        class="text-2xl font-bold text-gray-900 leading-tight group-hover:text-[#2f2f73] transition-colors">
-                                        {{ $member->name }}
-                                    </h2>
-                                    <p class="text-sm font-semibold text-[#e32726] mt-1 uppercase tracking-wide">
-                                        {{ $member->specialization }}
-                                    </p>
-                                </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#2f2f73]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
 
-                                @if($member->description)
-                                    <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
-                                        {{ $member->description }}
-                                    </p>
-                                @endif
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <h2
+                                    class="text-2xl font-bold text-gray-900 leading-tight group-hover:text-[#2f2f73] transition-colors">
+                                    {{ $member->name }}
+                                </h2>
+                                <p class="text-sm font-semibold text-[#e32726] mt-1 uppercase tracking-wide">
+                                    {{ $member->specialization }}
+                                </p>
+                            </div>
 
-                                <div class="mt-auto pt-5 border-t border-gray-50 flex items-center justify-between">
-                                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">
-                                        {{ $member->company }}
-                                    </span>
+                            @if($member->description)
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                                {{ $member->description }}
+                            </p>
+                            @endif
 
-                                    <svg class="w-5 h-5 text-gray-300 group-hover:text-[#e32726] transition-all transform group-hover:translate-x-1"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                    </svg>
-                                </div>
+                            <div class="mt-auto pt-5 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                                    {{ $member->company }}
+                                </span>
+
+                                <svg class="w-5 h-5 text-gray-300 group-hover:text-[#e32726] transition-all transform group-hover:translate-x-1"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
 

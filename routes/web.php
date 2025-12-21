@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\ConsultController;
 use App\Http\Controllers\Admin\ContactCardController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\MapLocationController;
+use App\Http\Controllers\Admin\AboutUsHeaderController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -109,6 +110,10 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('/admin/dashboard/map_locations', MapLocationController::class);
 
+        Route::resource('/admin/dashboard/map_locations', MapLocationController::class);
+
+        Route::resource('/admin/dashboard/about-header', AboutUsHeaderController::class)
+            ->only(['index', 'edit', 'update']);
     });
 });
 

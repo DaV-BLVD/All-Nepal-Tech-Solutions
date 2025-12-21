@@ -16,21 +16,44 @@ class MapLocationController extends Controller
 
     public function create()
     {
-        $location = new MapLocation();
-        return view('admin.map_locations.form', compact('location'));
+        $location = MapLocation::first();
+
+        if ($location) {
+            return redirect()->route('map_locations.edit', $location);
+        }
+
+        return view('admin.map_locations.form', [
+            'location' => new MapLocation()
+        ]);
     }
+
+
 
     public function store(Request $request)
     {
+        if (MapLocation::exists()) {
+            return redirect()
+                ->route('map_locations.index')
+                ->with('success', 'A map location already exists.');
+        }
+
         $request->validate([
             'title' => 'required|string|max:255',
-            'iframe_url' => 'required|url',
+            'iframe_url' => 'required|string',
             'order' => 'nullable|integer',
         ]);
 
-        MapLocation::create($request->all());
-        return redirect()->route('admin.map_locations.index')->with('success', 'Map location created.');
+        MapLocation::create($request->only([
+            'title',
+            'iframe_url',
+            'order',
+        ]));
+
+        return redirect()
+            ->route('map_locations.index')
+            ->with('success', 'Map location created.');
     }
+
 
     public function edit(MapLocation $map_location)
     {
@@ -46,12 +69,12 @@ class MapLocationController extends Controller
         ]);
 
         $map_location->update($request->all());
-        return redirect()->route('admin.map_locations.index')->with('success', 'Map location updated.');
+        return redirect()->route('map_locations.index')->with('success', 'Map location updated.');
     }
 
     public function destroy(MapLocation $map_location)
     {
         $map_location->delete();
-        return redirect()->route('admin.map_locations.index')->with('success', 'Map location deleted.');
+        return redirect()->route('map_locations.index')->with('success', 'Map location deleted.');
     }
 }

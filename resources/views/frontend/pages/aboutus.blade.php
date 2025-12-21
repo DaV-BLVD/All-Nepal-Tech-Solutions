@@ -238,56 +238,41 @@
     <section class="pt-20">
 
         {{-- hero section --}}
-        <header class='min-h-screen bg-[#2f2f73]'>
-
+        <header class='min-h-80vh bg-[#2f2f73]'>
             <div class="flex-col justify-center items-center text-center max-w-5xl px-3 py-20 container mx-auto">
                 <div class=''>
-                    {{-- heading --}}
                     <h1 class="fade-in text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
-                        About <span class="">Us</span>
+                        {{ $header->title }}
                     </h1>
 
-
-                    <!-- Sub-heading -->
                     <p class="fade-in text-xl md:text-2xl text-blue-200 font-medium mb-8 stagger-1">
                         <i class="fas fa-microchip mr-2"></i>
-                        Highly Tailored IT Design, Management & Support Services
-                    </p>
-                    <!-- Intro Paragraph -->
-                    <p class="fade-in text-lg text-gray-300  mx-auto text-center tracking-wide mb-12 stagger-2">
-                        All Nepal Tech Solutions (ANTS) stands at the forefront of technological innovation in Nepal.
-                        We are dedicated to empowering businesses with cutting-edge IT solutions that drive growth,
-                        enhance productivity, and fortify security. Our team of experts brings together local expertise
-                        with global standards to deliver excellence in every project.
+                        {{ $header->subtitle }}
                     </p>
 
-                    <!-- Feature Icons -->
+                    <p class="fade-in text-lg text-gray-300 mx-auto text-center tracking-wide mb-12 stagger-2">
+                        {{ $header->description }}
+                    </p>
+
                     <div class="fade-in flex flex-wrap justify-center gap-6 stagger-3">
-                        <div class="flex items-center gap-2 text-white">
-                            <i class="fas fa-shield-halved text-xl"></i>
-                            <span>Enterprise Security</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-white">
-                            <i class="fas fa-cloud text-xl"></i>
-                            <span>Cloud Solutions</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-white">
-                            <i class="fas fa-network-wired text-xl"></i>
-                            <span>IT Infrastructure</span>
-                        </div>
+                        @foreach($header->features as $feature)
+                            <div class="flex items-center gap-2 text-white">
+                                <i class="{{ $feature['icon'] }} text-xl"></i>
+                                <span>{{ $feature['label'] }}</span>
+                            </div>
+                        @endforeach
                     </div>
-
-
-                </div>
-                <!-- Scroll Indicator -->
-                <div class="fade-in mt-16 stagger-4 text-center">
-                    <a href="#story"
-                        class="inline-flex flex-col items-center  text-white/60 hover:text-white transition-colors">
-                        <span class="text-lg mb-2">Discover Our Story</span>
-                        <i class="fas fa-chevron-down animate-bounce"></i>
-                    </a>
+                    <!-- Scroll Indicator -->
+                    <div class="fade-in mt-16 stagger-4 text-center">
+                        <a href="#story"
+                            class="inline-flex flex-col items-center  text-white/60 hover:text-white transition-colors">
+                            <span class="text-lg mb-2">Discover Our Story</span>
+                            <i class="fas fa-chevron-down animate-bounce"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+
         </header>
 
         {{-- <section id="story" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">

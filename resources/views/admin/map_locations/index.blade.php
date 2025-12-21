@@ -20,11 +20,18 @@
                     </div>
                 @endif
 
-                <a href="{{ route('map_locations.create') }}"
-                    class="flex items-center space-x-2 bg-primary text-white px-5 py-2.5 rounded-xl font-semibold transition-all hover:bg-indigo-700 shadow-lg shadow-indigo-100 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
-                    <i class="fas fa-plus text-xs"></i>
-                    <span>Add New Location</span>
-                </a>
+                @if($locations->isEmpty())
+                    <a href="{{ route('map_locations.create') }}"
+                        class="flex items-center space-x-2 bg-primary text-white px-5 py-2.5 rounded-xl font-semibold transition-all hover:bg-indigo-700 shadow-lg shadow-indigo-100 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                        <i class="fas fa-plus text-xs"></i>
+                        <span>Add New Location</span>
+                    </a>
+                @else
+                    <span class="text-sm font-semibold text-gray-400 bg-gray-100 px-4 py-2 rounded-xl cursor-not-allowed">
+                        Only one map location allowed
+                    </span>
+                @endif
+
             </div>
         </div>
 
