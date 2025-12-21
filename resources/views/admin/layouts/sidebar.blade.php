@@ -91,9 +91,11 @@
                         'title' => 'Projects Page',
                         'icon' => 'fa-solid fa-house',
                         'routes' => [
+                            'projects-header.*',
                             'projects.*',
                         ],
                         'links' => [
+                            ['route' => 'projects-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Projects Page Header'],
                             ['route' => 'projects.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Projects'],
                         ],
                     ],
@@ -101,11 +103,13 @@
                         'title' => 'Services Page',
                         'icon' => 'fa-solid fa-house',
                         'routes' => [
+                            'service-header.*',
                             'comprehensive_services.*',
                             'why_choose_us_services.*',
                             'admin.consults.*',
                         ],
                         'links' => [
+                            ['route' => 'service-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Service Page Header'],
                             ['route' => 'comprehensive_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Comprehensive Services'],
                             ['route' => 'why_choose_us_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Why Choose Us Services'],
                             ['route' => 'admin.consults.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Consults Messages'],
@@ -155,6 +159,12 @@
                     </div>
                 </div>
             @endforeach
+
+            <a href="{{ route('contact-header.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('contact-header.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span class="font-medium">Contact Page Header </span>
+            </a>
 
             {{-- Footer Contact--}}
             <a href="{{ route('map_locations.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg

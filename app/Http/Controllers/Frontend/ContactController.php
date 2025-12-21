@@ -8,11 +8,14 @@ use App\Models\ContactCard;
 use App\Models\SocialLink;
 use App\Models\Usp;
 use App\Models\MapLocation;
+use App\Models\ContactHeader;
 
 class ContactController extends Controller
 {
     public function index()
     {
+        $contactHeader = ContactHeader::first() ?? new ContactHeader();
+
         $cards = ContactCard::orderBy('order')->get();
 
         $socialLinks = SocialLink::orderBy('order')->get();
@@ -21,6 +24,6 @@ class ContactController extends Controller
 
         $maps = MapLocation::orderBy('order')->get();
 
-        return view("frontend.pages.contactus", compact("cards", "socialLinks", "usps", "maps"));
+        return view("frontend.pages.contactus", compact("cards", "socialLinks", "usps", "maps", "contactHeader"));
     }
 }

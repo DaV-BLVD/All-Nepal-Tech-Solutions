@@ -7,23 +7,24 @@
 
 
             @keyframes fadeIn {
-                                                                                                                        from { opacity: 0; transform: translateY(20px); }
-                                                                                                                        to { opacity: 1; transform: translateY(0); }
-                                                                                                                        }
+                                                                                                                                from { opacity: 0; transform: translateY(20px); }
+                                                                                                                                to { opacity: 1; transform: translateY(0); }
+                                                                                                                                }
 
-                                                                                                                        .animate-fade-in {
-                                                                                                                        animation: fadeIn 0.6s ease-out forwards;
-                                                                                                                        }
+                                                                                                                                .animate-fade-in {
+                                                                                                                                animation: fadeIn 0.6s ease-out forwards;
+                                                                                                                                }
 
-                                                                                                                        .service-card:hover {
-                                                                                                                        transform: translateY(-5px);
-                                                                                                                        }
+                                                                                                                                .service-card:hover {
+                                                                                                                                transform: translateY(-5px);
+                                                                                                                                }
 
-        </style>
+                </style>
     @endpush
     <section class='pt-20'>
         {{-- header section --}}
-        <header class="bg-gradient-to-r from-[#2f2f73] to-[#222255] text-white py-20 lg:py-28 relative overflow-hidden">
+        {{-- <header
+            class="bg-gradient-to-r from-[#2f2f73] to-[#222255] text-white py-20 lg:py-28 relative overflow-hidden">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-10 text-9xl">
                 <i class="fas fa-cogs"></i>
             </div>
@@ -51,6 +52,38 @@
             <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
                 <svg class="relative block w-[calc(100%+1.3px)] h-[50px] sm:h-[100px]" data-name="Layer 1"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="fill-stone-50"></path>
+                </svg>
+            </div>
+        </header> --}}
+        <header class="bg-gradient-to-r from-[#2f2f73] to-[#222255] text-white py-20 lg:py-28 relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-10 text-9xl">
+                <i class="{{ $serviceHeader->bg_icon }}"></i>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-fade-in">
+                    {{ $serviceHeader->title }} <span class="text-[#e32726]">{{ $serviceHeader->highlighted_text }}</span>
+                </h1>
+                <p class="text-lg md:text-xl text-stone-300 max-w-3xl mx-auto mb-10 animate-fade-in"
+                    style="animation-delay: 0.2s;">
+                    {{ $serviceHeader->description }}
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.4s;">
+                    <a href="{{ $serviceHeader->btn_primary_link }}"
+                        class="bg-[#e32726] text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        {{ $serviceHeader->btn_primary_text }}
+                    </a>
+                    <a href="{{ $serviceHeader->btn_secondary_link }}"
+                        class="bg-transparent border-2 border-white hover:bg-white hover:text-[#2f2f73] text-white font-bold py-3 px-8 rounded-lg transition-all">
+                        {{ $serviceHeader->btn_secondary_text }}
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+                <svg class="relative block w-[calc(100%+1.3px)] h-[50px] sm:h-[100px]" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
                     <path
                         d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
                         class="fill-stone-50"></path>
@@ -254,68 +287,69 @@
 
 
                     <!-- Form Side -->
-    <div class="p-10">
-        <form class="space-y-6" method="POST" action="{{ route('consults.store') }}">
-            @if(session('success'))
-                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
-                    {{ session('success') }}
-                </div>
-            @endif
-            @csrf
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label for="first-name" class="block text-sm font-medium text-stone-700 mb-1">First Name</label>
-                    <input type="text" name="first_name" id="first-name"
-                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                        placeholder="John" required>
-                </div>
-                <div>
-                    <label for="last-name" class="block text-sm font-medium text-stone-700 mb-1">Last
-                        Name</label>
-                    <input type="text" name="last_name" id="last-name"
-                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                        placeholder="Doe" required>
-                </div>
-            </div>
+                    <div class="p-10">
+                        <form class="space-y-6" method="POST" action="{{ route('consults.store') }}">
+                            @if(session('success'))
+                                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @csrf
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="first-name" class="block text-sm font-medium text-stone-700 mb-1">First
+                                        Name</label>
+                                    <input type="text" name="first_name" id="first-name"
+                                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                                        placeholder="John" required>
+                                </div>
+                                <div>
+                                    <label for="last-name" class="block text-sm font-medium text-stone-700 mb-1">Last
+                                        Name</label>
+                                    <input type="text" name="last_name" id="last-name"
+                                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                                        placeholder="Doe" required>
+                                </div>
+                            </div>
 
-            <div>
-                <label for="email" class="block text-sm font-medium text-stone-700 mb-1">Email
-                    Address</label>
-                <input type="email" name="email" id="email"
-                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                    placeholder="john@example.com" required>
-            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-stone-700 mb-1">Email
+                                    Address</label>
+                                <input type="email" name="email" id="email"
+                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                                    placeholder="john@example.com" required>
+                            </div>
 
-            <div>
-                <label for="service" class="block text-sm font-medium text-stone-700 mb-1">Service
-                    Interested In</label>
-                <select name="service" id="service"
-                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors bg-white"
-                    required>
-                    <option>Security Systems</option>
-                    <option>POS Systems</option>
-                    <option>Cloud Facilities</option>
-                    <option>Web Development</option>
-                    <option>Network Solutions</option>
-                    <option>IT Consulting</option>
-                    <option>Other</option>
-                </select>
-            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-stone-700 mb-1">Service
+                                    Interested In</label>
+                                <select name="service" id="service"
+                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors bg-white"
+                                    required>
+                                    <option>Security Systems</option>
+                                    <option>POS Systems</option>
+                                    <option>Cloud Facilities</option>
+                                    <option>Web Development</option>
+                                    <option>Network Solutions</option>
+                                    <option>IT Consulting</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
 
-            <div>
-                <label for="message" class="block text-sm font-medium text-stone-700 mb-1">Message</label>
-                <textarea name="message" id="message" rows="4"
-                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
-                    placeholder="Tell us about your project..." required></textarea>
-            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-stone-700 mb-1">Message</label>
+                                <textarea name="message" id="message" rows="4"
+                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-[#e32726] focus:border-[#e32726] outline-none transition-colors"
+                                    placeholder="Tell us about your project..." required></textarea>
+                            </div>
 
-            <button type="submit"
-                class="w-full bg-[#2f2f73] hover:bg-[#222255] text-white font-bold py-3 rounded-lg shadow-md transition-colors">
-                Send Message
-            </button>
-        </form>
+                            <button type="submit"
+                                class="w-full bg-[#2f2f73] hover:bg-[#222255] text-white font-bold py-3 rounded-lg shadow-md transition-colors">
+                                Send Message
+                            </button>
+                        </form>
 
-    </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\ComprehensiveService;
 use App\Models\WhyChooseUsFeature;
 use App\Models\Consult;
+use App\Models\ServiceHeader;
 
 class ServiceController extends Controller
 {
     public function index()
     {
+        $serviceHeader = ServiceHeader::first() ?? new ServiceHeader();
+
         $services = ComprehensiveService::orderBy('order')->get();
 
         // Fetch Why Choose Us - List items (Checkmarks)
@@ -25,7 +28,7 @@ class ServiceController extends Controller
 
         $consults = Consult::latest()->get();
 
-        return view("frontend.pages.services", compact("services", "whyChooseCheckpoints", "whyChooseStats", "consults"));
+        return view("frontend.pages.services", compact("services", "whyChooseCheckpoints", "whyChooseStats", "consults", "serviceHeader"));
     }
 
     public function store(Request $request)

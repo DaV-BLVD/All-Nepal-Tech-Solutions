@@ -41,6 +41,9 @@ use App\Http\Controllers\Admin\ContactCardController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\MapLocationController;
 use App\Http\Controllers\Admin\AboutUsHeaderController;
+use App\Http\Controllers\Admin\ProjectsHeaderController;
+use App\Http\Controllers\Admin\ServiceHeaderController;
+use App\Http\Controllers\Admin\ContactHeaderController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -113,6 +116,14 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/admin/dashboard/map_locations', MapLocationController::class);
 
         Route::resource('/admin/dashboard/about-header', AboutUsHeaderController::class)
+            ->only(['index', 'edit', 'update']);
+
+        Route::resource('/admin/dashboard/projects-header', ProjectsHeaderController::class)
+            ->only(['index', 'edit', 'update']);
+
+        Route::resource('/admin/dashboard/service-header', ServiceHeaderController::class)->only(['index', 'edit', 'update']);
+
+        Route::resource('/admin/dashboard/contact-header', ContactHeaderController::class)
             ->only(['index', 'edit', 'update']);
     });
 });

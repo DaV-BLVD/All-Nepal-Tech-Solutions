@@ -29,7 +29,7 @@
     @endpush
     <section class="">
         <!--  Hero Section -->
-        <header class=" bg-[#24244a] overflow-hidden min-h-90vh space-y-40">
+        {{-- <header class=" bg-[#24244a] overflow-hidden min-h-90vh space-y-40">
 
             <div class="pt-40 flex-cols justify-center text-center tracking-tight">
                 <span
@@ -50,6 +50,38 @@
             <div class="fade-in stagger-4 text-center pb-5">
                 <a href="#Project"
                     class="inline-flex flex-col items-center  text-white/60 hover:text-white transition-colors">
+                    <span class="text-lg mb-2">Discover Our Projects</span>
+                    <i class="fas fa-chevron-down animate-bounce"></i>
+                </a>
+            </div>
+        </header> --}}
+        <header class="bg-[#24244a] overflow-hidden min-h-90vh space-y-40">
+            <div class="pt-40 flex-cols justify-center text-center tracking-tight">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border text-stone-100 text-sm font-semibold mb-6 fade-in-up">
+                    {{ $projectsHeader->badge }}
+                </span>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 fade-in-up"
+                    style="animation-delay: 0.1s;">
+                    @php
+                        // Optional: Logic to color the last word differently
+                        $words = explode(' ', $projectsHeader->title);
+                        $lastWord = array_pop($words);
+                        $mainTitle = implode(' ', $words);
+                    @endphp
+
+                    {{ $mainTitle }} <span class="text-stone-100">{{ $lastWord }}</span>
+                </h1>
+
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 fade-in-up" style="animation-delay: 0.2s;">
+                    {{ $projectsHeader->description }}
+                </p>
+            </div>
+
+            <div class="fade-in stagger-4 text-center pb-5">
+                <a href="#Project"
+                    class="inline-flex flex-col items-center text-white/60 hover:text-white transition-colors">
                     <span class="text-lg mb-2">Discover Our Projects</span>
                     <i class="fas fa-chevron-down animate-bounce"></i>
                 </a>
@@ -146,7 +178,8 @@
                                 Ready to transform your business?
                             </h2>
                             <p class="mt-4 text-lg text-slate-300 max-w-xl">
-                                Let's discuss how our expert team can help you achieve your technology goals with our award-winning solutions.
+                                Let's discuss how our expert team can help you achieve your technology goals with our
+                                award-winning solutions.
                             </p>
                         </div>
                         <div class="mt-8 lg:mt-0 lg:ml-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

@@ -83,7 +83,7 @@
     <section class='pt-20'>
 
         <!-- Hero Section -->
-        <section class="gradient-bg py-16 md:py-24 min-h-80vh">
+        {{-- <section class="gradient-bg py-16 md:py-24 min-h-80vh">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Get In Touch</h1>
                 <p class="text-stone-300 text-lg md:text-xl max-w-2xl mx-auto">
@@ -106,8 +106,31 @@
                     <i class="fas fa-chevron-down animate-bounce"></i>
                 </a>
             </div>
-        </section>
+        </section> --}}
+        <section class="gradient-bg py-16 md:py-24 min-h-80vh">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                    {{ $contactHeader->title }}
+                </h1>
+                <p class="text-stone-300 text-lg md:text-xl max-w-2xl mx-auto">
+                    {{ $contactHeader->description }}
+                </p>
+                <div class="flex justify-center mt-8">
+                    <div class="flex items-center space-x-2 bg-white/10 backdrop-blur px-6 py-3 rounded-full">
+                        <i class="{{ $contactHeader->support_icon }} text-primary-red text-xl"></i>
+                        <span class="text-white">{{ $contactHeader->support_text }}</span>
+                    </div>
+                </div>
+            </div>
 
+            <div class="fade-in mt-16 stagger-4 text-center">
+                <a href="#Contact"
+                    class="inline-flex flex-col items-center text-white/60 hover:text-white transition-colors">
+                    <span class="text-lg mb-2">Contact here</span>
+                    <i class="fas fa-chevron-down animate-bounce"></i>
+                </a>
+            </div>
+        </section>
 
         <!-- Contact Info Cards -->
         {{-- <section class="py-12 md:py-16 -mt-8" id='Contact'>
