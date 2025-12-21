@@ -153,7 +153,7 @@
                             {{ request()->routeIs(explode('.', $link['route'])[0] . '.*')
                                 ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
                             <i class="{{ $link['icon'] }} w-6"></i>
-                            <span class="font-medium">{{ $link['text'] }}</span>
+                            <span class="font-medium text-sm">{{ $link['text'] }}</span>
                         </a>
 
                         @endforeach

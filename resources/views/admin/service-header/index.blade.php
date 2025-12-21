@@ -66,7 +66,7 @@
                                         <span class="text-xs font-semibold text-gray-700">{{ $header->btn_primary_text }}</span>
                                     </div>
                                     <div class="flex items-center space-x-2">
-                                        <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                                        <span class="w-2 h-2 rounded-full bg-red-600"></span>
                                         <span class="text-xs font-semibold text-gray-700">{{ $header->btn_secondary_text }}</span>
                                     </div>
                                 </div>
