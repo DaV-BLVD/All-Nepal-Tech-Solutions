@@ -195,7 +195,7 @@
         </nav>
 
         <!-- Logout -->
-        <div class="p-4 border-t border-gray-700">
+        <div class="p-4 border-t border-gray-400">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit"
