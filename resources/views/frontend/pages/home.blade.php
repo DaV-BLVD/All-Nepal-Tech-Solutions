@@ -10,7 +10,7 @@
     @endpush
     <section class="pt-20">
         <!-- Hero Section -->
-        <section class="relative bg-white  h-[90vh] flex items-center overflow-hidden">
+        {{-- <section class="relative bg-white  h-[90vh] flex items-center overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <picture>
 
@@ -45,7 +45,49 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+
+        <section class="relative bg-white h-[90vh] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <picture>
+                    {{-- Desktop / Laptop --}}
+                    <source media="(min-width: 1025px)" srcset="{{ asset('storage/' . $homeHeader->image_laptop) }}">
+
+                    {{-- Tablet --}}
+                    <source media="(min-width: 426px) and (max-width: 1024px)"
+                        srcset="{{ asset('storage/' . $homeHeader->image_tablet) }}">
+
+                    {{-- Mobile / default --}}
+                    <img src="{{ asset('storage/' . $homeHeader->image_mobile) }}" alt="Hero Background"
+                        class="h-full w-full object-cover opacity-95">
+                </picture>
+
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left w-full">
+                <div class="lg:w-2/3">
+                    <p class="text-slate-800 font-semibold tracking-wide text-lg mb-2 uppercase">{{ $homeHeader->badge }}
+                    </p>
+
+                    <h1 class="text-4xl lg:text-6xl font-extrabold text-[#2f2f73] leading-tight mb-6">
+                        {{ $homeHeader->title }} <br>
+                        <span class="text-primary-custom">{{ $homeHeader->title_highlight }}</span> Providers
+                    </h1>
+
+                    <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto lg:mx-0 font-medium">
+                        {{ $homeHeader->description }}
+                    </p>
+
+                    <div>
+                        <a href="{{ $homeHeader->button_link }}"
+                            class="inline-block bg-[#2f2f73] text-white font-medium px-8 py-4 rounded-md shadow-lg hover:bg-opacity-90 transition transform hover:scale-105">
+                            {{ $homeHeader->button_text }}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
+
 
         <!-- Services Section -->
         {{-- <section class="py-20 bg-gray-100">

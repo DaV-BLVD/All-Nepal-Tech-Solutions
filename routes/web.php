@@ -44,6 +44,7 @@ use App\Http\Controllers\Admin\AboutUsHeaderController;
 use App\Http\Controllers\Admin\ProjectsHeaderController;
 use App\Http\Controllers\Admin\ServiceHeaderController;
 use App\Http\Controllers\Admin\ContactHeaderController;
+use App\Http\Controllers\Admin\HomeHeaderController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -125,6 +126,8 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('/admin/dashboard/contact-header', ContactHeaderController::class)
             ->only(['index', 'edit', 'update']);
+
+        Route::resource('/admin/dashboard/home-header', HomeHeaderController::class)->only(['index', 'edit', 'update']);
     });
 });
 

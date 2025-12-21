@@ -11,11 +11,14 @@ use App\Models\Excellence;
 use App\Models\Statistic;
 use App\Models\TeamMember;
 use App\Models\ContactSetting;
+use App\Models\HomeHeader;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $homeHeader = HomeHeader::first();
+
         $services = Service::where('is_active', true)->orderBy('id', 'asc')->get();
 
         $section = CompanySection::first();
@@ -29,6 +32,6 @@ class HomeController extends Controller
 
         $cta = ContactSetting::first(); // Get the active CTA
 
-        return view('frontend.pages.home', compact('services', 'section', 'features', 'excellences', 'statistics', 'teamMembers', 'cta'));
+        return view('frontend.pages.home', compact('services', 'section', 'features', 'excellences', 'statistics', 'teamMembers', 'cta', 'homeHeader'));
     }
 }
