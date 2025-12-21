@@ -107,13 +107,13 @@
                             'service-header.*',
                             'comprehensive_services.*',
                             'why_choose_us_services.*',
-                            'admin.consults.*',
+                            'consults.*',
                         ],
                         'links' => [
                             ['route' => 'service-header.index', 'icon' => 'fa-solid fa-toolbox', 'text' => 'Service Page Header'],
                             ['route' => 'comprehensive_services.index', 'icon' => 'fa-solid fa-microchip', 'text' => 'Comprehensive Services'],
                             ['route' => 'why_choose_us_services.index', 'icon' => 'fa-solid fa-star-half-stroke', 'text' => 'Why Choose Us Services'],
-                            ['route' => 'admin.consults.index', 'icon' => 'fa-solid fa-clipboard-list', 'text' => 'Consults Messages'],
+                            ['route' => 'consults.index', 'icon' => 'fa-solid fa-clipboard-list', 'text' => 'Consults Messages'],
                         ],
                     ],
                 ];
@@ -150,10 +150,11 @@
 
                         @foreach($dropdown['links'] as $link)
                             <a href="{{ route($link['route']) }}" @click="sidebarOpen = false" class="flex items-center px-4 py-2 rounded-lg hover:bg-[#ff4242]
-                            {{ request()->routeIs($link['route']) ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
-                                <i class="{{ $link['icon'] }} w-6"></i>
-                                <span class="font-medium">{{ $link['text'] }}</span>
-                            </a>
+                            {{ request()->routeIs(explode('.', $link['route'])[0] . '.*')
+                                ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
+                            <i class="{{ $link['icon'] }} w-6"></i>
+                            <span class="font-medium">{{ $link['text'] }}</span>
+                        </a>
 
                         @endforeach
                     </div>
@@ -161,36 +162,36 @@
             @endforeach
 
             {{-- Contact Page Header --}}
-<a href="{{ route('contact-header.index') }}" @click="sidebarOpen = false"
-    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-    {{ request()->routeIs('contact-header.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-    <i class="fas fa-heading w-6"></i>
-    <span class="font-medium">Contact Page Header</span>
-</a>
+            <a href="{{ route('contact-header.index') }}" @click="sidebarOpen = false"
+                class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('contact-header.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-heading w-6"></i>
+                <span class="font-medium">Contact Page Header</span>
+            </a>
 
-{{-- Map Locations --}}
-<a href="{{ route('map_locations.index') }}" @click="sidebarOpen = false" 
-    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-    {{ request()->routeIs('map_locations.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-    <i class="fas fa-map-location-dot w-6"></i>
-    <span class="font-medium">Map Locations</span>
-</a>
+            {{-- Map Locations --}}
+            <a href="{{ route('map_locations.index') }}" @click="sidebarOpen = false" 
+                class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('map_locations.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-map-location-dot w-6"></i>
+                <span class="font-medium">Map Locations</span>
+            </a>
 
-{{-- Footer Contact --}}
-<a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" 
-    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-    {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-    <i class="fas fa-address-card w-6"></i>
-    <span class="font-medium">Footer Contact</span>
-</a>
+            {{-- Footer Contact --}}
+            <a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" 
+                class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-address-card w-6"></i>
+                <span class="font-medium">Footer Contact</span>
+            </a>
 
-{{-- Footer Social Links --}}
-<a href="{{ route('social_links.index') }}" @click="sidebarOpen = false" 
-    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-    {{ request()->routeIs('social_links.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-    <i class="fas fa-share-nodes w-6"></i>
-    <span class="font-medium">Footer Social Links</span>
-</a>
+            {{-- Footer Social Links --}}
+            <a href="{{ route('social_links.index') }}" @click="sidebarOpen = false" 
+                class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+                {{ request()->routeIs('social_links.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                <i class="fas fa-share-nodes w-6"></i>
+                <span class="font-medium">Footer Social Links</span>
+            </a>
         </nav>
 
         <!-- Logout -->

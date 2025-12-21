@@ -15,7 +15,7 @@
 
             @if($header->id)
                 <a href="{{ route('about-header.edit', $header->id) }}"
-                    class="flex items-center space-x-2 bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-semibold transition-all hover:bg-indigo-700 shadow-lg shadow-indigo-100 focus:ring-2 focus:ring-indigo-500">
+                    class="flex items-center space-x-2 bg-primary text-white px-5 py-2.5 rounded-xl font-semibold transition-all hover:bg-indigo-700 shadow-lg shadow-indigo-100 focus:ring-2 focus:ring-indigo-500">
                     <i class="fas fa-edit text-xs"></i>
                     <span>Edit Header</span>
                 </a>

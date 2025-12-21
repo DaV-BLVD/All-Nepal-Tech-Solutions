@@ -6,7 +6,7 @@
         <div class="flex items-center justify-between mb-8">
             <div>
                 <div class="flex items-center space-x-3">
-                    <a href="{{ route('admin.consults.index') }}" class="text-gray-400 hover:text-indigo-600 transition-colors">
+                    <a href="{{ route('consults.index') }}" class="text-gray-400 hover:text-indigo-600 transition-colors">
                         <i class="fas fa-chevron-left text-xl"></i>
                     </a>
                     <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -75,14 +75,14 @@
                     <h3 class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Management</h3>
                     <div class="space-y-3">
                         @if(!$consult->is_resolved)
-                            <form action="{{ route('admin.consults.resolve', $consult) }}" method="POST">
+                            <form action="{{ route('consults.resolve', $consult) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 py-2.5 rounded-xl font-bold transition-all flex items-center justify-center">
                                     <i class="fas fa-check mr-2 text-xs"></i> Mark Resolved
                                 </button>
                             </form>
                         @else
-                            <form action="{{ route('admin.consults.undo', $consult) }}" method="POST">
+                            <form action="{{ route('consults.undo', $consult) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="w-full bg-gray-700 hover:bg-gray-600 py-2.5 rounded-xl font-bold transition-all flex items-center justify-center">
                                     <i class="fas fa-undo mr-2 text-xs"></i> Reopen
@@ -90,7 +90,7 @@
                             </form>
                         @endif
                         
-                        <form action="{{ route('admin.consults.destroy', $consult) }}" method="POST" onsubmit="return confirm('Delete permanently?');">
+                        <form action="{{ route('consults.destroy', $consult) }}" method="POST" onsubmit="return confirm('Delete permanently?');">
                             @csrf @method('DELETE')
                             <button class="w-full bg-transparent border border-gray-700 hover:border-red-500 hover:text-red-500 py-2.5 rounded-xl font-bold transition-all flex items-center justify-center">
                                 <i class="fas fa-trash-alt mr-2 text-xs"></i> Delete

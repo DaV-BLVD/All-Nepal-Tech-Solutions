@@ -102,11 +102,11 @@ Route::middleware(['auth'])->group(function () {
             'why_choose_us' => 'why_choose_us_services'
         ]);
 
-        Route::get('/admin/dashboard/consults', [ConsultController::class, 'index'])->name('admin.consults.index');
-        Route::post('/admin/dashboard/consults/{consult}/resolve', [ConsultController::class, 'resolve'])->name('admin.consults.resolve');
-        Route::delete('/admin/dashboard/consults/{consult}', [ConsultController::class, 'destroy'])->name('admin.consults.destroy');
-        Route::post('/admin/dashboard/consults/{consult}/undo', [ConsultController::class, 'undo'])->name('admin.consults.undo');
-        Route::get('/admin/dashboard/consults/{consult}', [ConsultController::class, 'show'])->name('admin.consults.show');
+        Route::get('/admin/dashboard/consults', [ConsultController::class, 'index'])->name('consults.index');
+        Route::post('/admin/dashboard/consults/{consult}/resolve', [ConsultController::class, 'resolve'])->name('consults.resolve');
+        Route::delete('/admin/dashboard/consults/{consult}', [ConsultController::class, 'destroy'])->name('consults.destroy');
+        Route::post('/admin/dashboard/consults/{consult}/undo', [ConsultController::class, 'undo'])->name('consults.undo');
+        Route::get('/admin/dashboard/consults/{consult}', [ConsultController::class, 'show'])->name('consults.show');
 
         Route::resource('/admin/dashboard/contact_cards', ContactCardController::class)->except(['show']);
 

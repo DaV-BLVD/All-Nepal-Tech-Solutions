@@ -77,14 +77,14 @@
                                 {{-- Actions --}}
                                 <td class="px-6 py-4 text-center">
                                     <div class="flex justify-center items-center space-x-2">
-                                        <a href="{{ route('admin.consults.show', $consult) }}"
+                                        <a href="{{ route('consults.show', $consult) }}"
                                            class="p-2 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg transition-all"
                                            title="View Details">
                                             <i class="fas fa-eye"></i>
                                         </a>
 
                                         @if(!$consult->is_resolved)
-                                            <form action="{{ route('admin.consults.resolve', $consult) }}" method="POST" class="inline">
+                                            <form action="{{ route('consults.resolve', $consult) }}" method="POST" class="inline">
                                                 @csrf
                                                 <button type="submit" 
                                                         class="p-2 text-green-600 hover:bg-green-600 hover:text-white rounded-lg transition-all"
@@ -93,7 +93,7 @@
                                                 </button>
                                             </form>
                                         @else
-                                            <form action="{{ route('admin.consults.undo', $consult) }}" method="POST" class="inline">
+                                            <form action="{{ route('consults.undo', $consult) }}" method="POST" class="inline">
                                                 @csrf
                                                 <button type="submit"
                                                         class="p-2 text-yellow-600 hover:bg-yellow-500 hover:text-white rounded-lg transition-all"
@@ -103,7 +103,7 @@
                                             </form>
                                         @endif
 
-                                        <form action="{{ route('admin.consults.destroy', $consult) }}" method="POST"
+                                        <form action="{{ route('consults.destroy', $consult) }}" method="POST"
                                               onsubmit="return confirm('Are you sure you want to delete this request?');"
                                               class="inline">
                                             @csrf
