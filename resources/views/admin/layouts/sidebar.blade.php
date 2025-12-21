@@ -36,18 +36,17 @@
             {{-- Users (Super Admin Only) --}}
             @if(auth()->user()->role === 'super_admin')
                 <a href="{{ route('users.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-                        {{ request()->routeIs('users.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+                            {{ request()->routeIs('users.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
                     <i class="fa-solid fa-users w-6"></i>
                     <span class="font-medium">Users</span>
                 </a>
             @endif
 
-            {{-- Dropdown Definitions --}}
             @php
                 $dropdowns = [
                     [
                         'title' => 'Home Page',
-                        'icon' => 'fa-solid fa-house',
+                        'icon' => 'fa-solid fa-house-chimney',
                         'routes' => [
                             'home-header.*',
                             'services.*',
@@ -59,19 +58,19 @@
                             'contact_settings.*',
                         ],
                         'links' => [
-                            ['route' => 'home-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Home Page Header'],
-                            ['route' => 'services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Services'],
-                            ['route' => 'section.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Section (Left Side)'],
-                            ['route' => 'features.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Features (Right Side)'],
-                            ['route' => 'excellence.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Hire Us, Why Not?'],
-                            ['route' => 'statistics.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Statistics'],
-                            ['route' => 'team_members.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Team Members'],
-                            ['route' => 'contact_settings.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Contact Settings'],
+                            ['route' => 'home-header.index', 'icon' => 'fa-solid fa-window-maximize', 'text' => 'Home Page Header'],
+                            ['route' => 'services.index', 'icon' => 'fa-solid fa-briefcase', 'text' => 'Services'],
+                            ['route' => 'section.index', 'icon' => 'fa-solid fa-square-poll-horizontal', 'text' => 'Company Section (Left)'],
+                            ['route' => 'features.index', 'icon' => 'fa-solid fa-wand-magic-sparkles', 'text' => 'Company Features (Right)'],
+                            ['route' => 'excellence.index', 'icon' => 'fa-solid fa-award', 'text' => 'Hire Us, Why Not?'],
+                            ['route' => 'statistics.index', 'icon' => 'fa-solid fa-chart-line', 'text' => 'Statistics'],
+                            ['route' => 'team_members.index', 'icon' => 'fa-solid fa-users-gear', 'text' => 'Team Members'],
+                            ['route' => 'contact_settings.index', 'icon' => 'fa-solid fa-address-book', 'text' => 'Contact Settings'],
                         ],
                     ],
                     [
                         'title' => 'About Us Page',
-                        'icon' => 'fa-solid fa-house',
+                        'icon' => 'fa-solid fa-address-card',
                         'routes' => [
                             'about-header.*',
                             'milestones.*',
@@ -81,29 +80,29 @@
                             'why_choose_us.*',
                         ],
                         'links' => [
-                            ['route' => 'about-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'About Page Header'],
-                            ['route' => 'milestones.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Milestones'],
-                            ['route' => 'company_statement.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Company Statements'],
-                            ['route' => 'core_values.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Core Values'],
-                            ['route' => 'about_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'About Services'],
-                            ['route' => 'why_choose_us.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Why Choose Us'],
+                            ['route' => 'about-header.index', 'icon' => 'fa-solid fa-heading', 'text' => 'About Page Header'],
+                            ['route' => 'milestones.index', 'icon' => 'fa-solid fa-flag-checkered', 'text' => 'Milestones'],
+                            ['route' => 'company_statement.index', 'icon' => 'fa-solid fa-quote-left', 'text' => 'Company Statements'],
+                            ['route' => 'core_values.index', 'icon' => 'fa-solid fa-heart-pulse', 'text' => 'Core Values'],
+                            ['route' => 'about_services.index', 'icon' => 'fa-solid fa-info-circle', 'text' => 'About Services'],
+                            ['route' => 'why_choose_us.index', 'icon' => 'fa-solid fa-circle-question', 'text' => 'Why Choose Us'],
                         ],
                     ],
                     [
                         'title' => 'Projects Page',
-                        'icon' => 'fa-solid fa-house',
+                        'icon' => 'fa-solid fa-diagram-project',
                         'routes' => [
                             'projects-header.*',
                             'projects.*',
                         ],
                         'links' => [
-                            ['route' => 'projects-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Projects Page Header'],
-                            ['route' => 'projects.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Projects'],
+                            ['route' => 'projects-header.index', 'icon' => 'fa-solid fa-image', 'text' => 'Projects Page Header'],
+                            ['route' => 'projects.index', 'icon' => 'fa-solid fa-list-check', 'text' => 'Projects'],
                         ],
                     ],
                     [
                         'title' => 'Services Page',
-                        'icon' => 'fa-solid fa-house',
+                        'icon' => 'fa-solid fa-gears',
                         'routes' => [
                             'service-header.*',
                             'comprehensive_services.*',
@@ -111,10 +110,10 @@
                             'admin.consults.*',
                         ],
                         'links' => [
-                            ['route' => 'service-header.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Service Page Header'],
-                            ['route' => 'comprehensive_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Comprehensive Services'],
-                            ['route' => 'why_choose_us_services.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Why Choose Us Services'],
-                            ['route' => 'admin.consults.index', 'icon' => 'fa-solid fa-scroll', 'text' => 'Consults Messages'],
+                            ['route' => 'service-header.index', 'icon' => 'fa-solid fa-toolbox', 'text' => 'Service Page Header'],
+                            ['route' => 'comprehensive_services.index', 'icon' => 'fa-solid fa-microchip', 'text' => 'Comprehensive Services'],
+                            ['route' => 'why_choose_us_services.index', 'icon' => 'fa-solid fa-star-half-stroke', 'text' => 'Why Choose Us Services'],
+                            ['route' => 'admin.consults.index', 'icon' => 'fa-solid fa-clipboard-list', 'text' => 'Consults Messages'],
                         ],
                     ],
                 ];
@@ -136,12 +135,11 @@
                 <div class="mb-2" x-init="{{ $isActive ? 'activeDropdown = \'' . $dropdown['title'] . '\'' : '' }}">
 
                     <button @click="activeDropdown === '{{ $dropdown['title'] }}'
-                        ? activeDropdown = null
-                        : activeDropdown = '{{ $dropdown['title'] }}'" class="flex items-center justify-between w-full px-4 py-3 hover:bg-[#ff4242] transition
+                        ? activeDropdown = null : activeDropdown = '{{ $dropdown['title'] }}'" class="flex items-center justify-between w-full px-4 py-3 hover:bg-[#ff4242] transition
                         {{ $isActive ? 'bg-[#ff4242] text-white font-bold rounded-lg' : '' }}">
 
                         <span class="flex items-center space-x-2">
-                            <i class="{{ $dropdown['icon'] }} w-6"></i> 
+                            <i class="{{ $dropdown['icon'] }} w-6"></i>
                             <span class="font-medium">{{ $dropdown['title'] }}</span>
                         </span>
                         <i :class="activeDropdown === '{{ $dropdown['title'] }}' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"
@@ -151,43 +149,48 @@
                     <div x-show="activeDropdown === '{{ $dropdown['title'] }}'" x-transition class="mt-1 space-y-1 pl-6">
 
                         @foreach($dropdown['links'] as $link)
-                                    <a href="{{ route($link['route']) }}" @click="sidebarOpen = false" class="flex items-center px-4 py-2 rounded-lg hover:bg-[#ff4242]
-                                                                        {{ request()->routeIs(explode('.', $link['route'])[0] . '.*')
-                            ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
-                                        <i class="{{ $link['icon'] }} w-6"></i>
-                                        <span class="font-medium">{{ $link['text'] }}</span>
-                                    </a>
+                            <a href="{{ route($link['route']) }}" @click="sidebarOpen = false" class="flex items-center px-4 py-2 rounded-lg hover:bg-[#ff4242]
+                            {{ request()->routeIs($link['route']) ? 'bg-[#ff4242] text-white font-bold' : 'text-white' }}">
+                                <i class="{{ $link['icon'] }} w-6"></i>
+                                <span class="font-medium">{{ $link['text'] }}</span>
+                            </a>
+
                         @endforeach
                     </div>
                 </div>
             @endforeach
 
-            <a href="{{ route('contact-header.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-                {{ request()->routeIs('contact-header.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-                <i class="fas fa-tachometer-alt w-6"></i>
-                <span class="font-medium">Contact Page Header </span>
-            </a>
+            {{-- Contact Page Header --}}
+<a href="{{ route('contact-header.index') }}" @click="sidebarOpen = false"
+    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+    {{ request()->routeIs('contact-header.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+    <i class="fas fa-heading w-6"></i>
+    <span class="font-medium">Contact Page Header</span>
+</a>
 
-            {{-- Footer Contact--}}
-            <a href="{{ route('map_locations.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-                {{ request()->routeIs('map_locations.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-                <i class="fas fa-tachometer-alt w-6"></i>
-                <span class="font-medium">Map Locations</span>
-            </a>
+{{-- Map Locations --}}
+<a href="{{ route('map_locations.index') }}" @click="sidebarOpen = false" 
+    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+    {{ request()->routeIs('map_locations.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+    <i class="fas fa-map-location-dot w-6"></i>
+    <span class="font-medium">Map Locations</span>
+</a>
 
-            {{-- Footer Contact--}}
-            <a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-                {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-                <i class="fas fa-tachometer-alt w-6"></i>
-                <span class="font-medium">Footer Contact</span>
-            </a>
+{{-- Footer Contact --}}
+<a href="{{ route('contact_cards.index') }}" @click="sidebarOpen = false" 
+    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+    {{ request()->routeIs('contact_cards.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+    <i class="fas fa-address-card w-6"></i>
+    <span class="font-medium">Footer Contact</span>
+</a>
 
-            {{-- Footer Social Links --}}
-            <a href="{{ route('social_links.index') }}" @click="sidebarOpen = false" class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
-                {{ request()->routeIs('social_links.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
-                <i class="fas fa-tachometer-alt w-6"></i>
-                <span class="font-medium">Footer Social Links</span>
-            </a>
+{{-- Footer Social Links --}}
+<a href="{{ route('social_links.index') }}" @click="sidebarOpen = false" 
+    class="flex items-center px-4 py-3 hover:bg-[#ff4242] hover:rounded-lg
+    {{ request()->routeIs('social_links.*') ? 'bg-[#ff4242] text-white font-semibold rounded-lg' : '' }}">
+    <i class="fas fa-share-nodes w-6"></i>
+    <span class="font-medium">Footer Social Links</span>
+</a>
         </nav>
 
         <!-- Logout -->

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Models\ContactCard;
+use App\Models\SocialLink;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\CompanyFeature;
@@ -19,6 +23,7 @@ use App\Models\Usp;
 use App\Models\Projects;
 use App\Models\ComprehensiveService;
 use App\Models\WhyChooseUsFeature;
+use App\Models\Consult;
 
 class DashboardController extends Controller
 {
@@ -26,6 +31,7 @@ class DashboardController extends Controller
     {
 
         return view('admin.dashboard', [
+            'usersCount' => User::count(),
             'serviceCount' => Service::count(),
             'sectionCount' => CompanySection::count(),
             'featureCount' => CompanyFeature::count(),
@@ -44,6 +50,9 @@ class DashboardController extends Controller
 
             'comprehensiveServiceCount' => ComprehensiveService::count(),
             'whyChooseUsFeatureCount' => WhyChooseUsFeature::count(),
+            'consultCount' => Consult::count(),
+            'contactCardCount' => ContactCard::count(),
+            'socialCount' => SocialLink::count(),
         ]);
     }
 }
