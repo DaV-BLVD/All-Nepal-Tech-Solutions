@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('subtitle')->nullable(); // e.g., "Advanced Security"
             $table->text('description');
             $table->string('icon_class'); // For FontAwesome: "fas fa-shield-alt"
-            $table->string('link')->default('#');
+            $table->string('link')->default('#')->nullable();
             $table->integer('order')->default(0);
             $table->timestamps();
         });

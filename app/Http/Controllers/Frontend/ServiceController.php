@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactCard;
 use Illuminate\Http\Request;
 use App\Models\ComprehensiveService;
 use App\Models\WhyChooseUsFeature;
 use App\Models\Consult;
 use App\Models\ServiceHeader;
+use App\Models\ContactSetting;
 
 class ServiceController extends Controller
 {
@@ -28,7 +30,9 @@ class ServiceController extends Controller
 
         $consults = Consult::latest()->get();
 
-        return view("frontend.pages.services", compact("services", "whyChooseCheckpoints", "whyChooseStats", "consults", "serviceHeader"));
+        $contact = ContactSetting::first();
+
+        return view("frontend.pages.services", compact("services", "whyChooseCheckpoints", "whyChooseStats", "consults", "serviceHeader", "contact"));
     }
 
     public function store(Request $request)

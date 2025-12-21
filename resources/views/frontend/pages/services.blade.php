@@ -7,19 +7,19 @@
 
 
             @keyframes fadeIn {
-                                                                                                                                from { opacity: 0; transform: translateY(20px); }
-                                                                                                                                to { opacity: 1; transform: translateY(0); }
-                                                                                                                                }
+                                                                                                                                        from { opacity: 0; transform: translateY(20px); }
+                                                                                                                                        to { opacity: 1; transform: translateY(0); }
+                                                                                                                                        }
 
-                                                                                                                                .animate-fade-in {
-                                                                                                                                animation: fadeIn 0.6s ease-out forwards;
-                                                                                                                                }
+                                                                                                                                        .animate-fade-in {
+                                                                                                                                        animation: fadeIn 0.6s ease-out forwards;
+                                                                                                                                        }
 
-                                                                                                                                .service-card:hover {
-                                                                                                                                transform: translateY(-5px);
-                                                                                                                                }
+                                                                                                                                        .service-card:hover {
+                                                                                                                                        transform: translateY(-5px);
+                                                                                                                                        }
 
-                </style>
+                        </style>
     @endpush
     <section class='pt-20'>
         {{-- header section --}}
@@ -114,10 +114,10 @@
                             <p class="text-stone-600 mb-4 text-sm leading-relaxed">
                                 {{ $service->description }}
                             </p>
-                            <a href="{{ $service->link }}"
+                            {{-- <a href="{{ $service->link }}"
                                 class="text-[#e32726] font-semibold text-sm hover:text-[#e32726] flex items-center gap-2">
                                 Learn More <i class="fas fa-arrow-right text-xs"></i>
-                            </a>
+                            </a> --}}
                         </div>
                     @endforeach
                 </div>
@@ -248,19 +248,35 @@
                                 hours.</p>
 
                             <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <i class="fas fa-phone-alt mt-1 w-6 text-[#e32726]"></i>
-                                    <span>+977 9800000000</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <i class="fas fa-envelope mt-1 w-6 text-[#e32726]"></i>
-                                    <span>contact@allnepaltech.com</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <i class="fas fa-map-marker-alt mt-1 w-6 text-[#e32726]"></i>
-                                    <span>Kathmandu, Nepal</span>
-                                </div>
+                                @if($contact)
+                                    <div class="flex items-start">
+                                        <i class="fas fa-phone-alt mt-1 w-6 text-[#e32726]"></i>
+                                        <span>{{ $contact->phone ?? 'XXXXXXXXXX '}}</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-envelope mt-1 w-6 text-[#e32726]"></i>
+                                        <span>{{ $contact->email ?? 'info@example.com' }}</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-map-marker-alt mt-1 w-6 text-[#e32726]"></i>
+                                        <span>{{ $contact->address ?? 'Kathmandu, Nepal' }}</span>
+                                    </div>
+                                @else
+                                    <div class="flex items-start">
+                                        <i class="fas fa-phone-alt mt-1 w-6 text-[#e32726]"></i>
+                                        <span>+977 9800000000</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-envelope mt-1 w-6 text-[#e32726]"></i>
+                                        <span>contact@allnepaltech.com</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-map-marker-alt mt-1 w-6 text-[#e32726]"></i>
+                                        <span>Kathmandu, Nepal</span>
+                                    </div>
+                                @endif
                             </div>
+
                         </div>
 
                         <div class="relative z-10 mt-12">

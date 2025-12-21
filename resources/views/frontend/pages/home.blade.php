@@ -190,10 +190,10 @@
                     {{-- End Loop --}}
                 </div>
 
-                <div class="text-center mt-12 text-gray-600">
+                {{-- <div class="text-center mt-12 text-gray-600">
                     Challenges are just opportunities in disguise. <a href="#"
                         class="text-blue-800 font-semibold hover:underline">Take the challenge!</a>
-                </div>
+                </div> --}}
             </div>
         </section>
 

@@ -68,22 +68,45 @@
                         </div>
 
                         {{-- Button Text --}}
-                        <div>
-                            <label for="button_text"
-                                class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Button Text</label>
-                            <div class="flex">
-                                <span
-                                    class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                                    <i class="fas fa-mouse-pointer"></i>
-                                </span>
-                                <input type="text" name="button_text" id="button_text" placeholder="Contact Us"
-                                    value="{{ old('button_text', $setting->button_text) }}"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm" />
-                            </div>
-                            @error('button_text')
-                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                            @enderror
-                        </div>
+                        {{-- Row: Button Text & Button Link --}}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {{-- Button Text --}}
+    <div>
+        <label for="button_text"
+            class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Button Text</label>
+        <div class="flex">
+            <span
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                <i class="fas fa-mouse-pointer"></i>
+            </span>
+            <input type="text" name="button_text" id="button_text" placeholder="Contact Us"
+                value="{{ old('button_text', $setting->button_text) }}"
+                class="w-full px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm" />
+        </div>
+        @error('button_text')
+            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+        @enderror
+    </div>
+
+    {{-- Button Link --}}
+    <div>
+        <label for="button_link"
+            class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Button Link</label>
+        <div class="flex">
+            <span
+                class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                <i class="fas fa-link"></i>
+            </span>
+            <input type="text" name="button_link" id="button_link" placeholder="https://example.com"
+                value="{{ old('button_link', $setting->button_link) }}"
+                class="w-full px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm" />
+        </div>
+        @error('button_link')
+            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+        @enderror
+    </div>
+</div>
+
                     </div>
 
                     {{-- Action Buttons --}}
